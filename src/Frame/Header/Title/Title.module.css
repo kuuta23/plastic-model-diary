@@ -1,0 +1,13 @@
+.Frame{
+    height: 100%;
+    width: 140px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Font{
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 30px;
+}
