@@ -3,12 +3,14 @@
 import React from 'react'
 import styles from './Header.module.css'
 import Title from './Title/Title'
+import Login from './User/Login/Login'
 
 const Header = () => {
   return (
     <div
     className={styles.Frame}>
       <Title/>
+      <Login/>
     </div>
   )
 }
