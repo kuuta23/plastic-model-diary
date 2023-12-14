@@ -3,12 +3,17 @@
 import React from 'react'
 import styles from './Frame.module.css'
 import Header from './Header/Header'
+import Sidebar from './Sidebar/Sidebar'
+import MainContent from './MainContent/MainContent'
 
-const Frame = () => {
+const Frame = ({mainContent}) => {
   return (
     <div
     className={styles.Frame}>
       <Header/>
+      <Sidebar/>
+      <MainContent
+      mainContent={mainContent}/>
     </div>
   )
 }
