@@ -4,7 +4,8 @@ import styles from './VerticalAlignmentOfInputs.module.css'
 
 const VerticalAlignmentOfInputs = ({children}) => {
   return (
-    <div>
+    <div
+    className={styles.Frame}>
       {
         children.map((value,key)=>(
             <div
