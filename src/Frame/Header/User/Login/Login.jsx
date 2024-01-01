@@ -19,7 +19,8 @@ const Login = () =>{
         ):(
           <>
           <Link
-          className={styles.Font}>
+          className={styles.Font}
+          to={"/Login/SignIn"}>
             サインイン
           </Link>
           <Link

@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from './SignUp.module.css'
+import styles from './SignIn.module.css'
 import { InputEmail, InputPassword, Submit, VerticalAlignmentOfInputs } from '../../../Template'
 
-const SignUp = () => {
+const SignIn = () => {
   return (
     <div
     className={styles.Frame}>
@@ -12,13 +12,12 @@ const SignUp = () => {
         children={[
           <InputEmail/>,
           <InputPassword/>,
-          <InputPassword/>,
           <Submit
-          value={"新規登録"}/>
+          value={"ログイン"}/>
         ]}/>
       </form>
     </div>
   )
 }
 
-export default SignUp
+export default SignIn

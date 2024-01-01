@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { Login, SignUp } from './Pages'
+import { Login, SignIn, SignUp } from './Pages'
 
 const Router = () => {
   return (
@@ -11,6 +11,9 @@ const Router = () => {
           <Route
           element={<SignUp/>}
           path='SignUp'/>
+          <Route
+          element={<SignIn/>}
+          path='SignIn'/>
         </Route>
     </Routes>
   )

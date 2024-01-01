@@ -6,7 +6,6 @@ import { Outlet } from 'react-router-dom'
 const Login = () => {
   return (
     <div>
-      Lo
       <Outlet/>
     </div>
   )
