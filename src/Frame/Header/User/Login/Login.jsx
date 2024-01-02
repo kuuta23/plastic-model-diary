@@ -6,14 +6,15 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () =>{
-  const [User, setUser] = useState(false);
+  const [User, setUser] = useState(true);
   return (
     <div
     className={styles.Frame}>
       {
         User?(
           <Link
-          className={styles.Font}>
+          className={styles.Font}
+          to={"/Login/SignOut"}>
             サインアウト
           </Link>
         ):(

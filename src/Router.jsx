@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { Login, SignIn, SignUp } from './Pages'
+import { Login, SignIn, SignOut, SignUp } from './Pages'
 
 const Router = () => {
   return (
@@ -14,6 +14,9 @@ const Router = () => {
           <Route
           element={<SignIn/>}
           path='SignIn'/>
+          <Route
+          element={<SignOut/>}
+          path='SignOut'/>
         </Route>
     </Routes>
   )
