@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./ProductionName.module.css"
 
-const ProductionName = ({error=true}) => {
+const ProductionName = ({error=false,onChange}) => {
   return (
     <div
     className={styles.Frame}>
@@ -10,7 +10,8 @@ const ProductionName = ({error=true}) => {
       type="text" 
       name="" 
       id=""
-      placeholder='作品名' />
+      placeholder='作品名'
+      onChange={onChange} />
       {
         error?(
           <div
