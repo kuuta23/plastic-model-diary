@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import createStore from './reducks/store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-export const store =createStore;
+export const store =createStore();
 root.render(
   <Provider store={store}>
     <BrowserRouter>

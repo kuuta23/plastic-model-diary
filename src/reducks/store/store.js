@@ -3,15 +3,16 @@ import {
     combineReducers,
     applyMiddleware,
 }from "redux";
-import { UsersReducer } from "../user/reducer";
+import { UserReducer } from "../user/reducer";
+import { thunk } from "redux-thunk";
 
 
 export default function createStore(){
     return reduxCreateStore(
         combineReducers({
-            user:UsersReducer,
+            user:UserReducer,
         }),
-        applyMiddleware()
+        applyMiddleware(thunk)
 
     )
 }
