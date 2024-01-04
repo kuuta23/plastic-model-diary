@@ -1,24 +1,17 @@
 import {
     createStore as reduxCreateStore,
     combineReducers,
-    applyMiddleware
+    applyMiddleware,
 }from "redux";
-import thunk from "redux-thunk"
-import { ErrorReducer } from "../error/reducers";
-import { ProfileReducer } from "../profile/reducers";
+import { UsersReducer } from "../user/reducer";
 
-import { UsersReducer } from "../users/reducers";
 
 export default function createStore(){
     return reduxCreateStore(
         combineReducers({
-            users:UsersReducer,
-            error:ErrorReducer,
-            profile:ProfileReducer,
+            user:UsersReducer,
         }),
-        applyMiddleware(
-            thunk
-        )
+        applyMiddleware()
 
     )
 }
