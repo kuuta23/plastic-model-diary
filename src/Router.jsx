@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { Login, SignIn, SignOut, SignUp } from './Pages'
+import { Login, Record, SignIn, SignOut, SignUp } from './Pages'
 
 const Router = () => {
   return (
@@ -17,6 +17,11 @@ const Router = () => {
           <Route
           element={<SignOut/>}
           path='SignOut'/>
+        </Route>
+        <Route
+        element={<Record/>}
+        path='Record'>
+
         </Route>
     </Routes>
   )

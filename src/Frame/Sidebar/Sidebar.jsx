@@ -3,8 +3,13 @@ import React from 'react'
 import styles from './Sidebar.module.css'
 import MainButton from './MainButton/MainButton'
 import Contents from './Contents/Contents'
+import { useNavigate } from 'react-router-dom'
 
 const Sidebar = () => {
+  const navigate=useNavigate();
+  const onClick=()=>{
+    navigate("/Record")
+  }
   return (
     <div
     className={styles.Frame}>
@@ -23,7 +28,8 @@ const Sidebar = () => {
       </div>
       <div
       className={styles.MainButton}>
-        <MainButton/>
+        <MainButton
+        onClick={onClick}/>
       </div>
     </div>
   )

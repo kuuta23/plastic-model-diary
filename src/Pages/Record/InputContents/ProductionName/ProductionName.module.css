@@ -1,0 +1,10 @@
+.Frame{
+    display: inline-block;
+    width: 80%;
+}
+.Input{
+    width: 100%;
+    height: 30px;
+    font-weight: bold;
+    font-size: 28px;
+}
