@@ -1,7 +1,9 @@
 const initialState={
     user:{
         isSignedIn:false,
-        uid:""
+        uid:"",
+        email:"",
+        updateTime:""
     }
 }
 export default initialState
