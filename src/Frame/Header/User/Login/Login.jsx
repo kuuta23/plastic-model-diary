@@ -1,17 +1,19 @@
 // ユーザーのサインイン・サインアップ・サインアウトをするための文字表示
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from "./Login.module.css"
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Login = () =>{
-  const [User, setUser] = useState(false);
+  const selector=useSelector(state=>state);
+  const user=selector.user
   return (
     <div
     className={styles.Frame}>
       {
-        User?(
+        user.isSignedIn?(
           <Link
           className={styles.Font}
           to={"/Login/SignOut"}>

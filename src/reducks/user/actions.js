@@ -7,7 +7,7 @@ export const signInAction=(userState)=>{
         payload:{
             isSignedIn:true,
             uid:userState.uid,
-            updateTime:serverTimestamp()
+            updateTime:Timestamp.now()
         }
     }
 }
@@ -18,6 +18,7 @@ export const signOutAction=()=>{
     payload:{
       isSignedIn:false,
       uid:"",
+      updateTime:""
     }
   }
 }

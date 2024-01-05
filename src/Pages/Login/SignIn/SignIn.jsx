@@ -3,12 +3,13 @@ import styles from './SignIn.module.css'
 import { InputEmail, InputPassword, Submit, VerticalAlignmentOfInputs } from '../../../Template'
 import { signInAnonymously } from 'firebase/auth';
 import signIn from '../../../reducks/user/operations/signIn';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const SignIn = () => {
   const [email,setEmail]=useState(""),
         [password,setPassword]=useState("");
   const dispatch=useDispatch();
+  const selector =useSelector(state=>state)
   const inputEmail=useCallback((event)=>{
     setEmail(event.target.value);
   },[setEmail]);
@@ -22,8 +23,9 @@ const SignIn = () => {
   return (
     <div
     className={styles.Frame}>
-      <form action=""
-      className={styles.Form}>
+      <form
+      className={styles.Form}
+      onSubmit={onSubmit}>
         <VerticalAlignmentOfInputs
         children={[
           <InputEmail

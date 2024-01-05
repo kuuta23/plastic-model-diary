@@ -4,6 +4,9 @@ const initialState={
         uid:"",
         email:"",
         updateTime:""
+    },
+    userError:{
+        userError:false
     }
 }
 export default initialState
