@@ -1,14 +1,18 @@
 import React, { useCallback, useState } from 'react'
 import styles from './SignUp.module.css'
 import { InputEmail, InputPassword, Submit, VerticalAlignmentOfInputs } from '../../../Template'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import signUp from '../../../reducks/user/operations/signUp';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [email,setEmail]=useState(""),
         [password,setPassword]=useState(""),
         [checkPassword,setCheckPassword]=useState("");
   const dispatch=useDispatch();
+  const selector=useSelector(state=>state)
+  const navigate=useNavigate();
+  const userError=selector.UserError;
   const inputEmail=useCallback((event)=>{
     setEmail(event.target.value);
   },[setEmail]);
@@ -25,6 +29,7 @@ const SignUp = () => {
       checkPassword:checkPassword,
       email:email
     }))
+    if(!userError.userError){navigate("/")}
 
   }
   return (

@@ -3,6 +3,7 @@ import { Timestamp, doc, getDoc, serverTimestamp, updateDoc } from "firebase/fir
 import { auth, db } from "../../../firebase";
 import { signInAction } from "../actions";
 import { emailCondition, passwordCondition } from "../../../Template";
+import { userClearingTheError, userErrorAction } from "../../error/user/actions";
 
 const signIn=({password,email})=>{
   return async (dispatch,getState)=>{
@@ -10,7 +11,7 @@ const signIn=({password,email})=>{
           passwordCnd = passwordCondition(password);
     if (emailCnd&&passwordCnd){
       // ログイン
-      signInWithEmailAndPassword(auth,email,password)
+      await signInWithEmailAndPassword(auth,email,password)
       .then(async (userCredential)=>{
         const user = userCredential.user;
         if(user){
@@ -21,10 +22,16 @@ const signIn=({password,email})=>{
             updateTime:Timestamp.now()
           }
           
-          updateDoc(doc(db,"users",data.uid),data);
+          await updateDoc(doc(db,"users",data.uid),data);
           dispatch(signInAction(data));
+          dispatch(userClearingTheError())
         }
       })
+      .catch(()=>{
+        dispatch(userErrorAction())
+      })
+    }else{
+        dispatch(userErrorAction())
     }
   }
 }

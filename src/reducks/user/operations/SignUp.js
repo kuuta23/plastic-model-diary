@@ -3,6 +3,7 @@ import { Timestamp, doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { auth, db } from "../../../firebase";
 import { signInAction } from "../actions";
 import { passwordCondition ,emailCondition} from "../../../Template";
+import { userClearingTheError, userErrorAction } from "../../error/user/actions";
 const signUp=({password,checkPassword,email})=>{
   return async (dispatch,getState)=>{
     // パスワードの条件確認（例：半角、文字数、確認用のパスワードと同じか）
@@ -12,8 +13,8 @@ const signUp=({password,checkPassword,email})=>{
 
     if(passwardCdn&&checkPasswordCdn&&emailCdn&&(password==checkPassword)){
         // 新規登録
-        createUserWithEmailAndPassword(auth,email,password)
-        .then((userCredentail)=>{
+        await createUserWithEmailAndPassword(auth,email,password)
+        .then(async(userCredentail)=>{
             const user = userCredentail.user
             // ユーザー情報の制作
             const data={
@@ -23,17 +24,16 @@ const signUp=({password,checkPassword,email})=>{
             updateTime:Timestamp.now()
             }
             // ユーザー情報の登録
-            setDoc(doc(db,"users",data.uid),data);
+            await setDoc(doc(db,"users",data.uid),data);
             // storeにユーザー情報の保存
-            dispatch(signInAction(data))
+            dispatch(signInAction(data));
+            dispatch(userClearingTheError())
         })
-        .catch((error)=>{
-          const errorCode=error.code;
-          // 登録済みのアカウントの時にエラーを出す
-          
+        .catch(()=>{
+          dispatch(userErrorAction())
         })
     }else{
-
+      dispatch(userErrorAction())
     }
 
   }
