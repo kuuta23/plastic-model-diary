@@ -6,6 +6,8 @@ import {
 import { UserReducer } from "../user/reducer";
 import { thunk } from "redux-thunk";
 import { UserErrorReducer } from "../error/user/reducers";
+import { Login } from "../../Pages";
+import { LoadingReducer } from "../loading/reduers";
 
 
 export default function createStore(){
@@ -13,6 +15,7 @@ export default function createStore(){
         combineReducers({
             user:UserReducer,
             UserError:UserErrorReducer,
+            loading:LoadingReducer
         }),
         applyMiddleware(thunk)
 

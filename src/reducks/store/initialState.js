@@ -7,6 +7,9 @@ const initialState={
     },
     userError:{
         userError:false
+    },
+    loading:{
+        loading:false
     }
 }
 export default initialState
