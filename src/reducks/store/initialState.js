@@ -13,6 +13,9 @@ const initialState={
     },
     record:{
         name:""
+    },
+    recordError:{
+        name:false
     }
 }
 export default initialState

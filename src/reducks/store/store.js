@@ -8,6 +8,7 @@ import { thunk } from "redux-thunk";
 import { UserErrorReducer } from "../error/user/reducers";
 import { LoadingReducer } from "../loading/reduers";
 import { RecordReducer } from "../record/reducers";
+import { RecordErrorReducer } from "../error/record/reducers";
 
 
 export default function createStore(){
@@ -16,7 +17,8 @@ export default function createStore(){
             user:UserReducer,
             UserError:UserErrorReducer,
             loading:LoadingReducer,
-            record:RecordReducer
+            record:RecordReducer,
+            recordError:RecordErrorReducer
         }),
         applyMiddleware(thunk)
 
