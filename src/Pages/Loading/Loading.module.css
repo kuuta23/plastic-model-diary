@@ -1,0 +1,12 @@
+.Frame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.Font{
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+}
