@@ -9,6 +9,7 @@ const ProductionList = ({productionList=[]}) => {
       {
         productionList.map(({name},key)=>(
             <Production
+            key={key}
             name={name}/>
         ))
       }

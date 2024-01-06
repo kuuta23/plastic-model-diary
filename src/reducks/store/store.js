@@ -9,6 +9,7 @@ import { UserErrorReducer } from "../error/user/reducers";
 import { LoadingReducer } from "../loading/reduers";
 import { RecordReducer } from "../record/reducers";
 import { RecordErrorReducer } from "../error/record/reducers";
+import { SaveReducer } from "../saveData/reducers";
 
 
 export default function createStore(){
@@ -18,7 +19,8 @@ export default function createStore(){
             UserError:UserErrorReducer,
             loading:LoadingReducer,
             record:RecordReducer,
-            recordError:RecordErrorReducer
+            recordError:RecordErrorReducer,
+            save:SaveReducer
         }),
         applyMiddleware(thunk)
 

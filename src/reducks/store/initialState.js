@@ -16,6 +16,9 @@ const initialState={
     },
     recordError:{
         name:false
+    },
+    save:{
+        productions:[]
     }
 }
 export default initialState
