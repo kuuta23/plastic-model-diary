@@ -10,6 +10,9 @@ const initialState={
     },
     loading:{
         loading:false
+    },
+    record:{
+        name:""
     }
 }
 export default initialState

@@ -1,14 +1,14 @@
 import * as Actions from "./actions";
 import initialState from "../store/initialState";
 
-export const  UsersReducer=(state=initialState.users,action)=>{
+export const  RecordReducer=(state=initialState.record,action)=>{
     switch (action.type){
-        case Actions.SIGN_IN:
+        case Actions.RECORD:
             return{
                 ...state,
                 ...action.payload
             }
-        case Actions.SIGN_OUT:
+        case Actions.RECORD_RESET:
             return{
                 ...state,
                 ...action.payload

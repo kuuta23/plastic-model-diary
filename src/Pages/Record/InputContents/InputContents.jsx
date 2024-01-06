@@ -1,12 +1,15 @@
 import React, { useCallback, useState } from 'react'
 import { Enter, ProductionName } from '.'
 import styles from "./InputContents.module.css"
+import record from '../../../reducks/record/operations/record';
+import { useDispatch } from 'react-redux';
+import { loadingAction } from '../../../reducks/loading/actions';
 
 const InputContents = () => {
   const [productionName,setProductionName]=useState("");
 
   const [productionNameError,setProductionNameError]=useState(false);
-
+  const dispatch=useDispatch()
 
   const inputProductionName=useCallback((event)=>{
     setProductionName(event.target.value);
@@ -14,7 +17,9 @@ const InputContents = () => {
 
   const onSubmit=(event)=>{
     event.preventDefault();
-    setProductionNameError(!productionNameError)
+    dispatch(loadingAction())
+    dispatch(record({name:productionName}))
+
   }
   return (
     <div
