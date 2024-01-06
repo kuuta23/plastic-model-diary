@@ -4,6 +4,7 @@ import { auth, db } from "../../../firebase";
 import { signInAction } from "../actions";
 import { emailCondition, passwordCondition } from "../../../Template";
 import { userClearingTheError, userErrorAction } from "../../error/user/actions";
+import { resetLoadingAction } from "../../loading/actions";
 
 const signIn=({password,email})=>{
   return async (dispatch,getState)=>{
@@ -25,13 +26,16 @@ const signIn=({password,email})=>{
           await updateDoc(doc(db,"users",data.uid),data);
           dispatch(signInAction(data));
           dispatch(userClearingTheError())
+          dispatch(resetLoadingAction())
         }
       })
       .catch(()=>{
         dispatch(userErrorAction())
+        dispatch(resetLoadingAction())
       })
     }else{
         dispatch(userErrorAction())
+        dispatch(resetLoadingAction())
     }
   }
 }

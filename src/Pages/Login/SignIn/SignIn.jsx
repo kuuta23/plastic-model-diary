@@ -1,10 +1,11 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styles from './SignIn.module.css'
 import { InputEmail, InputPassword, Submit, VerticalAlignmentOfInputs } from '../../../Template'
 import { signInAnonymously } from 'firebase/auth';
 import signIn from '../../../reducks/user/operations/signIn';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { loadingAction, resetLoadingAction } from '../../../reducks/loading/actions';
 
 const SignIn = () => {
   const [email,setEmail]=useState(""),
@@ -12,7 +13,8 @@ const SignIn = () => {
   const dispatch=useDispatch();
   const navigate=useNavigate();
   const selector =useSelector(state=>state);
-  const userError=selector.UserError;
+  const userError=selector.UserError,
+        user=selector.user;
   const inputEmail=useCallback((event)=>{
     setEmail(event.target.value);
   },[setEmail]);
@@ -21,9 +23,12 @@ const SignIn = () => {
   },[setPassword]);
   const onSubmit=(event)=>{
     event.preventDefault();
+    dispatch(loadingAction())
     dispatch(signIn({email:email,password:password}))
-    if(!userError.userError){navigate("/")}
   }
+  useEffect(()=>{
+    if(user.isSignedIn){navigate("/")}
+  },[])
   return (
     <div
     className={styles.Frame}>

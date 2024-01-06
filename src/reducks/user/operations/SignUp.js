@@ -4,6 +4,7 @@ import { auth, db } from "../../../firebase";
 import { signInAction } from "../actions";
 import { passwordCondition ,emailCondition} from "../../../Template";
 import { userClearingTheError, userErrorAction } from "../../error/user/actions";
+import { resetLoadingAction } from "../../loading/actions";
 const signUp=({password,checkPassword,email})=>{
   return async (dispatch,getState)=>{
     // パスワードの条件確認（例：半角、文字数、確認用のパスワードと同じか）
@@ -28,12 +29,15 @@ const signUp=({password,checkPassword,email})=>{
             // storeにユーザー情報の保存
             dispatch(signInAction(data));
             dispatch(userClearingTheError())
+            dispatch(resetLoadingAction())
         })
         .catch(()=>{
           dispatch(userErrorAction())
+          dispatch(resetLoadingAction())
         })
     }else{
       dispatch(userErrorAction())
+      dispatch(resetLoadingAction())
     }
 
   }

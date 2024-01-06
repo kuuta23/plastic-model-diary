@@ -9,9 +9,9 @@ export const loadingAction=()=>{
 }
 
 export const RESETLOADING="RESETLOADING"
-export const reserLoadingAction=()=>{
+export const resetLoadingAction=()=>{
     return{
-        payload:"RESETLOADING",
+        type:"RESETLOADING",
         payload:{
             loading:false
         }

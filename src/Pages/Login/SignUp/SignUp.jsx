@@ -1,9 +1,10 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styles from './SignUp.module.css'
 import { InputEmail, InputPassword, Submit, VerticalAlignmentOfInputs } from '../../../Template'
 import { useDispatch, useSelector } from 'react-redux';
 import signUp from '../../../reducks/user/operations/signUp';
 import { useNavigate } from 'react-router-dom';
+import { loadingAction } from '../../../reducks/loading/actions';
 
 const SignUp = () => {
   const [email,setEmail]=useState(""),
@@ -12,7 +13,9 @@ const SignUp = () => {
   const dispatch=useDispatch();
   const selector=useSelector(state=>state)
   const navigate=useNavigate();
+  const user=selector.user;
   const userError=selector.UserError;
+  const loading=selector.loading;
   const inputEmail=useCallback((event)=>{
     setEmail(event.target.value);
   },[setEmail]);
@@ -24,14 +27,16 @@ const SignUp = () => {
   },[setCheckPassword])
   const onSubmit=(event)=>{
     event.preventDefault();
+    dispatch(loadingAction())
     dispatch(signUp({
       password:password,
       checkPassword:checkPassword,
       email:email
     }))
-    if(!userError.userError){navigate("/")}
-
   }
+  useEffect(()=>{
+    if(user.isSignedIn){navigate("/")}
+  },[])
   return (
     <div
     className={styles.Frame}>
