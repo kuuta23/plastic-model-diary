@@ -7,10 +7,10 @@ const ProductionList = ({productionList=[]}) => {
     <div
     className={styles.Frame}>
       {
-        productionList.map(({name},key)=>(
+        productionList.map((doc,key)=>(
             <Production
             key={key}
-            name={name}/>
+            name={doc.name}/>
         ))
       }
     </div>

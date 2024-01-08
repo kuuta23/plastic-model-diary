@@ -3,7 +3,7 @@ export const saveAction=(saveState)=>{
     return{
         type:"SAVE",
         payload:{
-            productins:saveState.productions
+            productions:saveState.productions
         }
     }
 }
@@ -12,7 +12,7 @@ export const saveResetAction=()=>{
   return{
     type:"SAVE_RESET",
     payload:{
-      productins:[]
+      productions:[]
     }
   }
 }

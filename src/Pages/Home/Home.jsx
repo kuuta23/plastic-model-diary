@@ -1,16 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from "./Home.module.css"
 import { ProductionList } from '../../Template'
+import { useDispatch, useSelector } from 'react-redux'
+import productionsSave from '../../reducks/saveData/operations/productionSave'
 
 const Home = () => {
-    const list=[{
-        name:"ゼータガンダム"
-    }]
+  const dispatch=useDispatch();
+  const selector=useSelector(state=>state);
+  useEffect(()=>{
+    dispatch(productionsSave());
+  
+  },[])
+  const save=selector.save
+  
   return (
     <div
     className={styles.Frame}>
       <ProductionList
-      productionList={list}/>
+      productionList={save.productions}/>
     </div>
   )
 }
