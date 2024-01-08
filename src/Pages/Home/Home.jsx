@@ -8,7 +8,7 @@ const Home = () => {
   const dispatch=useDispatch();
   const selector=useSelector(state=>state);
   useEffect(()=>{
-    dispatch(productionsSave());
+    dispatch(productionsSave(5));
   
   },[])
   const save=selector.save
