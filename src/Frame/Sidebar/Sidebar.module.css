@@ -8,6 +8,14 @@
     z-index: 10;
     top: 60px;
     left: 0px;
+    position: fixed;
+}
+@media screen and (max-width:450px){
+    .Frame{
+        width: 0px;
+        height: 0px;
+        display: none;
+    }
 }
 .MainButton{
     position: absolute;

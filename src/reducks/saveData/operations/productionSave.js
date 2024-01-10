@@ -1,4 +1,4 @@
-import { collection, getDocs, limit, query, where } from "firebase/firestore";
+import { collection, getDocs, limit, orderBy, query, where } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { saveAction } from "../actions";
 
@@ -8,7 +8,7 @@ const productionsSave=(length=10)=>{
         const user=state.user;
         const productionRef=collection(db,"productions");
 
-        const q=query(productionRef,where("uid","==",user.uid),limit(length));
+        const q=query(productionRef,where("uid","==",user.uid),orderBy("name"),orderBy("uploadTime","desc"),limit(length));
         const Snapshot= await getDocs(q);
 
         const values=Snapshot.docs.map((value)=>{
