@@ -1,4 +1,18 @@
 .ProductionName{
+    display: inline-block;
     margin: 10px;
     margin-bottom: 5px;
+
+    
+}
+.DeleteButton{
+    position:absolute;
+    top: 0px;
+    right: 40px;
+    z-index: 100;
+    cursor: pointer; 
+    
+}
+.Frame{
+    position: relative;
 }

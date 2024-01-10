@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "./Production.module.css"
 import ProductionName from './ProductionName/ProductionName'
+import DeleteButton from './DeleteButton/DeleteButton'
 
 const Production = ({name}) => {
   return (
@@ -11,8 +12,11 @@ const Production = ({name}) => {
             <ProductionName
             name={name}/>
         </div>
-      
-      <hr />
+        <div
+        className={styles.DeleteButton}>
+          <DeleteButton/>
+        </div>
+      <hr/>
     </div>
   )
 }
