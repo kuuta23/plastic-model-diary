@@ -1,8 +1,10 @@
 import React from 'react'
 import styles from "./ProductionList.module.css"
 import Production from './Production/Production'
+import { useDispatch } from 'react-redux'
+import productionDelete from '../../reducks/saveData/operations/productionDelete'
 
-const ProductionList = ({productionList=[]}) => {
+const ProductionList = ({productionList=[],onClick}) => {
   return (
     <div
     className={styles.Frame}>
@@ -10,7 +12,8 @@ const ProductionList = ({productionList=[]}) => {
         productionList.map((doc,key)=>(
             <Production
             key={key}
-            name={doc.name}/>
+            name={doc.name}
+            id={doc.id}/>
         ))
       }
     </div>

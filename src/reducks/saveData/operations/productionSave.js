@@ -14,7 +14,8 @@ const productionsSave=(length=10)=>{
         const values=Snapshot.docs.map((value)=>{
 
             return{
-                name:value.data().name
+                name:value.data().name,
+                id:value.id
             }
         })
         console.log(values);
