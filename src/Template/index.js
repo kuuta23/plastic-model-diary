@@ -8,3 +8,5 @@ export { default as passwordCondition } from "./functions/passwordCondition"
 export { default as normalValueCondition } from "./functions/normalValueCondition"
 
 export { default as ProductionList } from "./ProductionList/ProductionList"
+
+export { default as EditButton } from "./EditButton/EditButton"

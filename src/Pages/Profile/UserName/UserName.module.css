@@ -1,0 +1,16 @@
+.Frame{
+    position: relative;
+    height: 40px;
+    width: 100%;
+}
+.EditButton{
+    position: absolute;
+    right: 240px;
+    top: 10px;
+}
+.Font{
+    font-weight: bolder;
+    font-size: 26px;
+    position: absolute;
+
+}
