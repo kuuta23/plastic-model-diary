@@ -8,9 +8,13 @@ const Home = () => {
   const dispatch=useDispatch();
   const selector=useSelector(state=>state);
   useEffect(()=>{
-    dispatch(selectorProductions());
+    if(selector.user.isSignedIn){
+      dispatch(selectorProductions());
+    }
+    
   
   },[])
+  console.log(selector.productions.productions);
   return (
     <div
     className={styles.Frame}>
