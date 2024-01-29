@@ -17,8 +17,15 @@ const initialState={
     recordError:{
         name:false
     },
-    save:{
-        productions:[]
+    productions:{
+        productions:[
+            [
+                {
+                    id:"",
+                    name:""
+                }
+            ]
+        ]
     }
 }
 export default initialState

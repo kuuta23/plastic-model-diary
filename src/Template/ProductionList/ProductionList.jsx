@@ -4,7 +4,7 @@ import Production from './Production/Production'
 import { useDispatch } from 'react-redux'
 import productionDelete from '../../reducks/saveData/operations/productionDelete'
 
-const ProductionList = ({productionList=[],onClick}) => {
+const ProductionList = ({productionList=[]}) => {
   return (
     <div
     className={styles.Frame}>
