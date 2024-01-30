@@ -8,6 +8,7 @@ const signOut=()=>{
         dispatch(loadingAction())
         dispatch(signOutAction())
         dispatch(productionsResetAction())
+        dispatch(productionsResetAction())
         await auth.signOut();
         dispatch(resetLoadingAction())
         
