@@ -11,10 +11,11 @@ const ProductionList = ({productionList=[],userName=""}) => {
       {
         productionList.map((doc,key)=>(
             <Production
-            userName={userName}
+            userName={doc.userName}
             key={key}
             name={doc.name}
-            id={doc.id}/>
+            id={doc.id}
+            uid={doc.uid}/>
         ))
       }
     </div>

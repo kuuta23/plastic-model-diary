@@ -10,9 +10,7 @@ const Home = () => {
   const productions=useSelector(state=>state.productions)
   const profile=useSelector(state=>state.profile)
   useEffect(()=>{
-    if(user.isSignedIn){
-      dispatch(selectorProductions());
-    }
+    dispatch(selectorProductions(20));
   },[])
   return (
     <div
