@@ -6,7 +6,7 @@ import changeName from '../../../../reducks/profile/operations/changeName';
 
 const EditUserName = () => {
   
-  const [name,setName]=useState();
+  const [name,setName]=useState('');
   const dispatch=useDispatch();
   const onChange=(event)=>{
     setName(event.target.value)

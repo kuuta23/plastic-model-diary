@@ -11,7 +11,7 @@ const changeName=(name)=>{
         const profileRef=doc(db,"profile",user.uid);
         // 名前の変更が行われたとき
         // 名前が未入力でないとき
-        if(name != profile.name || name){
+        if((name != profile.name) && (name != '')){
             const data={
                 name:name
             }

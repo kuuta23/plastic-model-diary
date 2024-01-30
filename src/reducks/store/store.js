@@ -10,14 +10,13 @@ import { LoadingReducer } from "../loading/reduers";
 import { RecordReducer } from "../record/reducers";
 import { RecordErrorReducer } from "../error/record/reducers";
 import { ProductionsReducer } from "../productions/reducers";
-import { ProfilesReducer } from "../profile/reducers";
-
+import { ProfileReducer } from "../profile/reducers";
 
 export default function createStore(){
     return reduxCreateStore(
         combineReducers({
             user:UserReducer,
-            profile:ProfilesReducer,
+            profile:ProfileReducer,
             userError:UserErrorReducer,
             loading:LoadingReducer,
             record:RecordReducer,

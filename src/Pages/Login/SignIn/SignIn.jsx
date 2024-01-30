@@ -6,6 +6,7 @@ import signIn from '../../../reducks/user/operations/signIn';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loadingAction, resetLoadingAction } from '../../../reducks/loading/actions';
+import { profileAction } from '../../../reducks/profile/actions';
 
 const SignIn = () => {
   const [email,setEmail]=useState(""),
@@ -24,6 +25,7 @@ const SignIn = () => {
     event.preventDefault();
     dispatch(loadingAction())
     dispatch(signIn({email:email,password:password}))
+    dispatch(profileAction({name:"c"}))
   }
   useEffect(()=>{
     if(user.isSignedIn){navigate("/")}

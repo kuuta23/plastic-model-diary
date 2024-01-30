@@ -8,18 +8,17 @@ const Home = () => {
   const dispatch=useDispatch();
   const user=useSelector(state=>state.user);
   const productions=useSelector(state=>state.productions)
+  const profile=useSelector(state=>state.profile)
   useEffect(()=>{
     if(user.isSignedIn){
       dispatch(selectorProductions());
     }
-    
-  
   },[])
-  console.log(productions.productions);
   return (
     <div
     className={styles.Frame}>
       <ProductionList
+      userName={profile.name}
       productionList={productions.productions}/>
     </div>
   )

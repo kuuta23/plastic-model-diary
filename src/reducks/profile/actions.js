@@ -1,4 +1,4 @@
-export const PROFILE="PLOFILE";
+export const PROFILE="PROFILE";
 export const profileAction=(profileState)=>{
     return{
         type:"PROFILE",

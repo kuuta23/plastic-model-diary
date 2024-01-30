@@ -6,7 +6,7 @@ const makeNewProfile=()=>{
     return async(dispatch,setState)=>{
         const state=setState()
         const user=state.user;
-        
+               
         const profileRef=doc(db,"profile",user.uid);
         const Snapshot= await getDoc(profileRef);
         var data;
@@ -15,14 +15,15 @@ const makeNewProfile=()=>{
             data={
                 name:"name"
             }
-            dispatch(profileAction({name:"c"}))
+            
             await setDoc(profileRef,data)
         }else{
             data={
                 name:Snapshot.data().name
             }
-            dispatch(profileAction({name:"c"}))
+            
         }
+        dispatch(profileAction(data))
     }
 }
 export default makeNewProfile

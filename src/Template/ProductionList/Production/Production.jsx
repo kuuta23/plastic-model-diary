@@ -5,14 +5,14 @@ import DeleteButton from './DeleteButton/DeleteButton'
 import { useDispatch } from 'react-redux'
 import UserName from './UserName/UserName'
 
-const Production = ({name,id}) => {
+const Production = ({name,id,userName}) => {
   return (
     <div
     className={styles.Frame}>
       <div
       className={styles.UserName}>
         <UserName
-        name='name'/>
+        name={userName}/>
       </div>
       <div
       className={styles.ProductionName}>
