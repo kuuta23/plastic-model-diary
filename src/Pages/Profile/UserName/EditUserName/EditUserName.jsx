@@ -4,16 +4,15 @@ import { EditButton } from '../../../../Template'
 
 const EditUserName = () => {
   return (
-    <div
-    className={styles.Frame}>
-      <form action="">
-        <input
-        className={styles.Input}
-        type="text"
-        placeholder='ユーザー名' />
-      </form>
+    <form 
+    className={styles.Frame}
+    action="">
+      <input
+      className={styles.Input}
+      type="text"
+      placeholder='ユーザー名' />
+    </form>
       
-    </div>
   )
 }
 

@@ -1,16 +1,23 @@
 .Frame{
-    position: relative;
-    height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
     width: 100%;
 }
+.Spacer{
+    width: 100%;
+}
+
 .EditButton{
-    position: absolute;
-    right: 240px;
-    top: 10px;
+    margin-top: 10px;
+    margin-right: 40px;
+    margin-left: auto;
+}
+.EditUserName{
+    width: 100%;
 }
 .Font{
     font-weight: bolder;
     font-size: 26px;
-    position: absolute;
 
 }

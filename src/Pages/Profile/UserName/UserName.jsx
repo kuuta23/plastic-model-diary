@@ -17,10 +17,15 @@ const UserName = () => {
             <EditButton
             onClick={()=>setEdit(!edit)}/>
         </div>
-        <div
-        className={styles.EditUserName}>
-            <EditUserName/>
-        </div>
+        <div className={styles.Spacer}></div>
+        {
+            edit?(
+                <div
+                className={styles.EditUserName}>
+                    <EditUserName/>
+                </div>
+            ):<></>
+        }
         
     </div>
   )
