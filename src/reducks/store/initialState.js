@@ -5,6 +5,10 @@ const initialState={
         email:"",
         updateTime:""
     },
+    profile:{
+        uid:"",
+        name:""
+    },
     userError:{
         userError:false
     },

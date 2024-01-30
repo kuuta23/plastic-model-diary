@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 
 }
 .Input{
@@ -10,4 +11,8 @@
     height: 30px;
 
     font-size: 26px;
+}
+.EnterButton{
+    margin-right: auto;
+    margin-left: 20px;
 }
