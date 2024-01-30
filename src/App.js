@@ -6,8 +6,7 @@ import { Loading } from './Pages';
 import { useSelector } from 'react-redux';
 
 function App() {
-  const selector=useSelector(state=>state)
-  const loading=selector.loading
+  const loading=useSelector(state=>state.loading)
   return (
     <Frame
     mainContent={

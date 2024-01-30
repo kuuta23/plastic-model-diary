@@ -7,8 +7,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Login = () =>{
-  const selector=useSelector(state=>state);
-  const user=selector.user
+  const user=useSelector(state=>state.user);
   return (
     <div
     className={styles.Frame}>

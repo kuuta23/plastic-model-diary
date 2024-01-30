@@ -18,7 +18,7 @@ export default function createStore(){
         combineReducers({
             user:UserReducer,
             profile:ProfilesReducer,
-            UserError:UserErrorReducer,
+            userError:UserErrorReducer,
             loading:LoadingReducer,
             record:RecordReducer,
             recordError:RecordErrorReducer,

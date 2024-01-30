@@ -2,15 +2,20 @@ import React, { useState } from 'react'
 import styles from './UserName.module.css'
 import EditUserName from './EditUserName/EditUserName'
 import { EditButton } from '../../../Template'
+import { useSelector } from 'react-redux'
 
 const UserName = () => {
     const [edit,setEdit]=useState(false)
+    const profile=useSelector(state=>state.profile)
+    console.log(profile);
+    const selector=useSelector(state=>state)
+    console.log(selector);
   return (
     <div
     className={styles.Frame}>
         <div
         className={styles.Font}>
-            name
+            {profile.name}
         </div>
         <div
         className={styles.EditButton}>

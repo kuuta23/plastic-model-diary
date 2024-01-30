@@ -11,11 +11,10 @@ const SignUp = () => {
         [password,setPassword]=useState(""),
         [checkPassword,setCheckPassword]=useState("");
   const dispatch=useDispatch();
-  const selector=useSelector(state=>state)
+  const user=useSelector(state=>state.user)
+  const userError=useSelector(state=>state.userError)
+  const loading = useSelector(state=>state.loading)
   const navigate=useNavigate();
-  const user=selector.user;
-  const userError=selector.UserError;
-  const loading=selector.loading;
   const inputEmail=useCallback((event)=>{
     setEmail(event.target.value);
   },[setEmail]);

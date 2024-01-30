@@ -6,8 +6,7 @@ import styles from "./Login.module.css"
 import { useSelector } from 'react-redux'
 
 const Login = () => {
-  const selector=useSelector(state=>state);
-  const userError=selector.UserError;
+  const userError=useSelector(state=>state.userError);
   return (
     <div
     className={styles.Frame}>

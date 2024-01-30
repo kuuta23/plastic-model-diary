@@ -6,20 +6,21 @@ import selectorProductions from '../../reducks/productions/operations/selectorPr
 
 const Home = () => {
   const dispatch=useDispatch();
-  const selector=useSelector(state=>state);
+  const user=useSelector(state=>state.user);
+  const productions=useSelector(state=>state.productions)
   useEffect(()=>{
-    if(selector.user.isSignedIn){
+    if(user.isSignedIn){
       dispatch(selectorProductions());
     }
     
   
   },[])
-  console.log(selector.productions.productions);
+  console.log(productions.productions);
   return (
     <div
     className={styles.Frame}>
       <ProductionList
-      productionList={selector.productions.productions}/>
+      productionList={productions.productions}/>
     </div>
   )
 }

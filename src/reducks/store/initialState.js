@@ -6,8 +6,7 @@ const initialState={
         updateTime:""
     },
     profile:{
-        uid:"",
-        name:""
+        name:"name"
     },
     userError:{
         userError:false

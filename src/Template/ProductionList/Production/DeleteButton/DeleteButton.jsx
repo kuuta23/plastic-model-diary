@@ -5,8 +5,7 @@ import deleteProduction from '../../../../reducks/productions/operations/deleteP
 
 const DeleteButton = ({id}) => {
   const dispatch=useDispatch();
-  const selector=useSelector(state=>state);
-  const user=selector.user;
+  const user=useSelector(state=>state.user);
   const onClick=()=>{
     dispatch(deleteProduction(id))
   }

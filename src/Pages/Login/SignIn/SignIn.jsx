@@ -12,9 +12,8 @@ const SignIn = () => {
         [password,setPassword]=useState("");
   const dispatch=useDispatch();
   const navigate=useNavigate();
-  const selector =useSelector(state=>state);
-  const userError=selector.UserError,
-        user=selector.user;
+  const userError =useSelector(state=>state.userError);
+  const user = useSelector(state=>state.user)
   const inputEmail=useCallback((event)=>{
     setEmail(event.target.value);
   },[setEmail]);

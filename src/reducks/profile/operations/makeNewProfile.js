@@ -1,6 +1,6 @@
 import { collection, doc, getDoc, getDocs, limit, orderBy, query, setDoc, where } from "firebase/firestore";
 import { db } from "../../../firebase";
-import { productionsAction, profileAction } from "../actions";
+import { profileAction } from "../actions";
 
 const makeNewProfile=()=>{
     return async(dispatch,setState)=>{
@@ -15,13 +15,14 @@ const makeNewProfile=()=>{
             data={
                 name:"name"
             }
+            dispatch(profileAction({name:"c"}))
             await setDoc(profileRef,data)
         }else{
             data={
                 name:Snapshot.data().name
             }
+            dispatch(profileAction({name:"c"}))
         }
-        dispatch(profileAction(data))
     }
 }
 export default makeNewProfile
