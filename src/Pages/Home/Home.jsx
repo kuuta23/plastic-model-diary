@@ -3,6 +3,7 @@ import styles from "./Home.module.css"
 import { ProductionList } from '../../Template'
 import { useDispatch, useSelector } from 'react-redux'
 import selectorProductions from '../../reducks/productions/operations/selectorProduction'
+import { AdsCard } from '../../Template/AdsCard/AdsCard'
 
 const Home = () => {
   const dispatch=useDispatch();
@@ -17,7 +18,8 @@ const Home = () => {
     className={styles.Frame}>
       <ProductionList
       userName={profile.name}
-      productionList={productions.productions}/>
+      productionList={productions.productions}
+      deleteButton={false}/>
     </div>
   )
 }

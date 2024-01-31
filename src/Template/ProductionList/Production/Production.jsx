@@ -5,7 +5,7 @@ import DeleteButton from './DeleteButton/DeleteButton'
 import { useDispatch } from 'react-redux'
 import UserName from './UserName/UserName'
 
-const Production = ({name,id,userName,uid}) => {
+const Production = ({name,id,userName,uid,deleteButton}) => {
   return (
     <div
     className={styles.Frame}>
@@ -19,12 +19,17 @@ const Production = ({name,id,userName,uid}) => {
           <ProductionName
           name={name}/>
       </div>
-      <div
-      className={styles.DeleteButton}>
-        <DeleteButton
-        id={id}
-        uid={uid}/>
-      </div>
+      {
+        deleteButton?(
+          <div
+          className={styles.DeleteButton}>
+            <DeleteButton
+            id={id}
+            uid={uid}/>
+          </div>
+        ):<></>
+      }
+      
     </div>
   )
 }
