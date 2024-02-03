@@ -18,8 +18,10 @@ const initialState={
         name:""
     },
     recordError:{
-        noValue:false,
-        overValue:false
+        nameNoValue:false,
+        nameOverValue:false,
+        commentNoValue:false,
+        commentOverValue:false
     },
     productions:{
         productions:[

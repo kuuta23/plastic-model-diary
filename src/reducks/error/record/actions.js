@@ -3,8 +3,10 @@ export const recordErrorAction=(recordState)=>{
     return{
         type:"RECORD_ERROR",
         payload:{
-            noValue:recordState.noValue,
-            overValue:recordState.overValue
+            nameNoValue:recordState.nameNoValue,
+            nameOverValue:recordState.nameOverValue,
+            commentNoValue:recordState.commentNoValue,
+            commentOverValue:recordState.commentOverValue
         }
     }
 }
@@ -13,8 +15,10 @@ export const recordErrorResetAction=()=>{
   return{
     type:"RECORD_ERROR_RESET",
     payload:{
-      noValue:false,
-      overValue:false
+      nameNoValue:false,
+      nameOverValue:false,
+      commentNoValue:false,
+      commentOverValue:false
     }
   }
 }
