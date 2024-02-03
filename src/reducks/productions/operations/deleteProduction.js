@@ -11,11 +11,12 @@ const deleteProduction=(id)=>{
         if(user.isSignedIn){
 
             for(var i=0;i<productions.length;i++){
-                if(productions.id==id){
+                if(productions[i].id==id){
                     var index=i
                 }
             }
-            productions.splice(index-1,1)
+            productions.splice(index,1)
+            console.log(productions);
             dispatch(productionsAction({productions:productions}))
             const productionRef=doc(db,"productions",id);
             await deleteDoc(productionRef);
