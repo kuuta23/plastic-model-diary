@@ -3,7 +3,8 @@ export const recordErrorAction=(recordState)=>{
     return{
         type:"RECORD_ERROR",
         payload:{
-            name:recordState.name
+            noValue:recordState.noValue,
+            overValue:recordState.overValue
         }
     }
 }
@@ -12,7 +13,8 @@ export const recordErrorResetAction=()=>{
   return{
     type:"RECORD_ERROR_RESET",
     payload:{
-      name:false
+      noValue:false,
+      overValue:false
     }
   }
 }

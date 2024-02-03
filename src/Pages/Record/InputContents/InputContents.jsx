@@ -10,6 +10,7 @@ const InputContents = () => {
 
   const [productionNameError,setProductionNameError]=useState(false);
   const dispatch=useDispatch()
+  const nameValueLimit=30;
 
   const inputProductionName=useCallback((event)=>{
     setProductionName(event.target.value);
@@ -18,7 +19,7 @@ const InputContents = () => {
   const onSubmit=(event)=>{
     event.preventDefault();
     dispatch(loadingAction())
-    dispatch(record({name:productionName}))
+    dispatch(record({name:productionName,nameValueLimit:30}))
 
   }
   return (
@@ -30,7 +31,9 @@ const InputContents = () => {
         className={styles.ProductionName}>
             <ProductionName
             error={productionNameError}
-            onChange={inputProductionName}/>
+            onChange={inputProductionName}
+            valueCnt={[...productionName].length}
+            nameValuelimit={nameValueLimit}/>
         </div>
         <div
         className={styles.Enter}>

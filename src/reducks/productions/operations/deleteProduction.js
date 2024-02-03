@@ -15,7 +15,7 @@ const deleteProduction=(id)=>{
                     var index=i
                 }
             }
-            productions.splice(index,1)
+            productions.splice(index-1,1)
             dispatch(productionsAction({productions:productions}))
             const productionRef=doc(db,"productions",id);
             await deleteDoc(productionRef);
