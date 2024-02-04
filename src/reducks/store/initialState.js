@@ -6,7 +6,8 @@ const initialState={
         updateTime:""
     },
     profile:{
-        name:"name"
+        name:"name",
+        howToGetProduction:[]
     },
     userError:{
         userError:false
@@ -21,7 +22,8 @@ const initialState={
         nameNoValue:false,
         nameOverValue:false,
         commentNoValue:false,
-        commentOverValue:false
+        commentOverValue:false,
+        howToGetProductionOverValue:false
     },
     productions:{
         productions:[

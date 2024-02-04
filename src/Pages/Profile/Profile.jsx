@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { ProductionList } from '../../Template';
 import selectorProductions from '../../reducks/productions/operations/selectorProduction';
+import { AdsCard } from '../../Template/AdsCard/AdsCard';
+import styles from './Profile.module.css'
 
 const Profile = () => {
   const user = useSelector(state=>state.user);
@@ -17,12 +19,15 @@ const Profile = () => {
   },[profile.name])
   if(user.isSignedIn){
     return (
-      <div>
+      <div
+      className={styles.Frame}>
         <UserName/>
         <hr />
         <ProductionList
+        id={"profile"}
         productionList={productions.productions}
         deleteButton={true}/>
+        <AdsCard/>
       </div>
     )
   }

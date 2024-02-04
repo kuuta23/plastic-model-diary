@@ -12,17 +12,13 @@ const selectorProductions=(length=10,original_only=false)=>{
         var q;
         if(original_only){
             q=query(productionRef,
-            
-            orderBy("uid"),
             where("uid","==",user.uid),
-            orderBy("uploadTime","asc"),
+            orderBy("uploadTime","desc"),
             orderBy("name"),
             limit(length))
         }else{
             q=query(productionRef,
-            
-            orderBy("uid"),
-            orderBy("uploadTime","asc"),
+            orderBy("uploadTime","desc"),
             orderBy("name"),
             limit(length));
         }
@@ -43,6 +39,7 @@ const selectorProductions=(length=10,original_only=false)=>{
                 uid:value.data().uid,
                 userName:name,
                 name:value.data().name,
+                comment:value.data().comment,
                 id:value.id
             }
 

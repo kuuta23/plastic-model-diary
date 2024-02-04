@@ -10,7 +10,8 @@ const selectorProfile=()=>{
         const profileRef=doc(db,"profile",user.uid);
         const Snapshot= await getDoc(profileRef);
         dispatch(profileAction({
-            name:Snapshot.data().name
+            name:Snapshot.data().name,
+            howToGetProduction:Snapshot.data().howToGetProduction
         }))
     }
 }

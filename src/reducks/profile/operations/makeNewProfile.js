@@ -13,13 +13,15 @@ const makeNewProfile=()=>{
         // プロフィールの中にデータがないとき
         if(!Snapshot.data()){
             data={
-                name:"name"
+                name:"name",
+                howToGetProduction:["不明","一般販売"]
             }
             
             await setDoc(profileRef,data)
         }else{
             data={
-                name:Snapshot.data().name
+                name:Snapshot.data().name,
+                howToGetProduction:Snapshot.data().howToGetProduction
             }
             
         }

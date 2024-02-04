@@ -6,7 +6,8 @@ export const recordErrorAction=(recordState)=>{
             nameNoValue:recordState.nameNoValue,
             nameOverValue:recordState.nameOverValue,
             commentNoValue:recordState.commentNoValue,
-            commentOverValue:recordState.commentOverValue
+            commentOverValue:recordState.commentOverValue,
+            howToGetProductionOverValue:recordState.howToGetProductionOverValue
         }
     }
 }
@@ -18,7 +19,8 @@ export const recordErrorResetAction=()=>{
       nameNoValue:false,
       nameOverValue:false,
       commentNoValue:false,
-      commentOverValue:false
+      commentOverValue:false,
+      howToGetProductionOverValue:false
     }
   }
 }

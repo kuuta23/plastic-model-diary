@@ -1,6 +1,6 @@
 .Frame{
-    height: 100%;
     overflow-y: scroll;
+    height: 80%;
 }
 .Afirieit{
     display: flex;

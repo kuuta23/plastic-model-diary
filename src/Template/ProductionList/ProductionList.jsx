@@ -5,25 +5,23 @@ import { useDispatch } from 'react-redux'
 import productionDelete from '../../reducks/saveData/operations/productionDelete'
 import { AdsCard } from '../AdsCard/AdsCard'
 
-const ProductionList = ({productionList=[],deleteButton=false}) => {
+const ProductionList = ({productionList=[],deleteButton=false,id}) => {
   return (
     <div
     className={styles.Frame}>
       {
         productionList.map((doc,key)=>(
             <Production
+            pageId={id}
             userName={doc.userName}
             key={key}
             name={doc.name}
             id={doc.id}
             uid={doc.uid}
+            comment={doc.comment}
             deleteButton={deleteButton}/>
         ))
       }
-      <div
-      className={styles.Afirieit}>
-      <AdsCard/>
-      </div>
       
     </div>
   )

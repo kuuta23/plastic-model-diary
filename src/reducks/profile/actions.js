@@ -4,6 +4,7 @@ export const profileAction=(profileState)=>{
         type:"PROFILE",
         payload:{
             name:profileState.name,
+            howToGetProduction:profileState.howToGetProduction
         }
     }
 }
@@ -12,7 +13,8 @@ export const profileResetAction=()=>{
   return{
     type:"PROFILE_RESET",
     payload:{
-      name:""
+      name:"",
+      howToGetProduction:[]
     }
   }
 }

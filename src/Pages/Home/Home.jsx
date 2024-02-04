@@ -17,9 +17,11 @@ const Home = () => {
     <div
     className={styles.Frame}>
       <ProductionList
+      id={"home"}
       userName={profile.name}
       productionList={productions.productions}
       deleteButton={false}/>
+      <AdsCard/>
     </div>
   )
 }

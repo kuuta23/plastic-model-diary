@@ -2,18 +2,19 @@ import React, { useCallback, useState } from 'react'
 import { Enter, ProductionName } from '.'
 import styles from "./InputContents.module.css"
 import record from '../../../reducks/record/operations/record';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loadingAction } from '../../../reducks/loading/actions';
 import ProductionComment from './ProductionComment/ProductionComment';
+import LimitedItem from './LimitedItem/LimitedItem';
 
 const InputContents = () => {
   const [productionName,setProductionName]=useState(""),
-        [productionCommment,setProductionComment]=useState("");
-
-  const [productionNameError,setProductionNameError]=useState(false);
+        [productionCommment,setProductionComment]=useState(""),
+        [howToGetProduction,setHowToGetProduction]=useState("");
   const dispatch=useDispatch()
-  const nameValueLimit=30;
-  const commentValueLimit=200;
+  const nameValueLimit=30,
+        commentValueLimit=200,
+        howToGetProductionLimit=30;
 
   const inputProductionName=useCallback((event)=>{
     setProductionName(event.target.value);
@@ -21,6 +22,9 @@ const InputContents = () => {
   const inputProductionComment=useCallback((event)=>{
     setProductionComment(event.target.value)
   },[setProductionComment])
+  const inputHowToGetProduction=useCallback((event)=>{
+    setHowToGetProduction(event.target.value)
+  },[setHowToGetProduction])
 
   const onSubmit=(event)=>{
     event.preventDefault();
@@ -29,7 +33,9 @@ const InputContents = () => {
       name:productionName,
       nameValueLimit:30,
       comment:productionCommment,
-      commentValueLimit:commentValueLimit
+      commentValueLimit:commentValueLimit,
+      howToGetProduction:howToGetProduction,
+      howToGetProductionLimit:howToGetProductionLimit
     }))
 
   }
@@ -51,6 +57,12 @@ const InputContents = () => {
           onChange={inputProductionComment}
           valueCnt={[...productionCommment].length}
           limit={commentValueLimit}/>
+        </div>
+        <div>
+          <LimitedItem
+          onChange={inputHowToGetProduction}
+          valueCnt={[...howToGetProduction].length}
+          limit={howToGetProductionLimit}/>
         </div>
         <div
         className={styles.Enter}>
