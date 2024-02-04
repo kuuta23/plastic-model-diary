@@ -11,6 +11,7 @@ const ProductionComment = ({onChange,valueCnt=0,limit=1}) => {
       <textarea 
       className={styles.Textarea}
       onChange={onChange}
+      placeholder='コメント'
       name="" 
       id="" 
       cols="30" 

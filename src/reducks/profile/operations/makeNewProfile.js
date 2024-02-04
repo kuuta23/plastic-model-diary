@@ -14,14 +14,16 @@ const makeNewProfile=()=>{
         if(!Snapshot.data()){
             data={
                 name:"name",
-                howToGetProduction:["不明","一般販売"]
+                howToGetProduction:["不明","一般販売"],
+                scale:[]
             }
             
             await setDoc(profileRef,data)
         }else{
             data={
                 name:Snapshot.data().name,
-                howToGetProduction:Snapshot.data().howToGetProduction
+                howToGetProduction:Snapshot.data().howToGetProduction,
+                scale:Snapshot.data().scale
             }
             
         }

@@ -7,7 +7,8 @@ const initialState={
     },
     profile:{
         name:"name",
-        howToGetProduction:[]
+        howToGetProduction:[],
+        scale:[]
     },
     userError:{
         userError:false
@@ -23,7 +24,8 @@ const initialState={
         nameOverValue:false,
         commentNoValue:false,
         commentOverValue:false,
-        howToGetProductionOverValue:false
+        howToGetProductionOverValue:false,
+        scaleOver:false
     },
     productions:{
         productions:[

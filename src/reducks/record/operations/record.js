@@ -12,7 +12,10 @@ const record=({
     comment,
     commentValueLimit,
     howToGetProduction,
-    howToGetProductionLimit})=>{
+    howToGetProductionLimit,
+    scale,
+    scaleLimit
+})=>{
     return async (dispatch,setState)=>{
         const state=setState()
         const user = state.user
@@ -20,11 +23,13 @@ const record=({
         const overName=overValue(name,nameValueLimit)
         const overComment=overValue(comment,commentValueLimit)
         const overHowToGetProduction=overValue(howToGetProduction,howToGetProductionLimit)
+        const overScale=overValue(scale,scaleLimit)
         const error={
             nameNoValue:false,
             nameOverValue:false,
             commentOverValue:false,
-            howToGetProductionOverValue:false
+            howToGetProductionOverValue:false,
+            scaleOver:false
         }
         if(noName){
             dispatch(recordErrorAction({...error,...{nameNoValue:true}}))
@@ -38,19 +43,29 @@ const record=({
         }else if(overHowToGetProduction){
             dispatch(recordErrorAction({...error,...{howToGetProductionOverValue:true}}))
             dispatch(resetLoadingAction());
+        }else if(overScale){
+            dispatch(recordErrorAction({...error,...{scaleOver:true}}))
+            dispatch(resetLoadingAction());
         }else{
             if(!howToGetProduction){
                 howToGetProduction="不明"
+            }
+            if(!scale){
+                scale="不明"
             }
             const data={
                 uid:user.uid,
                 uploadTime:Timestamp.now(),
                 name:name,
                 comment:comment,
-                howToGetProduction:howToGetProduction
+                scale:scale,
+                howToGetProduction:howToGetProduction,
             }
             await addDoc(collection(db,"productions"),data);
-            await updateDoc(doc(db,"profile",user.uid),{howToGetProduction:arrayUnion(howToGetProduction)});
+            await updateDoc(doc(db,"profile",user.uid),{
+                howToGetProduction:arrayUnion(howToGetProduction),
+                scale:arrayUnion(scale)
+            });
             dispatch(addHowToGetProductionList(howToGetProduction))
             .then(()=>{
                 dispatch(resetLoadingAction());

@@ -11,7 +11,8 @@ const selectorProfile=()=>{
         const Snapshot= await getDoc(profileRef);
         dispatch(profileAction({
             name:Snapshot.data().name,
-            howToGetProduction:Snapshot.data().howToGetProduction
+            howToGetProduction:Snapshot.data().howToGetProduction,
+            scale:Snapshot.data().scale
         }))
     }
 }

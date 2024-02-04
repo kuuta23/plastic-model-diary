@@ -7,7 +7,8 @@ export const recordErrorAction=(recordState)=>{
             nameOverValue:recordState.nameOverValue,
             commentNoValue:recordState.commentNoValue,
             commentOverValue:recordState.commentOverValue,
-            howToGetProductionOverValue:recordState.howToGetProductionOverValue
+            howToGetProductionOverValue:recordState.howToGetProductionOverValue,
+            scaleOver:recordState.scaleOver
         }
     }
 }
@@ -20,7 +21,8 @@ export const recordErrorResetAction=()=>{
       nameOverValue:false,
       commentNoValue:false,
       commentOverValue:false,
-      howToGetProductionOverValue:false
+      howToGetProductionOverValue:false,
+      scaleOver:false
     }
   }
 }
