@@ -40,6 +40,7 @@ const selectorProductions=(length=10,original_only=false)=>{
                 userName:name,
                 name:value.data().name,
                 comment:value.data().comment,
+                howToGetProduction:value.data().howToGetProduction,
                 id:value.id
             }
 

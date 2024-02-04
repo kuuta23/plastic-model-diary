@@ -19,7 +19,8 @@ const ProductionList = ({productionList=[],deleteButton=false,id}) => {
             id={doc.id}
             uid={doc.uid}
             comment={doc.comment}
-            deleteButton={deleteButton}/>
+            deleteButton={deleteButton}
+            howToGetProduction={doc.howToGetProduction}/>
         ))
       }
       
