@@ -4,6 +4,7 @@ import { db } from "../../../firebase";
 import { recordAction } from "../actions";
 import { resetLoadingAction } from "../../loading/actions";
 import { recordErrorAction, recordErrorResetAction } from "../../error/record/actions";
+import addHowToGetProductionList from "../../profile/operations/addHowToGetProductionList";
 
 const record=({
     name,
@@ -49,7 +50,8 @@ const record=({
                 howToGetProduction:howToGetProduction
             }
             await addDoc(collection(db,"productions"),data);
-            await updateDoc(doc(db,"profile",user.uid),{howToGetProduction:arrayUnion(howToGetProduction)})
+            await updateDoc(doc(db,"profile",user.uid),{howToGetProduction:arrayUnion(howToGetProduction)});
+            dispatch(addHowToGetProductionList(howToGetProduction))
             .then(()=>{
                 dispatch(resetLoadingAction());
                 dispatch(recordErrorResetAction())

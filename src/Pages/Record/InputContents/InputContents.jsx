@@ -58,7 +58,8 @@ const InputContents = () => {
           valueCnt={[...productionCommment].length}
           limit={commentValueLimit}/>
         </div>
-        <div>
+        <div
+        className={styles.HowToGetProduction}>
           <LimitedItem
           onChange={inputHowToGetProduction}
           valueCnt={[...howToGetProduction].length}

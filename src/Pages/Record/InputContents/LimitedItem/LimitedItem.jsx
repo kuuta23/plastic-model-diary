@@ -31,7 +31,7 @@ const LimitedItem = ({onChange,valueCnt,limit}) => {
       <ValueCnt
       valueCnt={valueCnt}
       limit={limit}/>
-      <div>未入力の場合不明になります。</div>
+      <div>未入力の場合は、「不明」になります。</div>
       <Error
       overValue={recordError.howToGetProductionOverValue}/>
     </div>
