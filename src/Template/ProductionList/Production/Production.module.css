@@ -29,13 +29,18 @@
 }
 .HowTogetProduction{
     position: absolute;
-    bottom: 10px;
+    bottom: 30px;
     left: 10px;
 }
 .Scale{
     position: absolute;
     left: 10px;
-    bottom: 30px;
+    bottom: 50px;
+}
+.Color{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
 }
 
 .Frame{

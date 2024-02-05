@@ -9,13 +9,14 @@ import { newLineCount } from '../../functions/newLineCount'
 import { legacy_createStore } from 'redux'
 import HowTogetProduction from './HowToGetProduction/HowTogetProduction'
 import Scale from './Scale/Scale'
+import Color from './Color/Color'
 
-const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButton,scale,pageId}) => {
+const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButton,scale,pageId,color}) => {
   useEffect(()=>{
     const newLineCnt=newLineCount(comment).length;
     const element=document
     const frame = element.getElementById(pageId+"-production-frame-"+id)
-    frame.style.height=(120+newLineCnt*24)+"px"
+    frame.style.height=(150+newLineCnt*24)+"px"
 
     
   },[id])
@@ -51,6 +52,11 @@ const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButto
       className={styles.HowTogetProduction}>
         <HowTogetProduction
         howToGetProduction={howToGetProduction}/>
+      </div>
+      <div
+      className={styles.Color}>
+        <Color
+        color={color}/>
       </div>
       
       {

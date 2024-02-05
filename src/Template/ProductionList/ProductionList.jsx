@@ -21,7 +21,8 @@ const ProductionList = ({productionList=[],deleteButton=false,id}) => {
             comment={doc.comment}
             deleteButton={deleteButton}
             howToGetProduction={doc.howToGetProduction}
-            scale={doc.scale}/>
+            scale={doc.scale}
+            color={doc.color}/>
         ))
       }
       
