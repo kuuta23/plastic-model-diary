@@ -12,7 +12,8 @@ const selectorProfile=()=>{
         dispatch(profileAction({
             name:Snapshot.data().name,
             howToGetProduction:Snapshot.data().howToGetProduction,
-            scale:Snapshot.data().scale
+            scale:Snapshot.data().scale,
+            color:Snapshot.data().color
         }))
     }
 }

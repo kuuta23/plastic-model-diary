@@ -8,7 +8,8 @@ export const recordErrorAction=(recordState)=>{
             commentNoValue:recordState.commentNoValue,
             commentOverValue:recordState.commentOverValue,
             howToGetProductionOverValue:recordState.howToGetProductionOverValue,
-            scaleOver:recordState.scaleOver
+            scaleOver:recordState.scaleOver,
+            colorOver:recordState.colorOver,
         }
     }
 }
@@ -22,7 +23,8 @@ export const recordErrorResetAction=()=>{
       commentNoValue:false,
       commentOverValue:false,
       howToGetProductionOverValue:false,
-      scaleOver:false
+      scaleOver:false,
+      colorOver:false,
     }
   }
 }

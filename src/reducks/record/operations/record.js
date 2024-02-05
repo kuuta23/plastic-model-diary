@@ -14,7 +14,9 @@ const record=({
     howToGetProduction,
     howToGetProductionLimit,
     scale,
-    scaleLimit
+    scaleLimit,
+    color,
+    colorOver
 })=>{
     return async (dispatch,setState)=>{
         const state=setState()
@@ -24,12 +26,14 @@ const record=({
         const overComment=overValue(comment,commentValueLimit)
         const overHowToGetProduction=overValue(howToGetProduction,howToGetProductionLimit)
         const overScale=overValue(scale,scaleLimit)
+        const overColor=overValue(color,colorOver)
         const error={
             nameNoValue:false,
             nameOverValue:false,
             commentOverValue:false,
             howToGetProductionOverValue:false,
-            scaleOver:false
+            scaleOver:false,
+            colorOver:false
         }
         if(noName){
             dispatch(recordErrorAction({...error,...{nameNoValue:true}}))
@@ -46,6 +50,9 @@ const record=({
         }else if(overScale){
             dispatch(recordErrorAction({...error,...{scaleOver:true}}))
             dispatch(resetLoadingAction());
+        }else if(overColor){
+            dispatch(recordErrorAction({...error,...{colorOver:true}}))
+            dispatch(resetLoadingAction());
         }else{
             if(!howToGetProduction){
                 howToGetProduction="不明"
@@ -53,18 +60,23 @@ const record=({
             if(!scale){
                 scale="不明"
             }
+            if(!color){
+                color="ノーマル"
+            }
             const data={
                 uid:user.uid,
                 uploadTime:Timestamp.now(),
                 name:name,
                 comment:comment,
                 scale:scale,
+                color:color,
                 howToGetProduction:howToGetProduction,
             }
             await addDoc(collection(db,"productions"),data);
             await updateDoc(doc(db,"profile",user.uid),{
                 howToGetProduction:arrayUnion(howToGetProduction),
-                scale:arrayUnion(scale)
+                scale:arrayUnion(scale),
+                color:arrayUnion(color)
             });
             dispatch(addHowToGetProductionList(howToGetProduction))
             .then(()=>{

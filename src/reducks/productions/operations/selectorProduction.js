@@ -41,7 +41,9 @@ const selectorProductions=(length=10,original_only=false)=>{
                 name:value.data().name,
                 comment:value.data().comment,
                 howToGetProduction:value.data().howToGetProduction,
-                id:value.id
+                scale:value.data().scale,
+                id:value.id,
+                color:value.data().color
             }
 
             

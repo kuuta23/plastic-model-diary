@@ -32,6 +32,11 @@
     bottom: 10px;
     left: 10px;
 }
+.Scale{
+    position: absolute;
+    left: 10px;
+    bottom: 30px;
+}
 
 .Frame{
     position: relative;

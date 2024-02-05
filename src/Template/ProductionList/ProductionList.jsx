@@ -20,7 +20,8 @@ const ProductionList = ({productionList=[],deleteButton=false,id}) => {
             uid={doc.uid}
             comment={doc.comment}
             deleteButton={deleteButton}
-            howToGetProduction={doc.howToGetProduction}/>
+            howToGetProduction={doc.howToGetProduction}
+            scale={doc.scale}/>
         ))
       }
       

@@ -8,13 +8,14 @@ import ProductionComment from './ProductionComment/ProductionComment'
 import { newLineCount } from '../../functions/newLineCount'
 import { legacy_createStore } from 'redux'
 import HowTogetProduction from './HowToGetProduction/HowTogetProduction'
+import Scale from './Scale/Scale'
 
-const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButton,pageId}) => {
+const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButton,scale,pageId}) => {
   useEffect(()=>{
     const newLineCnt=newLineCount(comment).length;
     const element=document
     const frame = element.getElementById(pageId+"-production-frame-"+id)
-    frame.style.height=(100+newLineCnt*24)+"px"
+    frame.style.height=(120+newLineCnt*24)+"px"
 
     
   },[id])
@@ -41,6 +42,11 @@ const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButto
           </div>
         ):<></>
       }
+      <div
+      className={styles.Scale}>
+        <Scale
+        scale={scale}/>
+      </div>
       <div
       className={styles.HowTogetProduction}>
         <HowTogetProduction
