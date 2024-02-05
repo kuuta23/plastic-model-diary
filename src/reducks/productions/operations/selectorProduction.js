@@ -43,7 +43,8 @@ const selectorProductions=(length=10,original_only=false)=>{
                 howToGetProduction:value.data().howToGetProduction,
                 scale:value.data().scale,
                 id:value.id,
-                color:value.data().color
+                color:value.data().color,
+                series:value.data().series
             }
 
             

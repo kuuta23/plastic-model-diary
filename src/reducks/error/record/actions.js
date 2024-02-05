@@ -10,6 +10,7 @@ export const recordErrorAction=(recordState)=>{
             howToGetProductionOverValue:recordState.howToGetProductionOverValue,
             scaleOver:recordState.scaleOver,
             colorOver:recordState.colorOver,
+            seriesOver:recordState.seriesOver,
         }
     }
 }
@@ -25,6 +26,7 @@ export const recordErrorResetAction=()=>{
       howToGetProductionOverValue:false,
       scaleOver:false,
       colorOver:false,
+      seriesOver:false,
     }
   }
 }

@@ -26,7 +26,8 @@ const initialState={
         commentOverValue:false,
         howToGetProductionOverValue:false,
         scaleOver:false,
-        colorOver:false
+        colorOver:false,
+        seriesOver:false,
     },
     productions:{
         productions:[

@@ -16,7 +16,8 @@ const makeNewProfile=()=>{
                 name:"name",
                 howToGetProduction:["不明","一般販売"],
                 scale:[],
-                color:[]
+                color:[],
+                series:[],
             }
             
             await setDoc(profileRef,data)
@@ -25,7 +26,8 @@ const makeNewProfile=()=>{
                 name:Snapshot.data().name,
                 howToGetProduction:Snapshot.data().howToGetProduction,
                 scale:Snapshot.data().scale,
-                color:Snapshot.data().color
+                color:Snapshot.data().color,
+                series:Snapshot.data().series
             }
             
         }

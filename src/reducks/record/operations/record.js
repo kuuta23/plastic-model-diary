@@ -16,7 +16,9 @@ const record=({
     scale,
     scaleLimit,
     color,
-    colorOver
+    colorOver,
+    series,
+    seriesLimit
 })=>{
     return async (dispatch,setState)=>{
         const state=setState()
@@ -27,13 +29,15 @@ const record=({
         const overHowToGetProduction=overValue(howToGetProduction,howToGetProductionLimit)
         const overScale=overValue(scale,scaleLimit)
         const overColor=overValue(color,colorOver)
+        const overSeries=overValue(series,seriesLimit)
         const error={
             nameNoValue:false,
             nameOverValue:false,
             commentOverValue:false,
             howToGetProductionOverValue:false,
             scaleOver:false,
-            colorOver:false
+            colorOver:false,
+            seriesOver:false
         }
         if(noName){
             dispatch(recordErrorAction({...error,...{nameNoValue:true}}))
@@ -53,6 +57,9 @@ const record=({
         }else if(overColor){
             dispatch(recordErrorAction({...error,...{colorOver:true}}))
             dispatch(resetLoadingAction());
+        }else if(overSeries){
+            dispatch(recordErrorAction({...error,...{seriesOver:true}}))
+            dispatch(resetLoadingAction());
         }else{
             if(!howToGetProduction){
                 howToGetProduction="不明"
@@ -63,6 +70,9 @@ const record=({
             if(!color){
                 color="ノーマル"
             }
+            if(!series){
+                series="不明"
+            }
             const data={
                 uid:user.uid,
                 uploadTime:Timestamp.now(),
@@ -71,12 +81,14 @@ const record=({
                 scale:scale,
                 color:color,
                 howToGetProduction:howToGetProduction,
+                series:series
             }
             await addDoc(collection(db,"productions"),data);
             await updateDoc(doc(db,"profile",user.uid),{
                 howToGetProduction:arrayUnion(howToGetProduction),
                 scale:arrayUnion(scale),
-                color:arrayUnion(color)
+                color:arrayUnion(color),
+                series:arrayUnion(series)
             });
             dispatch(addHowToGetProductionList(howToGetProduction))
             .then(()=>{

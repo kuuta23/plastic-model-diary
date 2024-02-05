@@ -5,7 +5,8 @@ export const profileAction=(profileState)=>{
         payload:{
             name:profileState.name,
             howToGetProduction:profileState.howToGetProduction,
-            scale:profileState.scale
+            scale:profileState.scale,
+            color:profileState.color
         }
     }
 }
@@ -16,7 +17,8 @@ export const profileResetAction=()=>{
     payload:{
       name:"",
       howToGetProduction:[],
-      scale:[]
+      scale:[],
+      color:[]
     }
   }
 }

@@ -13,7 +13,8 @@ const selectorProfile=()=>{
             name:Snapshot.data().name,
             howToGetProduction:Snapshot.data().howToGetProduction,
             scale:Snapshot.data().scale,
-            color:Snapshot.data().color
+            color:Snapshot.data().color,
+            series:Snapshot.data().series
         }))
     }
 }

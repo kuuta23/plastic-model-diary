@@ -10,13 +10,14 @@ import { legacy_createStore } from 'redux'
 import HowTogetProduction from './HowToGetProduction/HowTogetProduction'
 import Scale from './Scale/Scale'
 import Color from './Color/Color'
+import Series from './Series/Series'
 
-const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButton,scale,pageId,color}) => {
+const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButton,scale,pageId,color,series}) => {
   useEffect(()=>{
     const newLineCnt=newLineCount(comment).length;
     const element=document
     const frame = element.getElementById(pageId+"-production-frame-"+id)
-    frame.style.height=(150+newLineCnt*24)+"px"
+    frame.style.height=(180+newLineCnt*24)+"px"
 
     
   },[id])
@@ -57,6 +58,11 @@ const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButto
       className={styles.Color}>
         <Color
         color={color}/>
+      </div>
+      <div
+      className={styles.Series}>
+        <Series
+        value={series}/>
       </div>
       
       {
