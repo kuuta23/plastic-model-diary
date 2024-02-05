@@ -4,11 +4,15 @@ import styles from './Sidebar.module.css'
 import MainButton from './MainButton/MainButton'
 import Contents from './Contents/Contents'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { recordErrorResetAction } from '../../reducks/error/record/actions'
 
 const Sidebar = () => {
   const navigate=useNavigate();
+  const dispatch=useDispatch()
   const onClick=()=>{
-    navigate("/Record")
+    dispatch(recordErrorResetAction())
+    navigate("/Record/Production")
   }
   return (
     <div

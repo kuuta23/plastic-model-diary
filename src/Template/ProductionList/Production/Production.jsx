@@ -45,25 +45,29 @@ const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButto
         ):<></>
       }
       <div
-      className={styles.Scale}>
-        <Scale
-        scale={scale}/>
+      className={styles.SubFrame}>
+        <div
+        className={styles.Scale}>
+          <Scale
+          scale={scale}/>
+        </div>
+        <div
+        className={styles.HowTogetProduction}>
+          <HowTogetProduction
+          howToGetProduction={howToGetProduction}/>
+        </div>
+        <div
+        className={styles.Color}>
+          <Color
+          color={color}/>
+        </div>
+        <div
+        className={styles.Series}>
+          <Series
+          value={series}/>
+        </div>
       </div>
-      <div
-      className={styles.HowTogetProduction}>
-        <HowTogetProduction
-        howToGetProduction={howToGetProduction}/>
-      </div>
-      <div
-      className={styles.Color}>
-        <Color
-        color={color}/>
-      </div>
-      <div
-      className={styles.Series}>
-        <Series
-        value={series}/>
-      </div>
+      
       
       {
         deleteButton?(
