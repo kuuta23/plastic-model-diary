@@ -6,6 +6,7 @@ import { ProductionList } from '../../Template';
 import selectorProductions from '../../reducks/productions/operations/selectorProduction';
 import { AdsCard } from '../../Template/AdsCard/AdsCard';
 import styles from './Profile.module.css'
+import selectorProfile from '../../reducks/profile/operations/selectorProfile';
 
 const Profile = () => {
   const user = useSelector(state=>state.user);
@@ -16,6 +17,7 @@ const Profile = () => {
   useEffect(()=>{
     if(!user.isSignedIn){navigate("/LogIn/SignIn")}
     dispatch(selectorProductions(20,true))
+    dispatch(selectorProfile())
   },[profile.name])
   if(user.isSignedIn){
     return (
