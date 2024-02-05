@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Color = ({color="不明"}) => {
+const Color = ({color="ノーマル"}) => {
   return (
     <div>
       <span>カラー　：</span><span>{color}</span>
