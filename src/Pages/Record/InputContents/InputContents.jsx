@@ -89,7 +89,8 @@ const InputContents = () => {
           valueCnt={[...howToGetProduction].length}
           limit={howToGetProductionLimit}/>
         </div>
-        <div>
+        <div
+        className={styles.Color}>
           <Color
           onChange={inputColor}
           valueCnt={[...color].length}
