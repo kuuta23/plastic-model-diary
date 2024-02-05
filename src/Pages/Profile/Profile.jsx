@@ -17,7 +17,6 @@ const Profile = () => {
   useEffect(()=>{
     if(!user.isSignedIn){navigate("/LogIn/SignIn")}
     dispatch(selectorProductions(20,true))
-    dispatch(selectorProfile())
   },[profile.name])
   if(user.isSignedIn){
     return (
@@ -32,7 +31,7 @@ const Profile = () => {
         <AdsCard/>
       </div>
     )
-  }
+  }else{return(<></>)}
   
 }
 

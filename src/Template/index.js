@@ -16,3 +16,4 @@ export { default as EnterButton } from "./EnterButton/EnterButton"
 
 export { default as ValueCnt } from "./ValueCnt/ValueCnt"
 export { default as Error } from "./Error/Error"
+export { default as SubInputText } from "./SubInputText/SubInputText"

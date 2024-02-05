@@ -16,7 +16,7 @@ const record=({
     scale,
     scaleLimit,
     color,
-    colorOver,
+    colorLimit,
     series,
     seriesLimit
 })=>{
@@ -28,7 +28,7 @@ const record=({
         const overComment=overValue(comment,commentValueLimit)
         const overHowToGetProduction=overValue(howToGetProduction,howToGetProductionLimit)
         const overScale=overValue(scale,scaleLimit)
-        const overColor=overValue(color,colorOver)
+        const overColor=overValue(color,colorLimit)
         const overSeries=overValue(series,seriesLimit)
         const error={
             nameNoValue:false,

@@ -1,0 +1,7 @@
+export { default as Name } from "./Name/ProductionName"
+export { default as Comment } from "./Comment/Comment"
+export { default as Color } from "./Color/Color"
+export { default as Scale } from "./Scale/Scale"
+export { default as Series } from "./Series/Series"
+export { default as HowToGetProduction } from "./HowToGetProduction/HowToGetProduction"
+export { default as Enter } from "./EnterButton/EnterButton"

@@ -1,0 +1,11 @@
+.Frame{
+    display: inline-block;
+}
+.WarningTextList{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+.WarningText{
+    margin: 0px;
+}

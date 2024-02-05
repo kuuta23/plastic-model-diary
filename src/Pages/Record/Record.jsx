@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import styles from './Record.module.css'
-import InputContents from './InputContents/InputContents'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import { resetLoadingAction } from '../../reducks/loading/actions'
+import SendInput from './SendInput/SendInput'
 
 const Record = () => {
   const navigate=useNavigate();
@@ -18,7 +18,8 @@ const Record = () => {
   return (
     <div
     className={styles.Frame}>
-        <InputContents/>
+      <SendInput/>
+      <Outlet/>
       
     </div>
   )

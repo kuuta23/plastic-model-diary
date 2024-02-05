@@ -1,10 +1,9 @@
 import React, { useDebugValue } from 'react'
 import styles from "./ProductionName.module.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { Error, ValueCnt } from '../../../../Template';
-import { recordErrorResetAction } from '../../../../reducks/error/record/actions';
+import { Error, ValueCnt } from '../../../../../Template';
 
-const ProductionName = ({onChange,nameValuelimit,valueCnt}) => {
+const ProductionName = ({onChange,limit,value}) => {
   const recordError=useSelector(state=>state.recordError);
   return (
     <div
@@ -17,8 +16,8 @@ const ProductionName = ({onChange,nameValuelimit,valueCnt}) => {
       placeholder='作品名'
       onChange={onChange} />
       <ValueCnt
-      limit={nameValuelimit}
-      valueCnt={valueCnt}/>
+      limit={limit}
+      valueCnt={[...value].length}/>
       <Error
       noValue={recordError.nameNoValue}
       overValue={recordError.nameOverValue}/>

@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from "./ProductionComment.module.css"
-import { Error, ValueCnt } from '../../../../Template'
+import styles from "./Comment.module.css"
 import { useSelector } from 'react-redux';
+import { Error, ValueCnt } from '../../../../../Template';
 
-const ProductionComment = ({onChange,valueCnt=0,limit=1}) => {
+const ProductionComment = ({onChange,value="",limit=1}) => {
     const recordError=useSelector(state=>state.recordError);
   return (
     <div
@@ -17,7 +17,7 @@ const ProductionComment = ({onChange,valueCnt=0,limit=1}) => {
       cols="30" 
       rows="10"></textarea>
       <ValueCnt
-      valueCnt={valueCnt}
+      valueCnt={[...value].length}
       limit={limit}/>
       <Error
       overValue={recordError.commentOverValue}/>
