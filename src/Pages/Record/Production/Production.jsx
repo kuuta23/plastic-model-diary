@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { loadingAction } from '../../../reducks/loading/actions';
-import record from '../../../reducks/record/operations/record';
 import styles from "./Production.module.css"
 import { Color, Comment, Enter, HowToGetProduction, Name, Series } from './InputContents';
 import Scale from './InputContents/Scale/Scale';
+import productionRecord from '../../../reducks/record/operations/productionRecord';
 
 const Production = () => {
   const [productionName,setProductionName]=useState(""),
@@ -43,7 +43,7 @@ const Production = () => {
   const onSubmit=(event)=>{
     event.preventDefault();
     dispatch(loadingAction())
-    dispatch(record({
+    dispatch(productionRecord({
       name:productionName,
       nameValueLimit:30,
       comment:productionCommment,

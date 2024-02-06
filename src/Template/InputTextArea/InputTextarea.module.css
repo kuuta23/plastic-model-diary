@@ -1,0 +1,8 @@
+.Frame{
+    width: 80%;
+}
+
+.Textarea{
+    width: 100%;
+    resize: none;
+}

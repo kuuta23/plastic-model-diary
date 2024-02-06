@@ -33,7 +33,6 @@
 .Frame{
     position: relative;
     overflow: hidden;
-    height: 0px;
     box-sizing: border-box;
     display: block;
     border-bottom: black 1px solid;

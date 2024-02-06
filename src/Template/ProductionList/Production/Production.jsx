@@ -13,14 +13,14 @@ import Color from './Color/Color'
 import Series from './Series/Series'
 
 const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButton,scale,pageId,color,series}) => {
-  useEffect(()=>{
-    const newLineCnt=newLineCount(comment).length;
-    const element=document
-    const frame = element.getElementById(pageId+"-production-frame-"+id)
-    frame.style.height=(180+newLineCnt*24)+"px"
+  // useEffect(()=>{
+  //   const newLineCnt=newLineCount(comment).length;
+  //   const element=document
+  //   const frame = element.getElementById(pageId+"-production-frame-"+id)
+  //   frame.style.height=(180+newLineCnt*24)+"px"
 
     
-  },[id])
+  // },[id])
   return (
     <div
     id={pageId+'-production-frame-'+id}

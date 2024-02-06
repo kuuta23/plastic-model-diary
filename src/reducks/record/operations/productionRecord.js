@@ -6,7 +6,7 @@ import { resetLoadingAction } from "../../loading/actions";
 import { recordErrorAction, recordErrorResetAction } from "../../error/record/actions";
 import addHowToGetProductionList from "../../profile/operations/addHowToGetProductionList";
 
-const record=({
+const productionRecord=({
     name,
     nameValueLimit,
     comment,
@@ -101,4 +101,4 @@ const record=({
         }
     }
 }
-export default record
+export default productionRecord
