@@ -4,6 +4,7 @@ import { ProductionList } from '../../Template'
 import { useDispatch, useSelector } from 'react-redux'
 import selectorProductions from '../../reducks/productions/operations/selectorProduction'
 import { AdsCard } from '../../Template/AdsCard/AdsCard'
+import { loadingAction } from '../../reducks/loading/actions'
 
 const Home = () => {
   const dispatch=useDispatch();
@@ -21,7 +22,6 @@ const Home = () => {
       userName={profile.name}
       productionList={productions.productions}
       deleteButton={false}/>
-      <AdsCard/>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { addDoc, collection, doc } from "firebase/firestore";
+import { addDoc, collection, doc, serverTimestamp } from "firebase/firestore";
 import { noValue, overValue } from "../../../Template"
 import { recordErrorAction, recordErrorResetAction } from "../../error/record/actions";
 import { db } from "../../../firebase";
@@ -25,7 +25,8 @@ const commentRecord=({comment="",commentLimit=0})=>{
         }else{
             const data={
                 uid:user.uid,
-                comment:comment
+                comment:comment,
+                uploadDate:serverTimestamp()
             }
             await addDoc(singleCommentDoc,data)
             .then(()=>{

@@ -38,6 +38,16 @@ const initialState={
                 }
             ]
         ]
+    },
+    comments:{
+        comments:[
+            [
+                {
+                    id:"",
+                    name:""
+                }
+            ]
+        ]
     }
 }
 export default initialState

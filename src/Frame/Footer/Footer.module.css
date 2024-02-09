@@ -1,0 +1,9 @@
+@media screen and (max-width:450px){
+    .Frame{
+        height: 50px;
+        width: 100%;
+        background-color: black;
+        position:absolute;
+        bottom: 0px;
+    }
+}

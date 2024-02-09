@@ -5,6 +5,7 @@ import Enter from './InputContents/Enter/Enter';
 import { useDispatch, useSelector } from 'react-redux';
 import commentRecord from '../../../reducks/record/operations/commentRecord';
 import { loadingAction } from '../../../reducks/loading/actions';
+import { serverTimestamp } from 'firebase/firestore';
 
 const Comment = () => {
   const dispatch=useDispatch()
@@ -19,8 +20,9 @@ const Comment = () => {
     dispatch(loadingAction())
     dispatch(commentRecord({
       comment:comment,
-      commentLimit:commentLimit
+      commentLimit:commentLimit,
     }))
+    
   }
   return (
     <div>

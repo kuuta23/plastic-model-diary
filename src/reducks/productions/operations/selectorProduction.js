@@ -2,6 +2,7 @@ import { collection, getDocs, limit, orderBy, query, where } from "firebase/fire
 import { db } from "../../../firebase";
 import { productionsAction } from "../actions";
 import { withExtraArgument } from "redux-thunk";
+import { loadingAction, resetLoadingAction } from "../../loading/actions";
 
 const selectorProductions=(length=10,original_only=false)=>{
     return async(dispatch,setState)=>{
@@ -44,12 +45,14 @@ const selectorProductions=(length=10,original_only=false)=>{
                 scale:value.data().scale,
                 id:value.id,
                 color:value.data().color,
-                series:value.data().series
+                series:value.data().series,
+                uploadDate:value.data().uploadTime
             }
 
             
         })
-        dispatch(productionsAction({productions:values}))
+        dispatch(productionsAction({productions:values}));
+        dispatch(resetLoadingAction())
     }
 }
 export default selectorProductions

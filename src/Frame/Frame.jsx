@@ -5,6 +5,8 @@ import styles from './Frame.module.css'
 import Header from './Header/Header'
 import Sidebar from './Sidebar/Sidebar'
 import MainContent from './MainContent/MainContent'
+import Footer from './Footer/Footer'
+import Ad from './Ad/Ad'
 
 const Frame = ({mainContent}) => {
   return (
@@ -14,6 +16,8 @@ const Frame = ({mainContent}) => {
       <Sidebar/>
       <MainContent
       mainContent={mainContent}/>
+      <Footer/>
+      <Ad/>
     </div>
   )
 }

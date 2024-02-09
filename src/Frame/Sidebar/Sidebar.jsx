@@ -12,7 +12,7 @@ const Sidebar = () => {
   const dispatch=useDispatch()
   const onClick=()=>{
     dispatch(recordErrorResetAction())
-    navigate("/Record/Production")
+    navigate("/Record/Comment")
   }
   return (
     <div
