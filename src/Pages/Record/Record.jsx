@@ -12,7 +12,7 @@ const Record = () => {
   const user=selector.user;
 
   useEffect(()=>{
-    if(!user.isSignedIn){navigate("/Login/SignUp")}
+    if(!user.isSignedIn){navigate("/Login/SignIn")}
     dispatch(resetLoadingAction())
   },[])
   return (

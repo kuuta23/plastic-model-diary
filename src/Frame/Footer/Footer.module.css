@@ -1,9 +1,19 @@
+.Frame{
+    display: none;
+}
 @media screen and (max-width:450px){
     .Frame{
+        display: block;
         height: 50px;
         width: 100%;
         background-color: black;
         position:absolute;
         bottom: 0px;
     }
+}
+.SubContent{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: absolute;
 }
