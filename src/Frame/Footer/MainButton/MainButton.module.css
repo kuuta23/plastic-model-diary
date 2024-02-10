@@ -7,9 +7,10 @@
     
 }
 .Button{
-    width: 60px;
+    width: 70px;
     height: 40px;
     border-radius: 20px;
     font-weight: bold;
     font-size: 16px;
+    color: black;
 }
