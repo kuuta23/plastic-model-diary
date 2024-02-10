@@ -46,7 +46,8 @@ const selectorProductions=(length=10,original_only=false)=>{
                 id:value.id,
                 color:value.data().color,
                 series:value.data().series,
-                uploadDate:value.data().uploadTime
+                uploadDate:value.data().uploadTime,
+                situation:value.data().situation
             }
 
             

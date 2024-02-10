@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { loadingAction } from '../../../reducks/loading/actions';
 import styles from "./Production.module.css"
-import { Color, Comment, Enter, HowToGetProduction, Name, Series } from './InputContents';
+import { Color, Comment, Enter, HowToGetProduction, Name, Series, Situation } from './InputContents';
 import Scale from './InputContents/Scale/Scale';
 import productionRecord from '../../../reducks/record/operations/productionRecord';
 
@@ -12,7 +12,8 @@ const Production = () => {
         [howToGetProduction,setHowToGetProduction]=useState(""),
         [scale,setScale]=useState(""),
         [color,setColor]=useState(""),
-        [series,setSeries]=useState("");
+        [series,setSeries]=useState(""),
+        [situation,setSituation]=useState();
   const dispatch=useDispatch()
   const nameValueLimit=30,
         commentValueLimit=200,
@@ -39,6 +40,9 @@ const Production = () => {
   const inputSeries=useCallback((event)=>{
     setSeries(event.target.value)
   },[setSeries])
+  const inputSituatio=useCallback((event)=>{
+    setSituation(event.target.value)
+  },[setSituation])
 
   const onSubmit=(event)=>{
     event.preventDefault();
@@ -55,7 +59,8 @@ const Production = () => {
       color:color,
       colorLimit:colorLimit,
       series:series,
-      seriesLimit:seriesLimit
+      seriesLimit:seriesLimit,
+      situation:situation
     }))
 
   }
@@ -105,6 +110,12 @@ const Production = () => {
             onChange={inputHowToGetProduction}
             limit={howToGetProductionLimit}/>
         </div>
+        <div
+        className={styles.Situation}>
+          <Situation
+          onChange={inputSituatio}/>
+        </div>
+       
         <div
         className={styles.Enter}>
             <Enter/>

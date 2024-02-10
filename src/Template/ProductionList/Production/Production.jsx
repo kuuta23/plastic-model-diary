@@ -11,8 +11,9 @@ import HowTogetProduction from './HowToGetProduction/HowTogetProduction'
 import Scale from './Scale/Scale'
 import Color from './Color/Color'
 import Series from './Series/Series'
+import Situation from './Situation/Situation'
 
-const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButton,scale,pageId,color,series}) => {
+const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButton,scale,pageId,color,series,situation}) => {
   // useEffect(()=>{
   //   const newLineCnt=newLineCount(comment).length;
   //   const element=document
@@ -25,6 +26,10 @@ const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButto
     <div
     id={pageId+'-production-frame-'+id}
     className={styles.Frame}>
+      <div>
+        <Situation
+        situation={situation}/>
+      </div>
       <div
       className={styles.UserName}>
         <UserName

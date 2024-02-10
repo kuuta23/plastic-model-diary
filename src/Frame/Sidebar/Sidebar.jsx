@@ -27,10 +27,11 @@ const Sidebar = () => {
           },{
             value:"プロフィール",
             link:"/Profile"
-          },{
-            value:"リスト",
-            link:"/List"
-          }
+          },
+          // {
+          //   value:"リスト",
+          //   link:"/List"
+          // }
         ]}/>
       </div>
       <div

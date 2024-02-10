@@ -23,7 +23,8 @@ const ProductionList = ({productionList=[],deleteButton=false,id}) => {
             howToGetProduction={doc.howToGetProduction}
             scale={doc.scale}
             color={doc.color}
-            series={doc.series}/>
+            series={doc.series}
+            situation={doc.situation}/>
         ))
       }
       

@@ -4,7 +4,7 @@
 .Frame{
     width: 100%;
 }
-.ProductionName, .Comment ,.HowToGetProduction,.Scale,.Color,.Series{
+.ProductionName, .Comment ,.HowToGetProduction,.Scale,.Color,.Series,.Situation{
     width: 100%;
     margin: 10px;
     margin-left: 15px;

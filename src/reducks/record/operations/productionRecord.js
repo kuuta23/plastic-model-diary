@@ -18,7 +18,8 @@ const productionRecord=({
     color,
     colorLimit,
     series,
-    seriesLimit
+    seriesLimit,
+    situation
 })=>{
     return async (dispatch,setState)=>{
         const state=setState()
@@ -65,6 +66,9 @@ const productionRecord=({
             if(!series){
                 series="不明"
             }
+            if(!situation){
+                situation=false
+            }
             const data={
                 uid:user.uid,
                 uploadTime:serverTimestamp(),
@@ -75,7 +79,8 @@ const productionRecord=({
                 color:color,
                 howToGetProduction:howToGetProduction,
                 series:series,
-                dairy:[]
+                dairy:[],
+                situation:situation
             }
             await addDoc(collection(db,"productions"),data);
             await updateDoc(doc(db,"profile",user.uid),{

@@ -1,0 +1,16 @@
+.Frame{
+    height: 100%;
+    width: calc(100% - 200px);
+    position: absolute;
+    top: 60px;
+    left: 200px;
+    z-index: 10;
+    display: block;
+}
+.SellectBox{
+    height: 100%;
+    background-color: rgba(0, 0,0, 0.2);
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
