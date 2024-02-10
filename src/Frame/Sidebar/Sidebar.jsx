@@ -27,6 +27,9 @@ const Sidebar = () => {
           },{
             value:"プロフィール",
             link:"/Profile"
+          },{
+            value:"リスト",
+            link:"/List"
           }
         ]}/>
       </div>
