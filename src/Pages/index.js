@@ -12,3 +12,4 @@ export { default as Loading } from "./Loading/Loading"
 export { default as Home } from "./Home/Home"
 
 export { default as Profile } from "./Profile/Profile"
+export { default as List } from "./List/List"

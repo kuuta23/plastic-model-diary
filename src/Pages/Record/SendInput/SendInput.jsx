@@ -4,15 +4,19 @@ import styles from "./SendInput.module.css"
 
 const SendInput = () => {
     const commnetId='comment-link',
-          productionId='production-link';
+          productionId='production-link',
+          dairyId='dairy-link';
     const [comment,setComment]=useState(true),
-          [production,setProduction]=useState(false);
+          [production,setProduction]=useState(false),
+          [dairy,setDairy]=useState(false);
     useEffect(()=>{
-        const commentElement=document.getElementById(commnetId);
-        const productionElement=document.getElementById(productionId)
+        const commentElement=document.getElementById(commnetId),
+              productionElement=document.getElementById(productionId),
+              dairyElement=document.getElementById(dairyId);
         elementSend(commentElement,comment);
         elementSend(productionElement,production)
-    },[comment,production])
+        elementSend(dairyElement,dairy)
+    },[comment,production,dairy])
     const elementSend=(element,click)=>{
         
         if(click){
@@ -28,12 +32,15 @@ const SendInput = () => {
         
     }
     const onClick=(type)=>{
+        setProduction(false)
+        setDairy(false)
+        setComment(false)
         if(type=="comment"){
             setComment(true)
-            setProduction(false)
         }else if(type=="production"){
-            setComment(false)
             setProduction(true)
+        }else if(type=="dairy"){
+            setDairy(true)
         }
     }
   return (
@@ -59,6 +66,17 @@ const SendInput = () => {
             className={styles.Link}
             to={"Production"}>
             プラモデル
+            </Link>
+            
+        </div>
+        <div
+        className={styles.Production}
+        id={dairyId}>
+            <Link
+            onClick={()=>onClick("dairy")}
+            className={styles.Link}
+            to={"Dairy"}>
+            日記
             </Link>
             
         </div>

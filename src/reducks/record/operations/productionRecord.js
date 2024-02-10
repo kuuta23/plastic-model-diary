@@ -1,4 +1,4 @@
-import { Timestamp, addDoc, arrayUnion, collection, doc, setDoc, updateDoc } from "firebase/firestore";
+import { Timestamp, addDoc, arrayUnion, collection, doc, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
 import { noValue, normalValueCondition, overValue } from "../../../Template"
 import { db } from "../../../firebase";
 import { recordAction } from "../actions";
@@ -30,35 +30,27 @@ const productionRecord=({
         const overScale=overValue(scale,scaleLimit)
         const overColor=overValue(color,colorLimit)
         const overSeries=overValue(series,seriesLimit)
-        const error={
-            nameNoValue:false,
-            nameOverValue:false,
-            commentOverValue:false,
-            howToGetProductionOverValue:false,
-            scaleOver:false,
-            colorOver:false,
-            seriesOver:false
-        }
+        dispatch(recordErrorResetAction())
         if(noName){
-            dispatch(recordErrorAction({...error,...{nameNoValue:true}}))
+            dispatch(recordErrorAction({nameNoValue:true}))
             dispatch(resetLoadingAction());
         }else if(overName){
-            dispatch(recordErrorAction({...error,...{nameOverValue:true}}))
+            dispatch(recordErrorAction({nameOverValue:true}))
             dispatch(resetLoadingAction());
         }else if(overComment){
-            dispatch(recordErrorAction({...error,...{commentOverValue:true}}))
+            dispatch(recordErrorAction({commentOverValue:true}))
             dispatch(resetLoadingAction());
         }else if(overHowToGetProduction){
-            dispatch(recordErrorAction({...error,...{howToGetProductionOverValue:true}}))
+            dispatch(recordErrorAction({howToGetProductionOverValue:true}))
             dispatch(resetLoadingAction());
         }else if(overScale){
-            dispatch(recordErrorAction({...error,...{scaleOver:true}}))
+            dispatch(recordErrorAction({scaleOver:true}))
             dispatch(resetLoadingAction());
         }else if(overColor){
-            dispatch(recordErrorAction({...error,...{colorOver:true}}))
+            dispatch(recordErrorAction({colorOver:true}))
             dispatch(resetLoadingAction());
         }else if(overSeries){
-            dispatch(recordErrorAction({...error,...{seriesOver:true}}))
+            dispatch(recordErrorAction({seriesOver:true}))
             dispatch(resetLoadingAction());
         }else{
             if(!howToGetProduction){
@@ -75,13 +67,15 @@ const productionRecord=({
             }
             const data={
                 uid:user.uid,
-                uploadTime:Timestamp.now(),
+                uploadTime:serverTimestamp(),
+                latestTime:serverTimestamp(),
                 name:name,
                 comment:comment,
                 scale:scale,
                 color:color,
                 howToGetProduction:howToGetProduction,
-                series:series
+                series:series,
+                dairy:[]
             }
             await addDoc(collection(db,"productions"),data);
             await updateDoc(doc(db,"profile",user.uid),{

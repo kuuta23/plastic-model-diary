@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { Comment, Home, Login, Production, Profile, Record, SignIn, SignOut, SignUp } from './Pages'
+import { Comment, Home, List, Login, Production, Profile, Record, SignIn, SignOut, SignUp } from './Pages'
 
 const Router = () => {
   return (
@@ -27,7 +27,12 @@ const Router = () => {
           <Route
           path='Comment'
           element={<Comment/>}/>
+          <Route
+          path='Dairy'/>
         </Route>
+        <Route
+        path='/List'
+        element={<List/>}/>
         <Route
         element={<Profile/>}
         path='/Profile'/>
