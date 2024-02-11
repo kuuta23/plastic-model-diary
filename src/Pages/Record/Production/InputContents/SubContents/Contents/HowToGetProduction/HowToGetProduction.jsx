@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from "./Series.module.css"
+import styles from "./HowToGetProduction.module.css"
 import { useSelector } from 'react-redux'
-import { SubInputText } from '../../../../../Template'
+import { SubInputText } from '../../../../../../../Template'
 
-const Series = ({value,limit,onChange}) => {
+const HowToGetProduction = ({value="",limit,onChange}) => {
     const recordError=useSelector(state=>state.recordError)
     const profile=useSelector(state=>state.profile)
 
@@ -14,14 +14,14 @@ const Series = ({value,limit,onChange}) => {
       value={value}
       onChange={onChange}
       limit={limit}
-      placeholder='シリーズ'
-      name='series'
-      listName='seriesList'
-      listValue={profile.series}
+      placeholder='入手方法'
+      name='howToGetProduction'
+      listName='howToGetProductionList'
+      listValue={profile.howToGetProduction}
       warningTextList={["未入力の場合は、「不明」になります。"]}
-      overValue={recordError.seriesOver}/>
+      overValue={recordError.howToGetProductionOverValue}/>
     </div>
   )
 }
 
-export default Series
+export default HowToGetProduction

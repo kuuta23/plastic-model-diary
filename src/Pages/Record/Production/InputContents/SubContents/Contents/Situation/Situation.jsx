@@ -1,6 +1,6 @@
 import React from 'react'
-import { InputRadio } from '../../../../../Template'
 import styles from "./Situation.module.css"
+import { InputRadio } from '../../../../../../../Template'
 
 const Situation = ({onChange}) => {
   return (

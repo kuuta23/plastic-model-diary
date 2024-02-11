@@ -1,9 +1,8 @@
 import React from 'react'
-import styles from "./Scale.module.css"
+import styles from "./Series.module.css"
 import { useSelector } from 'react-redux'
-import { SubInputText } from '../../../../../Template'
-
-const Scale = ({value="",limit,onChange}) => {
+import { SubInputText } from '../../../../../../../Template'
+const Series = ({value,limit,onChange}) => {
     const recordError=useSelector(state=>state.recordError)
     const profile=useSelector(state=>state.profile)
 
@@ -14,14 +13,14 @@ const Scale = ({value="",limit,onChange}) => {
       value={value}
       onChange={onChange}
       limit={limit}
-      placeholder='スケール'
-      name='scale'
-      listName='scaleList'
-      listValue={profile.scale}
+      placeholder='シリーズ'
+      name='series'
+      listName='seriesList'
+      listValue={profile.series}
       warningTextList={["未入力の場合は、「不明」になります。"]}
-      overValue={recordError.scaleOver}/>
+      overValue={recordError.seriesOver}/>
     </div>
   )
 }
 
-export default Scale
+export default Series

@@ -16,7 +16,6 @@ const SubInputText = (
         noValue=false,
         warningTextList=[]
     }) => {
-      console.log(warningTextList);
   return (
     <div
     className={styles.Frame}>

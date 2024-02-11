@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getStorage } from "firebase/storage"
 import { getAuth} from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
@@ -19,9 +20,7 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
-// console.log("APIKEY:",process.env.REACT_APP_FIREBASE_APIKEY);
-
-// Initialize Firebase
 initializeApp(firebaseConfig);
 export const db = getFirestore()
 export const auth = getAuth();
+export const storage=getStorage();

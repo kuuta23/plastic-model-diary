@@ -1,0 +1,5 @@
+export { default as Name } from "./InputContents/Name/ProductionName"
+export { default as Comment } from "./InputContents/Comment/Comment"
+export { default as Image } from "./InputContents/Image/Image"
+export { default as Enter } from "./InputContents/EnterButton/EnterButton"
+export { default as SubContents } from "./InputContents/SubContents/SubContents"

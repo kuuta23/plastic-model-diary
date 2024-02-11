@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from "./HowToGetProduction.module.css"
+import styles from "./Scale.module.css"
 import { useSelector } from 'react-redux'
-import { SubInputText } from '../../../../../Template'
+import { SubInputText } from '../../../../../../../Template'
 
-const HowToGetProduction = ({value="",limit,onChange}) => {
+const Scale = ({value="",limit,onChange}) => {
     const recordError=useSelector(state=>state.recordError)
     const profile=useSelector(state=>state.profile)
 
@@ -14,14 +14,14 @@ const HowToGetProduction = ({value="",limit,onChange}) => {
       value={value}
       onChange={onChange}
       limit={limit}
-      placeholder='入手方法'
-      name='howToGetProduction'
-      listName='howToGetProductionList'
-      listValue={profile.howToGetProduction}
+      placeholder='スケール'
+      name='scale'
+      listName='scaleList'
+      listValue={profile.scale}
       warningTextList={["未入力の場合は、「不明」になります。"]}
-      overValue={recordError.howToGetProductionOverValue}/>
+      overValue={recordError.scaleOver}/>
     </div>
   )
 }
 
-export default HowToGetProduction
+export default Scale

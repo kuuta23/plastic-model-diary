@@ -2,9 +2,10 @@ import React, { useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { loadingAction } from '../../../reducks/loading/actions';
 import styles from "./Production.module.css"
-import { Color, Comment, Enter, HowToGetProduction, Name, Series, Situation } from './InputContents';
-import Scale from './InputContents/Scale/Scale';
 import productionRecord from '../../../reducks/record/operations/productionRecord';
+import SubContents from './InputContents/SubContents/SubContents';
+import { Enter, Name, Comment, Image} from '.';
+
 
 const Production = () => {
   const [productionName,setProductionName]=useState(""),
@@ -13,7 +14,9 @@ const Production = () => {
         [scale,setScale]=useState(""),
         [color,setColor]=useState(""),
         [series,setSeries]=useState(""),
-        [situation,setSituation]=useState();
+        [situation,setSituation]=useState(),
+        [image,setImage]=useState(""),
+        [imageFile,setImageFile]=useState("");
   const dispatch=useDispatch()
   const nameValueLimit=30,
         commentValueLimit=200,
@@ -43,6 +46,20 @@ const Production = () => {
   const inputSituatio=useCallback((event)=>{
     setSituation(event.target.value)
   },[setSituation])
+  
+  const inputImage=useCallback((event)=>{
+    console.log(event.target.files);
+    if(!event.target.files[0]){
+      setImage("")
+      setImageFile("")
+      return
+    }else{
+      const imageObject=event.target.files[0]
+
+      setImage(window.URL.createObjectURL(imageObject))
+      setImageFile(imageObject)
+    }
+  },[setImage,setImageFile])
 
   const onSubmit=(event)=>{
     event.preventDefault();
@@ -60,7 +77,8 @@ const Production = () => {
       colorLimit:colorLimit,
       series:series,
       seriesLimit:seriesLimit,
-      situation:situation
+      situation:situation,
+      imageFile:imageFile
     }))
 
   }
@@ -82,40 +100,25 @@ const Production = () => {
             onChange={inputProductionComment}
             limit={commentValueLimit}/>
         </div>
-        <div
-        className={styles.Series}>
-            <Series
-            value={series}
-            onChange={inputSeries}
-            limit={seriesLimit}/>
+        <div>
+          <Image
+          imageUrl={image}
+          onChange={inputImage}/>
         </div>
-        <div
-        className={styles.Scale}>
-            <Scale
-            value={scale}
-            onChange={inputScale}
-            limit={scaleLimit}/>
-        </div>
-        <div
-        className={styles.Color}>
-            <Color
-            value={color}
-            onChange={inputColor}
-            limit={colorLimit}/>
-        </div>
-        <div
-        className={styles.HowToGetProduction}>
-            <HowToGetProduction
-            value={howToGetProduction}
-            onChange={inputHowToGetProduction}
-            limit={howToGetProductionLimit}/>
-        </div>
-        <div
-        className={styles.Situation}>
-          <Situation
-          onChange={inputSituatio}/>
-        </div>
-       
+        <SubContents
+          series={series}
+          inputSeries={inputSeries}
+          seriesLimit={seriesLimit}
+          scale={scale}
+          inputScale={inputScale}
+          scaleLimit={scaleLimit}
+          color={color}
+          inputColor={inputColor}
+          colorLimit={colorLimit}
+          howTogetProduction={howToGetProduction}
+          inputhowToGetProduction={inputHowToGetProduction}
+          howTogetProductionLimit={howToGetProductionLimit}
+          inputSituation={inputSituatio}/>
         <div
         className={styles.Enter}>
             <Enter/>

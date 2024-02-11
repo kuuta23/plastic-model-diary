@@ -1,10 +1,11 @@
 import { Timestamp, addDoc, arrayUnion, collection, doc, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
 import { noValue, normalValueCondition, overValue } from "../../../Template"
-import { db } from "../../../firebase";
+import { db, storage } from "../../../firebase";
 import { recordAction } from "../actions";
-import { resetLoadingAction } from "../../loading/actions";
+import { loadingAction, resetLoadingAction } from "../../loading/actions";
 import { recordErrorAction, recordErrorResetAction } from "../../error/record/actions";
 import addHowToGetProductionList from "../../profile/operations/addHowToGetProductionList";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const productionRecord=({
     name,
@@ -19,7 +20,8 @@ const productionRecord=({
     colorLimit,
     series,
     seriesLimit,
-    situation
+    situation,
+    imageFile
 })=>{
     return async (dispatch,setState)=>{
         const state=setState()
@@ -80,9 +82,52 @@ const productionRecord=({
                 howToGetProduction:howToGetProduction,
                 series:series,
                 dairy:[],
-                situation:situation
+                situation:situation,
+                photoUrl:""
             }
-            await addDoc(collection(db,"productions"),data);
+            const productionsRef=collection(db,"productions")
+            await addDoc(productionsRef,data)
+            .then((productionDoc)=>{
+                dispatch(loadingAction())
+                // 写真
+                const storageRef=ref(storage,"images/productions/"+productionDoc.id+"/production.jpg")
+                const uploadTask=uploadBytesResumable(storageRef,imageFile)
+                uploadTask.on('state_changed',
+                (snapshot) => {
+                    dispatch(loadingAction())
+                }, 
+                (error) => {
+                    // A full list of error codes is available at
+                    // https://firebase.google.com/docs/storage/web/handle-errors
+                    switch (error.code) {
+                    case 'storage/unauthorized':
+                        // User doesn't have permission to access the object
+                        break;
+                    case 'storage/canceled':
+                        // User canceled the upload
+                        break;
+
+                    // ...
+
+                    case 'storage/unknown':
+                        // Unknown error occurred, inspect error.serverResponse
+                        break;
+                    }
+                }, 
+                () =>  {
+                    // Upload completed successfully, now we can get the download URL
+                    getDownloadURL(uploadTask.snapshot.ref).then(async(downloadURL) => {
+                    await updateDoc(doc(db,"productions",productionDoc.id),{photoUrl:downloadURL})
+                    dispatch(resetLoadingAction())
+                    });
+                }
+                );
+
+            
+            })
+            
+            
+            
             await updateDoc(doc(db,"profile",user.uid),{
                 howToGetProduction:arrayUnion(howToGetProduction),
                 scale:arrayUnion(scale),

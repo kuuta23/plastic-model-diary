@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { SubInputText } from '../../../../../Template';
+import { SubInputText } from '../../../../../../../Template';
 
 const Color = ({onChange,value="",limit}) => {
   const profile=useSelector(state=>state.profile);
