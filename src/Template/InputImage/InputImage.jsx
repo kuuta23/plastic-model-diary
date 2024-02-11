@@ -6,7 +6,7 @@ const InputImage = ({onChange}) => {
       <label htmlFor="">
       <input
       type="file" 
-      accept='image/*'
+      accept='image/*,.jpg'
       src="" alt=""
       onChange={onChange}/>
       </label>
