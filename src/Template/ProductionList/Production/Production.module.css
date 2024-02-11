@@ -7,6 +7,14 @@
     cursor: pointer; 
     
 }
+.SituationButton{
+    display: inline-block;
+    position:absolute;
+    top: 40px;
+    right: 50px;
+    z-index: 101;
+    cursor: pointer;     
+}
 .ProductionName{
     display: inline-block;
     margin-left: 20px;

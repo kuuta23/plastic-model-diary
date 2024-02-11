@@ -12,6 +12,7 @@ import Scale from './Scale/Scale'
 import Color from './Color/Color'
 import Series from './Series/Series'
 import Situation from './Situation/Situation'
+import ChangeSituation from './ChengeSituation/ChangeSituation'
 
 const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButton,scale,pageId,color,series,situation}) => {
   // useEffect(()=>{
@@ -76,12 +77,19 @@ const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButto
       
       {
         deleteButton?(
+          <>
           <div
           className={styles.DeleteButton}>
             <DeleteButton
             id={id}
             uid={uid}/>
           </div>
+          <div
+          className={styles.SituationButton}>
+            <ChangeSituation
+            id={id}/>
+          </div>
+          </>
         ):<></>
       }
       
