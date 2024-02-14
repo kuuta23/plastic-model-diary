@@ -1,5 +1,5 @@
 export const COMMENTS="COMMENTS";
-export const commentAction=(commentsState)=>{
+export const commentsAction=(commentsState)=>{
     return{
         type:"COMMENTS",
         payload:{

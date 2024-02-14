@@ -37,9 +37,10 @@ const selectorProductions=(length=10,original_only=false)=>{
                 }
             }
             return{
+                type:"production",
                 uid:value.data().uid,
                 userName:name,
-                name:value.data().name,
+                productionName:value.data().name,
                 comment:value.data().comment,
                 howToGetProduction:value.data().howToGetProduction,
                 scale:value.data().scale,
@@ -47,13 +48,13 @@ const selectorProductions=(length=10,original_only=false)=>{
                 color:value.data().color,
                 series:value.data().series,
                 uploadDate:value.data().uploadTime,
-                situation:value.data().situation
+                situation:value.data().situation,
+                photoUrl:value.data().photoUrl
             }
 
             
         })
         dispatch(productionsAction({productions:values}));
-        dispatch(resetLoadingAction())
     }
 }
 export default selectorProductions

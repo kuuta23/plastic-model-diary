@@ -21,3 +21,5 @@ export { default as InputTextarea} from "./InputTextArea/InputTextarea"
 export { default as InputRadio } from "./InputRadio/InputRadio"
 export { default as InputImage } from "./InputImage/InputImage"
 export { default as DisplayImage } from "./DisplayImage/DisplayImage"
+
+export { default as AllList } from "./AllList/AllList"

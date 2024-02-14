@@ -41,12 +41,7 @@ const initialState={
     },
     comments:{
         comments:[
-            [
-                {
-                    id:"",
-                    name:""
-                }
-            ]
+            
         ]
     }
 }

@@ -13,8 +13,23 @@ import Color from './Color/Color'
 import Series from './Series/Series'
 import Situation from './Situation/Situation'
 import ChangeSituation from './ChengeSituation/ChangeSituation'
+import Image from './Image/Image'
 
-const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButton,scale,pageId,color,series,situation}) => {
+const Production = (
+  {
+    name,
+    id,
+    userName,
+    uid,
+    comment,
+    howToGetProduction,
+    deleteButton,
+    scale,
+    pageId,
+    color,
+    series,
+    situation,
+    photoUrl}) => {
   // useEffect(()=>{
   //   const newLineCnt=newLineCount(comment).length;
   //   const element=document
@@ -51,28 +66,39 @@ const Production = ({name,id,userName,uid,comment,howToGetProduction,deleteButto
         ):<></>
       }
       <div
-      className={styles.SubFrame}>
+      className={styles.Contents}>
         <div
-        className={styles.Scale}>
-          <Scale
-          scale={scale}/>
+        className={styles.Image}>
+            <Image
+            imageUrl={photoUrl}/>
         </div>
         <div
-        className={styles.HowTogetProduction}>
-          <HowTogetProduction
-          howToGetProduction={howToGetProduction}/>
-        </div>
-        <div
-        className={styles.Color}>
-          <Color
-          color={color}/>
-        </div>
-        <div
-        className={styles.Series}>
-          <Series
-          value={series}/>
+        className={styles.SubFrame}>
+          <div
+          className={styles.Scale}>
+            <Scale
+            scale={scale}/>
+          </div>
+          <div
+          className={styles.HowTogetProduction}>
+            <HowTogetProduction
+            howToGetProduction={howToGetProduction}/>
+          </div>
+          <div
+          className={styles.Color}>
+            <Color
+            color={color}/>
+          </div>
+          <div
+          className={styles.Series}>
+            <Series
+            value={series}/>
+          </div>
+          
         </div>
       </div>
+      
+      
       
       
       {

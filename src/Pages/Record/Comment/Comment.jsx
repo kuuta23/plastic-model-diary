@@ -6,21 +6,36 @@ import { useDispatch, useSelector } from 'react-redux';
 import commentRecord from '../../../reducks/record/operations/commentRecord';
 import { loadingAction } from '../../../reducks/loading/actions';
 import { serverTimestamp } from 'firebase/firestore';
+import Image from './InputContents/Image/Image';
 
 const Comment = () => {
   const dispatch=useDispatch()
   const recordError=useSelector(state=>state.recordError)
-  const [comment,setComment]=useState("");
+  const [comment,setComment]=useState(""),
+        [imageUrl,setImageUrl]=useState(""),
+        [imagefile,setImageFile]=useState();
+  
   const commentLimit=200;
   const inputComment=useCallback((event)=>{
     setComment(event.target.value)
   },[setComment])
+  const inputImage=useCallback((event)=>{
+    if(!event.target.files[0]){
+      setImageFile("")
+      setImageUrl("")
+    }else{
+      const imageObject=window.URL.createObjectURL(event.target.files[0])
+      setImageUrl(imageObject)
+      setImageFile(event.target.files[0])
+    }
+  },[setImageFile,setImageUrl])
   const onSubmit=(event)=>{
     event.preventDefault();
     dispatch(loadingAction())
     dispatch(commentRecord({
       comment:comment,
       commentLimit:commentLimit,
+      imageFile:imagefile
     }))
     
   }
@@ -34,6 +49,11 @@ const Comment = () => {
           value={comment}
           onChange={inputComment}
           limit={commentLimit}/>
+        </div>
+        <div>
+          <Image
+          onChange={inputImage}
+          imageUrl={imageUrl}/>
         </div>
         <div
         className={styles.Enter}>

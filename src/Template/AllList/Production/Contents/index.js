@@ -1,0 +1,6 @@
+export { default as UserName } from "./UserName/UserName"
+export { default as ProductionName } from "./ProductionName/ProductionName"
+export { default as Comment } from "./ProductionComment/ProductionComment"
+export { default as Image } from "./Image/Image"
+export { default as Situation } from "./Situation/Situation"
+export { default as Detail } from "./Detail/Detail"
