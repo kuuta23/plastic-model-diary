@@ -2,14 +2,18 @@ import React from 'react'
 import styles from "./Detail.module.css"
 import { Color, HowToGet, Scale, Series } from './Contents'
 
-const Detail = () => {
+const Detail = ({value}) => {
   return (
     <div
     className={styles.Frame}>
-      <Color/>
-      <HowToGet/>
-      <Scale/>
-      <Series/>
+      <Color
+      color={value.color}/>
+      <HowToGet
+      howToGetProduction={value.howToGetProduction}/>
+      <Scale
+      scale={value.scale}/>
+      <Series
+      series={value.series}/>
     </div>
   )
 }

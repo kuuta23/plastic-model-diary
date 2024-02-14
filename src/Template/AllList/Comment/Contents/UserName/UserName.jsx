@@ -1,13 +1,11 @@
 import React from 'react'
-import styles from "./UserName.module.css"
 import DisplayUserName from '../../../../DisplayUserName/DisplayUserName'
 
-const UserName = ({name="name"}) => {
+const UserName = ({userName="不明"}) => {
   return (
-    <div
-    className={styles.Frame}>
+    <div>
       <DisplayUserName
-      userName={name}/>
+      userName={userName}/>
     </div>
   )
 }

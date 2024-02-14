@@ -18,20 +18,34 @@ const Production = (
   return (
     <div
     className={styles.Frame}>
+      <Situation
+      situation={value.situation}/>
       <div
       className={styles.UserName}>
-        <Situation
-        situation={value.situation}/>
         <UserName
-        name={value.userName}/>
+        name={value.userName}/>  
+      </div>
+      <div
+      className={styles.ProductionName}>
         <ProductionName
         name={value.productionName}/>
+      </div>
+      <div
+      className={styles.Comment}>
         <Comment
         comment={value.comment}/>
+      </div>
+      <div
+      className={styles.Image}>
         <Image
         imageUrl={value.photoUrl}/>
-        <Detail/>
       </div>
+      <div
+      className={styles.Detail}>
+        <Detail
+        value={value}/>
+      </div>
+      
       
     </div>
   )

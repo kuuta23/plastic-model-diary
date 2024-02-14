@@ -15,40 +15,24 @@
     z-index: 101;
     cursor: pointer;     
 }
-.Contents{
-    margin: 20px;
-    display: flex;
-    flex-wrap: wrap;
-}
-.ProductionName{
-    margin-left: 20px;
-}
-.ProductionComment{
-    margin: 6px;
-}
-.UserName{
-    margin: 4px;
-}
-.Image{
-    display: inline-block;
-}
-.SubFrame{
-    margin: 8px;
-    display: flex;
-    flex-direction: column;
-}
-.HowTogetProduction{
-}
-.Scale{
-}
-.Color{
-}
-.Series{
-}
 .Frame{
     position: relative;
-    overflow: hidden;
     box-sizing: border-box;
     display: block;
     border-bottom: black 1px solid;
+    padding-bottom: 9px;
+}
+.UserName{
+    margin: 3px;
+}
+.ProductionName{
+    margin: 10px;
+}
+.Image{
+    display: inline-block;
+    margin: 10px;
+}
+.Detail{
+    display: inline-block;
+    margin: 12px;
 }
