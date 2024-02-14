@@ -4,6 +4,8 @@ import {commentsAction} from "../actions"
 
 const selectorSigleComment=()=>{
     return async (dispatch,setState)=>{
+        const state=setState()
+        const user=state.user
         const singleCommnetDocs=collection(db,"singleComment");
         const uids=[];
         const q=query(
@@ -13,30 +15,36 @@ const selectorSigleComment=()=>{
         await getDocs(q)
         .then(async(commentSnapShot)=>{
             const data=commentSnapShot.docs.map((value)=>{
+                var edit=false
+                if(user.uid==value.data().uid){
+                    edit=true
+                }
                 uids.push(value.data().uid)
                 return{
+                    edit:edit,
                     type:"comment",
+                    id:value.id,
                     uid:value.data().uid,
                     comment:value.data().comment,
                     photoUrl:value.data().photoUrl,
                     uploadDate:value.data().uploadDate
                 }
             })
-
-
-            const profileDocs=collection(db,"profile");
-            const q=query(profileDocs,where(documentId(),"in",uids))
-            await getDocs(q)
-            .then((profileSnapshot)=>{
-                profileSnapshot.docs.forEach((value)=>{
-                    for(var i=0;i<data.length;i++){
-                        if(data[i].uid===value.id){
-                            
-                            Object.assign(data[i],value.data())
+            if(uids.length!=0){
+                const profileDocs=collection(db,"profile");
+                const q=query(profileDocs,where(documentId(),"in",uids))
+                await getDocs(q)
+                .then((profileSnapshot)=>{
+                    profileSnapshot.docs.forEach((value)=>{
+                        for(var i=0;i<data.length;i++){
+                            if(data[i].uid==value.id){
+                                Object.assign(data[i],value.data())
+                            }
                         }
-                    }
+                    })
                 })
-            })
+            }
+            
             dispatch(commentsAction({comments:data}))
         })
         

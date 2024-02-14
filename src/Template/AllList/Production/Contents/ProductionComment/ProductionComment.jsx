@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './ProductionComment.module.css'
+import DisplayText from '../../../../DisplayText/DisplayText'
 
 const ProductionComment = ({comment}) => {
 
@@ -7,7 +8,8 @@ const ProductionComment = ({comment}) => {
   return (
     <div
     className={styles.Frame}>
-        {comment}
+        <DisplayText
+        text={comment}/>
     </div>
     
   )

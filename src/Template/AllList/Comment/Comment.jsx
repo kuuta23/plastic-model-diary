@@ -1,8 +1,9 @@
 import React from 'react'
-import { CommentCont, Image, UserName } from './Contents'
+import { CommentCont, DeleteButton, Image, UserName } from './Contents'
 import styles from "./Comment.module.css"
 
 const Comment = ({value}) => {
+  console.log(value);
   return (
     <div
     className={styles.Frame}>
@@ -12,6 +13,17 @@ const Comment = ({value}) => {
       comment={value.comment}/>
       <Image
       imageUrl={value.photoUrl}/>
+      {
+        value.edit?(
+          <div
+          className={styles.DeleteButton}>
+            <DeleteButton
+            value={value}/>
+          </div>
+        ):(<></>)
+      }
+      
+      
     </div>
   )
 }

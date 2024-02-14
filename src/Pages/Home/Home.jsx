@@ -26,11 +26,6 @@ const Home = () => {
       <AllList
       productionList={productions.productions}
       commentList={comments.comments}/>
-      <ProductionList
-      id={"home"}
-      userName={profile.name}
-      productionList={productions.productions}
-      deleteButton={false}/>
     </div>
   )
 }

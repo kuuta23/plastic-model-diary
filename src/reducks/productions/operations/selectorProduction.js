@@ -31,12 +31,18 @@ const selectorProductions=(length=10,original_only=false)=>{
         
         var name="none"
         const values=Snapshot.docs.map((value)=>{
+            var edit =false
+            if(user.uid==value.data().uid){
+                edit=true
+            }
             for(var i=0;i<profileSnapShot.docs.length;i++){
                 if(profileSnapShot.docs[i].id==value.data().uid){
                     name=profileSnapShot.docs[i].data().name
                 }
+                
             }
             return{
+                edit:edit,
                 type:"production",
                 uid:value.data().uid,
                 userName:name,

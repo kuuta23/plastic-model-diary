@@ -1,9 +1,11 @@
 import React from 'react'
+import DisplayText from '../../../../DisplayText/DisplayText'
 
 const Comment = ({comment}) => {
   return (
     <div>
-      {comment}
+      <DisplayText
+      text={comment}/>
     </div>
   )
 }

@@ -1,21 +1,20 @@
 import React from 'react'
 import styles from "./DeleteButton.module.css"
 import { useDispatch, useSelector } from 'react-redux'
-import deleteProduction from '../../../../reducks/productions/operations/deleteProduction';
+import deleteProduction from '../../../../../reducks/productions/operations/deleteProduction';
+import DisplayDeleteButton from '../../../../DeleteButton/DeleteButton';
 
-const DeleteButton = ({id,uid}) => {
+const DeleteButton = ({value}) => {
   const dispatch=useDispatch();
-  const user=useSelector(state=>state.user);
   const onClick=()=>{
-    dispatch(deleteProduction(id))
+    dispatch(deleteProduction(value))
   }
-  if(user.isSignedIn&&uid==user.uid){
+  if(true){
     return (
       <div
       className={styles.Frame}>
-        <button
-        className={styles.Button}
-        onClick={onClick}>削除</button>
+        <DisplayDeleteButton
+        onClick={onClick}/>
       </div>
     )
   }

@@ -1,0 +1,10 @@
+.Frame{
+    display: block;
+}
+.Button{
+    color: brown;
+    background-color: white;
+    border: 1px solid black;
+    width: 70px;
+    border-radius: 10px;
+}

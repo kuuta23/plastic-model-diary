@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import UserName from './UserName/UserName'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
-import { ProductionList } from '../../Template';
+import { AllList, ProductionList } from '../../Template';
 import selectorProductions from '../../reducks/productions/operations/selectorProduction';
 import { AdsCard } from '../../Template/AdsCard/AdsCard';
 import styles from './Profile.module.css'
@@ -12,6 +12,7 @@ const Profile = () => {
   const user = useSelector(state=>state.user);
   const dispatch=useDispatch()
   const productions=useSelector(state=>state.productions)
+  const comments=useSelector(state=>state.comments)
   const profile =useSelector(state=>state.profile)
   const navigate=useNavigate();
   useEffect(()=>{
@@ -24,11 +25,9 @@ const Profile = () => {
       className={styles.Frame}>
         <UserName/>
         <hr />
-        <ProductionList
-        id={"profile"}
+        <AllList
         productionList={productions.productions}
-        deleteButton={true}/>
-        <AdsCard/>
+        commentList={comments.comments}/>
       </div>
     )
   }else{return(<></>)}

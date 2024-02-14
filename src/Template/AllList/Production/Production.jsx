@@ -1,20 +1,12 @@
 import React, { useEffect } from 'react'
 import styles from "./Production.module.css"
-import { Comment, Detail, Image, ProductionName, Situation, UserName } from './Contents'
+import { ChangeSituation, Comment, DeleteButton, Detail, Image, ProductionName, Situation, UserName } from './Contents'
 
 
 const Production = (
   {
     id,
     value}) => {
-  // useEffect(()=>{
-  //   const newLineCnt=newLineCount(comment).length;
-  //   const element=document
-  //   const frame = element.getElementById(pageId+"-production-frame-"+id)
-  //   frame.style.height=(180+newLineCnt*24)+"px"
-
-    
-  // },[id])
   return (
     <div
     className={styles.Frame}>
@@ -45,6 +37,24 @@ const Production = (
         <Detail
         value={value}/>
       </div>
+      {
+        value.edit ?(
+          <>
+            <div
+            className={styles.DeleteButton}>
+              <DeleteButton
+              value={value}/>
+            </div>
+            <div
+            className={styles.SituationButton}>
+              <ChangeSituation
+              value={value}/>
+            </div>
+          </>
+      
+        ):(<></>)
+      }
+      
       
       
     </div>

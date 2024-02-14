@@ -31,12 +31,7 @@ const initialState={
     },
     productions:{
         productions:[
-            [
-                {
-                    id:"",
-                    name:""
-                }
-            ]
+            
         ]
     },
     comments:{
