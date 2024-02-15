@@ -1,11 +1,12 @@
 import React from 'react'
 import DisplayUserName from '../../../../DisplayUserName/DisplayUserName'
 
-const UserName = ({userName="不明"}) => {
+const UserName = ({userName="不明",profileUrl}) => {
   return (
     <div>
       <DisplayUserName
-      userName={userName}/>
+      userName={userName}
+      to={profileUrl}/>
     </div>
   )
 }

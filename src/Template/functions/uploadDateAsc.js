@@ -1,5 +1,5 @@
 const uploadDateAsc=(dateIndata=[])=>{
-    if(dateIndata.length!=1){
+    if(dateIndata.length!=0){
         var tmp,min;
         for (var i = 0; i < dateIndata.length-1; i++) {
             min = i; // 配列の先頭を最小値の要素とする

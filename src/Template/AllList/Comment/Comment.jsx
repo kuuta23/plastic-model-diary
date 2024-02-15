@@ -3,12 +3,12 @@ import { CommentCont, DeleteButton, Image, UserName } from './Contents'
 import styles from "./Comment.module.css"
 
 const Comment = ({value}) => {
-  console.log(value);
   return (
     <div
     className={styles.Frame}>
       <UserName
-      userName={value.name}/>
+      userName={value.userName}
+      profileUrl={value.profileUrl}/>
       <CommentCont
       comment={value.comment}/>
       <Image

@@ -3,6 +3,8 @@ export const profileAction=(profileState)=>{
     return{
         type:"PROFILE",
         payload:{
+            uid:profileState.uid,
+            edit:profileState.edit,
             name:profileState.name,
             howToGetProduction:profileState.howToGetProduction,
             scale:profileState.scale,
@@ -15,6 +17,8 @@ export const profileResetAction=()=>{
   return{
     type:"PROFILE_RESET",
     payload:{
+      edit:false,
+      uid:"",
       name:"",
       howToGetProduction:[],
       scale:[],

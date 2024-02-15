@@ -34,8 +34,10 @@ const Router = () => {
         path='/List'
         element={<List/>}/>
         <Route
+        path='/Profile/:uid'
         element={<Profile/>}
-        path='/Profile'/>
+        >
+        </Route>
         <Route
         element={<Home/>}
         path='/'/>

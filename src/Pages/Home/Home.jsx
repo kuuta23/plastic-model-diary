@@ -19,7 +19,6 @@ const Home = () => {
     dispatch(selectorSigleComment())
     
   },[])
-  
   return (
     <div
     className={styles.Frame}>

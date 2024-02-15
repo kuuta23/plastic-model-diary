@@ -1,66 +1,64 @@
-import { collection, getDocs, limit, orderBy, query, where } from "firebase/firestore";
+import { collection, documentId, getDocs, limit, orderBy, query, where } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { productionsAction } from "../actions";
 import { withExtraArgument } from "redux-thunk";
 import { loadingAction, resetLoadingAction } from "../../loading/actions";
 
-const selectorProductions=(length=10,original_only=false)=>{
+const selectorProductions=(length=10,openUid=false)=>{
     return async(dispatch,setState)=>{
         const state=setState()
-        const user=state.user;
+        const user=state.user
         const productionRef=collection(db,"productions");
 
         var q;
-        if(original_only){
+        if(openUid!="null"&&openUid){
             q=query(productionRef,
-            where("uid","==",user.uid),
+            where("uid","==",openUid),
             orderBy("uploadTime","desc"),
-            orderBy("name"),
             limit(length))
-        }else{
+        }else if(openUid=="null"||!openUid){
             q=query(productionRef,
             orderBy("uploadTime","desc"),
-            orderBy("name"),
             limit(length));
         }
-        const Snapshot= await getDocs(q);
+        const productionSnapshot= await getDocs(q);
 
+        const uids=[]
+        productionSnapshot.docs.forEach((value)=>{uids.push(value.data().uid)})
+        if(uids.length==0){return}
         const profileRef=collection(db,"profile");
+        const profileQuery=query(profileRef,where(documentId(),"in",uids))
+        const profileSnapshot=await getDocs(profileQuery)
 
-        const profileSnapShot=await getDocs(profileRef)
-        
-        var name="none"
-        const values=Snapshot.docs.map((value)=>{
-            var edit =false
-            if(user.uid==value.data().uid){
-                edit=true
-            }
-            for(var i=0;i<profileSnapShot.docs.length;i++){
-                if(profileSnapShot.docs[i].id==value.data().uid){
-                    name=profileSnapShot.docs[i].data().name
+
+        const data=productionSnapshot.docs.map((production,i)=>{
+            var profileData={}
+            profileSnapshot.docs.forEach((profile)=>{
+                if(production.data().uid==profile.id){
+                    profileData=profile.data()
                 }
-                
-            }
-            return{
-                edit:edit,
-                type:"production",
-                uid:value.data().uid,
-                userName:name,
-                productionName:value.data().name,
-                comment:value.data().comment,
-                howToGetProduction:value.data().howToGetProduction,
-                scale:value.data().scale,
-                id:value.id,
-                color:value.data().color,
-                series:value.data().series,
-                uploadDate:value.data().uploadTime,
-                situation:value.data().situation,
-                photoUrl:value.data().photoUrl
-            }
-
-            
+            })
+            return(
+                {
+                    ...production.data(),
+                    ...profileData,
+                    ...{
+                        type:"production",
+                        edit:user.uid==production.data().uid,
+                        id:production.id,
+                        profileUrl:"Profile/"+production.data().uid,
+                        scale:production.data().scale,
+                        color:production.data().color,
+                        series:production.data().series,
+                        howToGetProduction:production.data().howTogetProduction,
+                        uploadDate:production.data().uploadTime,
+                        userName:profileData.name,
+                    },
+                    
+                }
+            )
         })
-        dispatch(productionsAction({productions:values}));
+        dispatch(productionsAction({productions:data}))
     }
 }
 export default selectorProductions

@@ -4,12 +4,20 @@ import styles from './Sidebar.module.css'
 import MainButton from './MainButton/MainButton'
 import Contents from './Contents/Contents'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { recordErrorResetAction } from '../../reducks/error/record/actions'
 
 const Sidebar = () => {
   const navigate=useNavigate();
   const dispatch=useDispatch()
+  const user = useSelector(state=>state.user)
+  const navigetionProfile=()=>{
+    if(user.isSignedIn){
+      return("/Profile/"+user.uid)
+    }else{
+      return("/Profile/null")
+    }
+  }
   const onClick=()=>{
     dispatch(recordErrorResetAction())
     navigate("/Record/Comment")
@@ -26,7 +34,7 @@ const Sidebar = () => {
             link:"/"
           },{
             value:"プロフィール",
-            link:"/Profile"
+            link:navigetionProfile()
           },
           // {
           //   value:"リスト",

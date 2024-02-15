@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 const UserName = () => {
     const [edit,setEdit]=useState(true)
     const profile=useSelector(state=>state.profile);
+    const user=useSelector(state=>state.user)
     useEffect(()=>{setEdit(!edit)},[profile.name])
   return (
     <div
@@ -15,23 +16,31 @@ const UserName = () => {
         className={styles.Font}>
             {profile.name}
         </div>
-        <div
-        className={styles.EditButton}>
-            <EditButton
-            onClick={()=>setEdit(!edit)}/>
-        </div>
-        <div className={styles.Spacer}></div>
+
         {
-            edit?(
+            profile.edit?(
+                <>
                 <div
-                className={styles.EditUserName}>
-                    <EditUserName/>
-                </div>
-            ):<></>
-        }
-        
-    </div>
-  )
+                    className={styles.EditButton}>
+                        <EditButton
+                        onClick={()=>setEdit(!edit)}/>
+                    </div>
+                    <div className={styles.Spacer}></div>
+                    {
+                        edit?(
+                            <div
+                            className={styles.EditUserName}>
+                                <EditUserName/>
+                            </div>
+                        ):<></>
+                    }
+                </>
+                
+                ):<></>
+            }
+            </div>
+    )
+            
 }
 
 export default UserName

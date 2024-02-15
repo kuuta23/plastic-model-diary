@@ -15,7 +15,8 @@ const Production = (
       <div
       className={styles.UserName}>
         <UserName
-        name={value.userName}/>  
+        name={value.userName}
+        profileUrl={value.profileUrl}/>  
       </div>
       <div
       className={styles.ProductionName}>
