@@ -8,7 +8,8 @@ export const profileAction=(profileState)=>{
             name:profileState.name,
             howToGetProduction:profileState.howToGetProduction,
             scale:profileState.scale,
-            color:profileState.color
+            color:profileState.color,
+            series:profileState.series
         }
     }
 }
@@ -22,7 +23,8 @@ export const profileResetAction=()=>{
       name:"",
       howToGetProduction:[],
       scale:[],
-      color:[]
+      color:[],
+      series:[]
     }
   }
 }

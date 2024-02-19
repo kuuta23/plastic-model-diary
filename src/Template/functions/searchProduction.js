@@ -1,4 +1,6 @@
-export const searchProduction=(list=[],color,scale)=>{
+import Series from "../ProductionList/Production/Series/Series"
+
+export const searchProduction=(list=[],color,scale,series,howToGet)=>{
     var colorList=[]
     if(color){
         list.forEach((value)=>{
@@ -21,5 +23,27 @@ export const searchProduction=(list=[],color,scale)=>{
     }else{
         scaleList=colorList
     }
-    return scaleList
+
+    var seriesList=[]
+    if(series){
+        scaleList.forEach((value)=>{
+            if(value.series==series){
+                seriesList.push(value)
+            }
+        })
+    }else{
+        seriesList=scaleList
+    }
+
+    var howToGetList=[]
+    if(howToGet){
+        seriesList.forEach((value)=>{
+            if(value.howToGet==howToGet){
+                howToGetList.push(value)
+            }
+        })
+    }else{
+        howToGet=seriesList
+    }
+    return howToGetList
 }

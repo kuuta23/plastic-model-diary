@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./SearchBox.module.css"
-import { Color, Scale } from './SearchContents'
+import { Color, HowToGet, Scale, Series } from './SearchContents'
 
 const SearchBox = (
   {
     inputColor,
-    inputScale
+    inputScale,
+    inputSeries,
+    inputHowToGet
   }
 ) => {
   return (
@@ -22,7 +24,16 @@ const SearchBox = (
         <Scale
         onChange={inputScale}/>
       </div>
-      
+      <div
+      className={styles.Series}>
+        <Series
+        onChange={inputSeries}/>
+      </div>
+      <div
+      className={styles.HowToGet}>
+        <HowToGet
+        onChange={inputHowToGet}/>
+      </div>
     </div>
   )
 }

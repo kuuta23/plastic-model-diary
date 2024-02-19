@@ -13,19 +13,27 @@ const List = () => {
           myProductions=useSelector(state=>state.myProductions)
     const [data,setData]=useState(productions.productions),
           [color,setColor]=useState(""),
-          [scale,setScale]=useState("");
+          [scale,setScale]=useState(""),
+          [series,setSeries]=useState(""),
+          [howToGet,setHowToGet]=useState("");
     const inputColor=useCallback((event)=>{
       setColor(event.target.value)
     },[setColor])
     const inputScale=useCallback((event)=>{
       setScale(event.target.value)
     },[setScale])
+    const inputSeries=useCallback((event)=>{
+      setSeries(event.target.value)
+    },[setSeries])
+    const inputHowToGet=useCallback((event)=>{
+      setHowToGet(event.target.value)
+    },[setHowToGet])
     useEffect(()=>{
       dispatch(selectorProductions(20,true));
     },[])
     useEffect(()=>{
-      setData(searchProduction(myProductions.myProductions,color,scale))
-    },[color,scale])
+      setData(searchProduction(myProductions.myProductions,color,scale,series,howToGet))
+    },[color,scale,series,howToGet])
     return (
       <div
       className={styles.Frame}>
@@ -33,7 +41,9 @@ const List = () => {
         className={styles.SearchBox}>
         <SearchBox
         inputColor={inputColor}
-        inputScale={inputScale}/>
+        inputScale={inputScale}
+        inputSeries={inputSeries}
+        inputHowToGet={inputHowToGet}/>
         </div>
         
         <AllList
