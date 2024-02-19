@@ -9,7 +9,7 @@ const Detail = ({value}) => {
       <Color
       color={value.color}/>
       <HowToGet
-      howToGetProduction={value.howToGetProduction}/>
+      howToGetProduction={value.howToGet}/>
       <Scale
       scale={value.scale}/>
       <Series

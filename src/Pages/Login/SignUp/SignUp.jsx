@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import signUp from '../../../reducks/user/operations/signUp';
 import { useNavigate } from 'react-router-dom';
 import { loadingAction } from '../../../reducks/loading/actions';
+import selectorMyProductions from '../../../reducks/myProductions/operations/selectorMyProductions';
 
 const SignUp = () => {
   const [email,setEmail]=useState(""),
@@ -32,6 +33,7 @@ const SignUp = () => {
       checkPassword:checkPassword,
       email:email
     }))
+    dispatch(selectorMyProductions())
   }
   useEffect(()=>{
     if(user.isSignedIn){navigate("/")}

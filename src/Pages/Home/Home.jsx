@@ -17,7 +17,6 @@ const Home = () => {
   useEffect(()=>{
     dispatch(selectorProductions(20));
     dispatch(selectorSigleComment())
-    
   },[])
   return (
     <div

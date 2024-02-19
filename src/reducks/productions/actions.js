@@ -3,7 +3,7 @@ export const productionsAction=(productionsState)=>{
     return{
         type:"PRODUCTIONS",
         payload:{
-            productions:productionsState.productions
+            productions:productionsState.productions,
         }
     }
 }

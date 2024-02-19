@@ -12,6 +12,7 @@ import { RecordErrorReducer } from "../error/record/reducers";
 import { ProductionsReducer } from "../productions/reducers";
 import { ProfileReducer } from "../profile/reducers";
 import { CommentsReducer } from "../singleComments/reducers";
+import { MyProductionsReducer } from "../myProductions/reducers";
 
 export default function createStore(){
     return reduxCreateStore(
@@ -23,6 +24,7 @@ export default function createStore(){
             record:RecordReducer,
             recordError:RecordErrorReducer,
             productions:ProductionsReducer,
+            myProductions:MyProductionsReducer,
             comments:CommentsReducer
         }),
         applyMiddleware(thunk)

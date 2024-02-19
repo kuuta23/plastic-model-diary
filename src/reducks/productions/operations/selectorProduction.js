@@ -50,7 +50,7 @@ const selectorProductions=(length=10,openUid=false)=>{
                         scale:production.data().scale,
                         color:production.data().color,
                         series:production.data().series,
-                        howToGetProduction:production.data().howTogetProduction,
+                        howToGet:production.data().howToGetProduction,
                         uploadDate:production.data().uploadTime,
                         userName:profileData.name,
                         productionName:production.data().name

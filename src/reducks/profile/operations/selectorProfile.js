@@ -6,6 +6,7 @@ const selectorProfile=(uid)=>{
     return async(dispatch,setState)=>{
         const state=setState()
         const user=state.user
+        if(!uid){uid=user.uid}
         const profileRef=doc(db,"profile",uid);
         const Snapshot= await getDoc(profileRef);
         dispatch(profileAction({

@@ -7,9 +7,10 @@ import SearchBox from './SearchBox/SearchBox';
 import { productionsAction } from '../../reducks/productions/actions';
 const List = () => {
     const dispatch=useDispatch();
-    const user=useSelector(state=>state.user);
-    const productions=useSelector(state=>state.productions)
-    const profile=useSelector(state=>state.profile)
+    const user=useSelector(state=>state.user),
+          productions=useSelector(state=>state.productions),
+          profile=useSelector(state=>state.profile),
+          myProductions=useSelector(state=>state.myProductions)
     const [data,setData]=useState(productions.productions),
           [color,setColor]=useState(""),
           [scale,setScale]=useState("");
@@ -23,7 +24,7 @@ const List = () => {
       dispatch(selectorProductions(20,true));
     },[])
     useEffect(()=>{
-      setData(searchProduction(productions.productions,color,scale))
+      setData(searchProduction(myProductions.myProductions,color,scale))
     },[color,scale])
     return (
       <div

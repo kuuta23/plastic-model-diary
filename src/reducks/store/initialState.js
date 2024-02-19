@@ -8,7 +8,9 @@ const initialState={
     profile:{
         name:"name",
         howToGetProduction:[],
-        scale:[]
+        scale:[],
+        color:[],
+        series:[]
     },
     userError:{
         userError:false
@@ -30,9 +32,10 @@ const initialState={
         seriesOver:false,
     },
     productions:{
-        productions:[
-            
-        ]
+        productions:[],
+    },
+    myProductions:{
+        myProductions:[]
     },
     comments:{
         comments:[
