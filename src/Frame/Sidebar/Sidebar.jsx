@@ -36,10 +36,10 @@ const Sidebar = () => {
             value:"プロフィール",
             link:navigetionProfile()
           },
-          // {
-          //   value:"リスト",
-          //   link:"/List"
-          // }
+          {
+            value:"リスト",
+            link:"/List"
+          }
         ]}/>
       </div>
       <div

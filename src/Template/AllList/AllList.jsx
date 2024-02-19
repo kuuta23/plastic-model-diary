@@ -7,28 +7,9 @@ import Comment from './Comment/Comment';
 
 const AllList = (
     {
-        productionList=[{
-          type:"production",
-          uploadDate:new Date().getTime()
-        },
-        {
-          type:"production",
-          uploadDate:new Date()
-        }
+        productionList=[
       ],
         commentList=[
-          {
-            type:"comment",
-            uploadDate:new Date(2000,2,2,2,2)
-          },
-          {
-            type:"comment",
-            uploadDate:new Date()
-          },
-          {
-            type:"comment",
-            uploadDate:new Date(2000,2,2,2,2)
-          },
       ]
     }
 ) => {

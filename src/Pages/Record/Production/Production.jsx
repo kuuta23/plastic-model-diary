@@ -48,7 +48,6 @@ const Production = () => {
   },[setSituation])
   
   const inputImage=useCallback((event)=>{
-    console.log(event.target.files);
     if(!event.target.files[0]){
       setImage("")
       setImageFile("")

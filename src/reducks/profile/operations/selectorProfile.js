@@ -8,7 +8,6 @@ const selectorProfile=(uid)=>{
         const user=state.user
         const profileRef=doc(db,"profile",uid);
         const Snapshot= await getDoc(profileRef);
-        console.log(user.uid==uid);
         dispatch(profileAction({
             uid:uid,
             edit:user.uid==uid,

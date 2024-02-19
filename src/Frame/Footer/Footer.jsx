@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { recordErrorResetAction } from '../../reducks/error/record/actions';
 import Home from './Contents/Home/Home';
 import Profile from './Contents/Profile/Profile';
+import List from './Contents/List/List';
 
 const Footer = () => {
   const navigate=useNavigate();
@@ -17,12 +18,17 @@ const Footer = () => {
   return (
     <div
     className={styles.Frame}>
+      <div
+      className={styles.MainButton}>
       <MainButton
       onClick={onClick}/>
+      </div>
+      
       <div
       className={styles.SubContent}>
         <Home/>
         <Profile/>
+        <List/>
     
       </div>
       
