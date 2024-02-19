@@ -53,6 +53,7 @@ const selectorProductions=(length=10,openUid=false)=>{
                         howToGetProduction:production.data().howTogetProduction,
                         uploadDate:production.data().uploadTime,
                         userName:profileData.name,
+                        productionName:production.data().name
                     },
                     
                 }

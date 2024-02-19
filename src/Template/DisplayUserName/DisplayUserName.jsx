@@ -2,7 +2,7 @@ import React from 'react'
 import styles from "./DisplayUserName.module.css"
 import { Link, useNavigate } from 'react-router-dom'
 
-const DisplayUserName = ({userName,to}) => {
+const DisplayUserName = ({userName="name",to}) => {
   const navigate=useNavigate()
   const onClick=()=>{
     navigate(to)
