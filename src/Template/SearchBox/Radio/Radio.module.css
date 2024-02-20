@@ -1,5 +1,7 @@
 .Frame{
     display: inline-block;
+    max-height: 200px;
+    overflow-y: scroll;
 }
 
 .Radio{

@@ -5,6 +5,7 @@ import { AllList, searchProduction } from '../../Template';
 import styles from "./List.module.css"
 import SearchBox from './SearchBox/SearchBox';
 import { productionsAction } from '../../reducks/productions/actions';
+import { useNavigate } from 'react-router-dom';
 const List = () => {
     const dispatch=useDispatch();
     const user=useSelector(state=>state.user),
@@ -16,6 +17,8 @@ const List = () => {
           [scale,setScale]=useState(""),
           [series,setSeries]=useState(""),
           [howToGet,setHowToGet]=useState("");
+    const navigate=useNavigate()
+    useEffect(()=>{if(!user.isSignedIn){navigate("/Login/SignIn")}},[]);
     const inputColor=useCallback((event)=>{
       setColor(event.target.value)
     },[setColor])
@@ -34,6 +37,7 @@ const List = () => {
     useEffect(()=>{
       setData(searchProduction(myProductions.myProductions,color,scale,series,howToGet))
     },[color,scale,series,howToGet])
+
     return (
       <div
       className={styles.Frame}>
@@ -49,8 +53,7 @@ const List = () => {
         <AllList
         id={"home"}
         userName={profile.name}
-        productionList={data}
-        deleteButton={false}/>
+        productionList={data}/>
       </div>
     )
 }

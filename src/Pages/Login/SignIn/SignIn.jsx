@@ -27,7 +27,7 @@ const SignIn = () => {
     event.preventDefault();
     await dispatch(loadingAction())
     await dispatch(signIn({email:email,password:password}))
-    dispatch(selectorMyProductions())
+    await dispatch(selectorMyProductions())
     await dispatch(selectorProfile(user.uid))
   }
   useEffect(()=>{

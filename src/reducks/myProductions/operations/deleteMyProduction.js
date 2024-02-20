@@ -1,22 +1,23 @@
 import { deleteDoc, doc } from "firebase/firestore"
 import { db, storage } from "../../../firebase"
-import { productionsAction } from "../actions";
+import { myProductionsAction, productionsAction } from "../actions";
 import { deleteObject, ref } from "firebase/storage";
 
-const deleteProduction=(value)=>{
+const deleteMyProduction=(value)=>{
     return async(dispatch,setState)=>{
         const state=setState();
-        const productions =state.productions.productions
+        const myProductions=state.myProductions.myProductions
+
         const user = state.user
         if(user.isSignedIn){
 
-            for(var i=0;i<productions.length;i++){
-                if(productions[i].id==value.id){
+            for(var i=0;i<myProductions.length;i++){
+                if(myProductions[i].id==value.id){
                     var index=i
                 }
             }
-            productions.splice(index,1)
-            dispatch(productionsAction({productions:productions}))
+            myProductions.splice(index,1)
+            dispatch(myProductionsAction({myProductions:myProductions}))
             if(value.photoUrl){
                 const productionStorageRef=ref(storage,"images/productions/"+value.id+"/production.jpg")
                 deleteObject(productionStorageRef)
@@ -33,4 +34,4 @@ const deleteProduction=(value)=>{
     }
 }
 
-export default deleteProduction
+export default deleteMyProduction

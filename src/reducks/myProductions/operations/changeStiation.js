@@ -1,11 +1,12 @@
 import { doc, updateDoc } from "firebase/firestore"
 import { db } from "../../../firebase"
 import { resetLoadingAction } from "../../loading/actions"
+import { myProductionsAction } from "../actions"
 
 const changeSituation=(value,situation=false)=>{
     return async(dispatch,setState)=>{
         const state=setState()
-        const productions=state.productions.productions
+        const productions=state.myProductions.myProductions
         const productionsDoc=doc(db,"productions",value.id);
         await updateDoc(productionsDoc,{situation:situation});
 
@@ -15,6 +16,7 @@ const changeSituation=(value,situation=false)=>{
                 break
             }
         }
+        dispatch(myProductionsAction({myProductions:productions}))
         dispatch(resetLoadingAction())
         
 

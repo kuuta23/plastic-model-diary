@@ -39,6 +39,9 @@ const Router = () => {
         >
         </Route>
         <Route
+        path='/Production/:id'
+        element={<Production/>}/>
+        <Route
         element={<Home/>}
         path='/'/>
     </Routes>

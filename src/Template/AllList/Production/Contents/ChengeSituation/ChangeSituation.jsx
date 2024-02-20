@@ -2,9 +2,10 @@ import React, { useCallback, useState } from 'react'
 import styles from "./ChangeSituation.module.css"
 import { useDispatch } from 'react-redux'
 import { loadingAction } from '../../../../../reducks/loading/actions';
-import changeSituation from '../../../../../reducks/productions/operations/changeStiation';
+
 import InputRadio from '../../../../InputRadio/InputRadio';
 import Submit from '../../../../Input/Submit/Submit';
+import changeSituation from '../../../../../reducks/myProductions/operations/changeStiation';
 
 const ChangeSituation = ({value}) => {
     const [click,setClick]=useState(false),
