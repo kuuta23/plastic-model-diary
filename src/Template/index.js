@@ -22,7 +22,8 @@ export { default as InputTextarea} from "./InputTextArea/InputTextarea"
 export { default as InputRadio } from "./InputRadio/InputRadio"
 export { default as InputImage } from "./InputImage/InputImage"
 export { default as DisplayImage } from "./DisplayImage/DisplayImage"
-
+export { default as DisplayText } from "./DisplayText/DisplayText"
+export { default as DisplayProductionName} from "./DisplayProductionName/DisplayProductionName"
 export { default as AllList } from "./AllList/AllList"
 
 export { default as SearchBox } from "./SearchBox/SearchBox"

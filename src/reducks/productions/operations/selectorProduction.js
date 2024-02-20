@@ -47,6 +47,7 @@ const selectorProductions=(length=10,openUid=false)=>{
                         edit:user.uid==production.data().uid,
                         id:production.id,
                         profileUrl:"Profile/"+production.data().uid,
+                        productionUrl:"Production/"+production.id,
                         scale:production.data().scale,
                         color:production.data().color,
                         series:production.data().series,

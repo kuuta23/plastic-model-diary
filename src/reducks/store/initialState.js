@@ -34,6 +34,16 @@ const initialState={
     productions:{
         productions:[],
     },
+    production:{
+        userName:"",
+        uid:"",
+        productionName:"",
+        scale:"",
+        series:"",
+        color:"",
+        howToGet:"",
+        photoUrl:""
+    },
     myProductions:{
         myProductions:[]
     },

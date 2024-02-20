@@ -21,7 +21,8 @@ const Production = (
       <div
       className={styles.ProductionName}>
         <ProductionName
-        name={value.productionName}/>
+        name={value.productionName}
+        to={value.productionUrl}/>
       </div>
       <div
       className={styles.Comment}>

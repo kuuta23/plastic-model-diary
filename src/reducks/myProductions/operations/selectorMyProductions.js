@@ -21,13 +21,15 @@ const selectorMyProductions=()=>{
                     edit:user.uid==value.data().uid,
                     id:value.id,
                     profileUrl:"Profile/"+value.data().uid,
+                    productionUrl:"Production/"+value.id,
                     scale:value.data().scale,
                     color:value.data().color,
                     series:value.data().series,
                     howToGet:value.data().howToGetProduction,
                     uploadDate:value.data().uploadTime,
                     userName:profileSnapshot.data().name,
-                    productionName:value.data().name
+                    productionName:value.data().name,
+
                 }
             }
         })
