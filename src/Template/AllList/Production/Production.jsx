@@ -24,20 +24,22 @@ const Production = (
         name={value.productionName}
         to={value.productionUrl}/>
       </div>
-      <div
-      className={styles.Comment}>
-        <Comment
-        comment={value.comment}/>
-      </div>
+      
       <div
       className={styles.Image}>
         <Image
         imageUrl={value.photoUrl}/>
       </div>
+      
       <div
       className={styles.Detail}>
         <Detail
         value={value}/>
+      </div>
+      <div
+      className={styles.Comment}>
+        <Comment
+        comment={value.comment}/>
       </div>
       {
         value.edit ?(
