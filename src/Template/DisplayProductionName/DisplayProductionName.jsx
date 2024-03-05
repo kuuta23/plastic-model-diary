@@ -9,13 +9,10 @@ const ProductionName = ({
     const navigate=useNavigate()
   return (
     <div
-    className={styles.Frame}>
-      <div
         className={styles.Font}
       onClick={()=>navigate(to)}>
         {name}
       </div>
-    </div>
   )
 }
 

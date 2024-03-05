@@ -3,7 +3,7 @@
     position: relative;
 }
 .Radio{
-    position: relative;
+    position: absolute;
     z-index: 20;
     overflow: hidden;
 }

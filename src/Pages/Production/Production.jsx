@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectorProduction } from '../../reducks/production/operations/selectorProduction';
 import { useParams } from 'react-router-dom';
-import { Comment, Photo, ProductionName, UserName } from './Contents';
+import { Comment, Photo, ProductionName, Situation, UserName } from './Contents';
 import styles from "./Production.module.css"
 
 const Production = () => {
@@ -17,21 +17,24 @@ const Production = () => {
     },[])
   return (
     <div>
-        <div
-        className={styles.ProductionName}>
-          <ProductionName/>
-        </div>
-        <div
-        className={styles.UserName}>
-            <UserName/>
-        </div>
-        <div
-        className={styles.Comment}>
-          <Comment/>
-        </div>
-        <div>
-          <Photo/>
-        </div>
+      <div>
+        <Situation/>
+      </div>
+      <div
+      className={styles.ProductionName}>
+        <ProductionName/>
+      </div>
+      <div
+      className={styles.UserName}>
+          <UserName/>
+      </div>
+      <div
+      className={styles.Comment}>
+        <Comment/>
+      </div>
+      <div>
+        <Photo/>
+      </div>
         
       
     </div>

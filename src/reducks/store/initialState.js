@@ -42,7 +42,8 @@ const initialState={
         series:"",
         color:"",
         howToGet:"",
-        photoUrl:""
+        photoUrl:"",
+        situation:""
     },
     myProductions:{
         myProductions:[]

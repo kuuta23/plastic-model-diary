@@ -11,7 +11,8 @@ export const productionAction=(productionState)=>{
             color:productionState.color,
             howToGet:productionState.howToGet,
             photoUrl:productionState.photoUrl,
-            comment:productionState.comment
+            comment:productionState.comment,
+            situation:productionState.situation
         }
     }
 }
@@ -28,7 +29,8 @@ export const productionResetAction=()=>{
       color:"",
       howToGet:"",
       photoUrl:"",
-      comment:""
+      comment:"",
+      situation:""
     }
   }
 }

@@ -16,19 +16,19 @@ const Login = () =>{
           <Link
           className={styles.Font}
           to={"/Login/SignOut"}>
-            サインアウト
+            ログアウト
           </Link>
         ):(
           <>
           <Link
           className={styles.Font}
           to={"/Login/SignIn"}>
-            サインイン
+            ログイン
           </Link>
           <Link
           className={styles.Font}
           to={"/Login/SignUp"}>
-            サインアップ
+            新規登録
           </Link>
           </>
         )

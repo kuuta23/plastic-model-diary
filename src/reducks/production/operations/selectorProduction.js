@@ -23,7 +23,8 @@ export const selectorProduction=(productionId)=>{
                     color:production.color,
                     howToGet:production.howToGetProduction,
                     photoUrl:production.photoUrl,
-                    comment:production.comment
+                    comment:production.comment,
+                    situation:production.situation
 
                 }
                 dispatch(productionAction(data))

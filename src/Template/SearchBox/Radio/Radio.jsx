@@ -24,13 +24,15 @@ const Radio = (
             <label 
             key={key}
             htmlFor=""
-            style={{"height":height+"px"}}
             className={styles.Radio}>
                 <input
                 onChange={onChange}
                 type='radio'
                 name={name}
-                value={output}/>{display}
+                value={output}/>
+                <div>
+                {display} 
+                </div>
             </label>
         ))
       }
