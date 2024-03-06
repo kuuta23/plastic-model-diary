@@ -8,7 +8,8 @@ const InputImage = ({onChange}) => {
       type="file" 
       accept='image/*,.jpg'
       src="" alt=""
-      onChange={onChange}/>
+      onChange={onChange}
+      multiple/>
       </label>
       
     </div>

@@ -1,15 +1,23 @@
 import React from 'react'
 import styles from "./DisplayImage.module.css"
 
-const DisplayImage = ({imageUrl}) => {
-    if(imageUrl){
-        return (
-            <img 
-            className={styles.Image}
-              src={imageUrl} 
-              alt="" />
-          )
-    }else{return<></>}
+const DisplayImage = ({imageUrl='',imageUrlList=[],deleteClick}) => {
+    if(imageUrlList.length==0&&imageUrl){
+        imageUrlList.push(imageUrl)
+    }
+
+    return(
+        <div
+        className={styles.Frame}>
+            {
+                imageUrlList.reverse().map((value)=>(
+                    <img 
+                    src={value} 
+                    className={styles.Image} />
+                ))
+            }
+        </div>
+    )
   
 }
 

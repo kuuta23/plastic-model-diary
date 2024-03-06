@@ -43,7 +43,8 @@ const initialState={
         color:"",
         howToGet:"",
         photoUrl:"",
-        situation:""
+        situation:"",
+        photoUrlList:[]
     },
     myProductions:{
         myProductions:[]

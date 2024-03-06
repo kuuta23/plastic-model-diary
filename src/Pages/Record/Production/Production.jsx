@@ -15,15 +15,16 @@ const Production = () => {
         [color,setColor]=useState(""),
         [series,setSeries]=useState(""),
         [situation,setSituation]=useState(),
-        [image,setImage]=useState(""),
-        [imageFile,setImageFile]=useState("");
+        [images,setImages]=useState([]),
+        [imagesFile,setImagesFile]=useState([]);
   const dispatch=useDispatch()
   const nameValueLimit=30,
         commentValueLimit=200,
         howToGetProductionLimit=30,
         scaleLimit=20,
         colorLimit=20,
-        seriesLimit=30;
+        seriesLimit=30,
+        imageLimit=4;
 
   const inputProductionName=useCallback((event)=>{
     setProductionName(event.target.value);
@@ -48,17 +49,26 @@ const Production = () => {
   },[setSituation])
   
   const inputImage=useCallback((event)=>{
-    if(!event.target.files[0]){
-      setImage("")
-      setImageFile("")
-      return
-    }else{
-      const imageObject=event.target.files[0]
-
-      setImage(window.URL.createObjectURL(imageObject))
-      setImageFile(imageObject)
+    const imageUrlList=[]
+    const imageFileList=[]
+    for(let i=0;i<event.target.files.length;i++){
+      const imageObject=event.target.files[i]
+      imageUrlList.push(window.URL.createObjectURL(imageObject))
+      imageFileList.push(imageObject)
     }
-  },[setImage,setImageFile])
+    setImages(imageUrlList);
+    setImagesFile(imageFileList)
+    // if(!event.target.files[0]){
+    //   setImages("")
+    //   setImagesFile("")
+    //   return
+    // }else{
+    //   const imageObject=event.target.files[0]
+
+    //   setImages(window.URL.createObjectURL(imageObject))
+    //   setImagesFile(imageObject)
+    // }
+  },[setImages,setImagesFile])
 
   const onSubmit=(event)=>{
     event.preventDefault();
@@ -77,7 +87,7 @@ const Production = () => {
       series:series,
       seriesLimit:seriesLimit,
       situation:situation,
-      imageFile:imageFile
+      imagesFile:imagesFile
     }))
 
   }
@@ -101,7 +111,7 @@ const Production = () => {
         </div>
         <div>
           <Image
-          imageUrl={image}
+          imagesUrl={images}
           onChange={inputImage}/>
         </div>
         <SubContents

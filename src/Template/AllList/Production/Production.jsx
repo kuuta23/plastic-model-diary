@@ -28,7 +28,8 @@ const Production = (
       <div
       className={styles.Image}>
         <Image
-        imageUrl={value.photoUrl}/>
+        imageUrl={value.photoUrl}
+        imageUrlList={value.photoUrlList}/>
       </div>
       
       <div

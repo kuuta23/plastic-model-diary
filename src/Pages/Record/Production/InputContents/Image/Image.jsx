@@ -2,15 +2,20 @@ import React, { useCallback, useState } from 'react'
 import { DisplayImage, InputImage } from '../../../../../Template'
 import styles from "./Image.module.css"
 
-const Image = ({imageUrl,onChange}) => {
+const Image = ({imagesUrl=[],onChange,deleteClick}) => {
 
   return (
     <div
     className={styles.Frame}>
-      <DisplayImage
-      imageUrl={imageUrl}/>
+      {
+        imagesUrl.map((value)=>(
+          <DisplayImage
+          imageUrl={value}/>
+        ))
+      }
       <InputImage
-      onChange={onChange}/>
+      onChange={onChange}
+      deleteClick={deleteClick}/>
       
     </div>
   )

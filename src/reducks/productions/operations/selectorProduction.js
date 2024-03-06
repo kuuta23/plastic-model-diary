@@ -54,7 +54,8 @@ const selectorProductions=(length=10,openUid=false)=>{
                         howToGet:production.data().howToGetProduction,
                         uploadDate:production.data().uploadTime,
                         userName:profileData.name,
-                        productionName:production.data().name
+                        productionName:production.data().name,
+                        photoUrlList:production.data().photoUrlList
                     },
                     
                 }

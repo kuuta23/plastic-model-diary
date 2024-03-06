@@ -7,7 +7,8 @@ const Photo = () => {
   return (
     <div>
       <DisplayImage
-      imageUrl={production.photoUrl}/>
+      imageUrl={production.photoUrl}
+      imageUrlList={production.photoUrlList}/>
     </div>
   )
 }

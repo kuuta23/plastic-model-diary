@@ -12,7 +12,8 @@ export const productionAction=(productionState)=>{
             howToGet:productionState.howToGet,
             photoUrl:productionState.photoUrl,
             comment:productionState.comment,
-            situation:productionState.situation
+            situation:productionState.situation,
+            photoUrlList:productionState.photoUrlList
         }
     }
 }
@@ -30,7 +31,8 @@ export const productionResetAction=()=>{
       howToGet:"",
       photoUrl:"",
       comment:"",
-      situation:""
+      situation:"",
+      photoUrlList:[]
     }
   }
 }

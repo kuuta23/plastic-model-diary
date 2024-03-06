@@ -28,12 +28,11 @@ const Production = () => {
       className={styles.UserName}>
           <UserName/>
       </div>
-      <div
-      className={styles.Comment}>
-        <Comment/>
-      </div>
       <div>
         <Photo/>
+      </div>
+      <div>
+        <Comment/>
       </div>
         
       

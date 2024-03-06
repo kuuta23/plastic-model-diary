@@ -24,7 +24,8 @@ export const selectorProduction=(productionId)=>{
                     howToGet:production.howToGetProduction,
                     photoUrl:production.photoUrl,
                     comment:production.comment,
-                    situation:production.situation
+                    situation:production.situation,
+                    photoUrlList:production.photoUrlList
 
                 }
                 dispatch(productionAction(data))
