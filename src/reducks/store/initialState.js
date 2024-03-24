@@ -18,18 +18,18 @@ const initialState={
     loading:{
         loading:false
     },
-    record:{
-        name:""
+    recordProduction:{
+        name:"",
+        images:[],
+        comment:"",
+        scale:"",
+        color:"",
+        series:"",
+        situation:"",
+        howToGetProduction:""
     },
     recordError:{
-        nameNoValue:false,
-        nameOverValue:false,
-        commentNoValue:false,
-        commentOverValue:false,
-        howToGetProductionOverValue:false,
-        scaleOver:false,
-        colorOver:false,
-        seriesOver:false,
+        error:false
     },
     productions:{
         productions:[],

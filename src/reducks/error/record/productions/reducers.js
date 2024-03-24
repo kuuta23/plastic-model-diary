@@ -1,7 +1,7 @@
 import * as Actions from "./actions";
 import initialState from "../../store/initialState";
 
-export const  RecordErrorReducer=(state=initialState.recordError,action)=>{
+export const  RecordProductionErrorReducer=(state=initialState.recordError,action)=>{
     switch (action.type){
         case Actions.RECORD_ERROR:
             return{

@@ -1,27 +1,13 @@
 import { Timestamp, addDoc, arrayUnion, collection, doc, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
-import { noValue, normalValueCondition, overValue } from "../../../Template"
-import { db, storage } from "../../../firebase";
-import { recordAction } from "../actions";
-import { loadingAction, resetLoadingAction } from "../../loading/actions";
-import { recordErrorAction, recordErrorResetAction } from "../../error/record/actions";
-import addHowToGetProductionList from "../../profile/operations/addHowToGetProductionList";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const productionRecord=({
-    name,
     nameValueLimit,
-    comment,
     commentValueLimit,
-    howToGetProduction,
     howToGetProductionLimit,
-    scale,
     scaleLimit,
-    color,
     colorLimit,
-    series,
     seriesLimit,
-    situation,
-    imagesFile
 })=>{
     return async (dispatch,setState)=>{
         const state=setState()

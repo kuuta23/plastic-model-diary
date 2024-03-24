@@ -1,7 +1,7 @@
+import initialState from "../../store/initialState";
 import * as Actions from "./actions";
-import initialState from "../store/initialState";
 
-export const  RecordReducer=(state=initialState.record,action)=>{
+export const  RecordProductionReducer=(state=initialState.recordProduction,action)=>{
     switch (action.type){
         case Actions.RECORD:
             return{

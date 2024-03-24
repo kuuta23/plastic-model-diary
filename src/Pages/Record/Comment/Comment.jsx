@@ -3,14 +3,11 @@ import { InputComment } from './InputContents'
 import styles from "./Comment.module.css"
 import Enter from './InputContents/Enter/Enter';
 import { useDispatch, useSelector } from 'react-redux';
-import commentRecord from '../../../reducks/record/operations/commentRecord';
-import { loadingAction } from '../../../reducks/loading/actions';
 import { serverTimestamp } from 'firebase/firestore';
 import Image from './InputContents/Image/Image';
 
 const Comment = () => {
   const dispatch=useDispatch()
-  const recordError=useSelector(state=>state.recordError)
   const [comment,setComment]=useState(""),
         [imageUrl,setImageUrl]=useState(""),
         [imagefile,setImageFile]=useState();
@@ -31,12 +28,6 @@ const Comment = () => {
   },[setImageFile,setImageUrl])
   const onSubmit=(event)=>{
     event.preventDefault();
-    dispatch(loadingAction())
-    dispatch(commentRecord({
-      comment:comment,
-      commentLimit:commentLimit,
-      imageFile:imagefile
-    }))
     
   }
   return (

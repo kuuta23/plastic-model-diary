@@ -10,7 +10,7 @@ const DisplayImage = ({imageUrl='',imageUrlList=[],deleteClick}) => {
         <div
         className={styles.Frame}>
             {
-                imageUrlList.reverse().map((value)=>(
+                imageUrlList.map((value)=>(
                     <img 
                     src={value} 
                     className={styles.Image} />

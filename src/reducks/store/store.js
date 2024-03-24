@@ -7,13 +7,12 @@ import { UserReducer } from "../user/reducer";
 import { thunk } from "redux-thunk";
 import { UserErrorReducer } from "../error/user/reducers";
 import { LoadingReducer } from "../loading/reduers";
-import { RecordReducer } from "../record/reducers";
-import { RecordErrorReducer } from "../error/record/reducers";
 import { ProductionsReducer } from "../productions/reducers";
 import { ProfileReducer } from "../profile/reducers";
 import { CommentsReducer } from "../singleComments/reducers";
 import { MyProductionsReducer } from "../myProductions/reducers";
 import { ProductionReducer } from "../production/reducers";
+import { RecordProductionReducer } from "../record/production/reducers";
 
 export default function createStore(){
     return reduxCreateStore(
@@ -22,8 +21,7 @@ export default function createStore(){
             profile:ProfileReducer,
             userError:UserErrorReducer,
             loading:LoadingReducer,
-            record:RecordReducer,
-            recordError:RecordErrorReducer,
+            recordProduction:RecordProductionReducer,
             productions:ProductionsReducer,
             myProductions:MyProductionsReducer,
             production:ProductionReducer,

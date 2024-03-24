@@ -22,6 +22,7 @@ const SubInputText = (
       <label htmlFor="">
         <input 
         type="text"
+        value={value}
         name={name}
         list={listName} 
         onChange={onChange}

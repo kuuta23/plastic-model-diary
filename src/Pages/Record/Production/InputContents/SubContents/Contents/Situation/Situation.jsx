@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useCallback, useState } from 'react'
 import styles from "./Situation.module.css"
 import { InputRadio } from '../../../../../../../Template'
+import { useDispatch, useSelector } from 'react-redux';
+import { recordProductionAction } from '../../../../../../../reducks/record/production/actions';
 
 const Situation = ({onChange}) => {
+  const dispatch=useDispatch();
+  const production=useSelector(state=>state.recordProduction);
+  const [situation,setSituation]=useState("");
+  const inputSituation=useCallback((event)=>{
+    setSituation(event.target.value)
+    dispatch(recordProductionAction({
+      ...production,
+      ...{situation:event.target.value}
+    }))
+  },[setSituation])
   return (
     <div
     className={styles.Frame}>
@@ -11,7 +23,7 @@ const Situation = ({onChange}) => {
       </div>
       <InputRadio
       name='situation'
-      onChange={onChange}
+      onChange={inputSituation}
       radio={[
         {
           value:"完成",

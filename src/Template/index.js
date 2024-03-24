@@ -5,9 +5,6 @@ export { default as Submit } from "./Input/Submit/Submit"
 
 export { default as emailCondition } from "./functions/emailCondition"
 export { default as passwordCondition } from "./functions/passwordCondition"
-export { default as normalValueCondition } from "./functions/normalValueCondition"
-export { noValue as noValue } from "./functions/normalValueCondition";
-export { overValue as overValue } from "./functions/normalValueCondition"
 export { searchProduction as searchProduction} from "./functions/searchProduction"
 
 export { default as ProductionList } from "./ProductionList/ProductionList"
@@ -27,3 +24,7 @@ export { default as DisplayProductionName} from "./DisplayProductionName/Display
 export { default as AllList } from "./AllList/AllList"
 
 export { default as SearchBox } from "./SearchBox/SearchBox"
+
+
+export { noString as noString } from "./functions/stringCondition"
+export { overString as overString } from "./functions/stringCondition"

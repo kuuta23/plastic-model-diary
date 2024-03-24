@@ -5,7 +5,6 @@ import MainButton from './MainButton/MainButton'
 import Contents from './Contents/Contents'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { recordErrorResetAction } from '../../reducks/error/record/actions'
 
 const Sidebar = () => {
   const navigate=useNavigate();
@@ -19,7 +18,6 @@ const Sidebar = () => {
     }
   }
   const onClick=()=>{
-    dispatch(recordErrorResetAction())
     navigate("/Record/Comment")
   }
   return (
