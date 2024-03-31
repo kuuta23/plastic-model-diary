@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import styles from "./Scale.module.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { SubInputText } from '../../../../../../../Template'
+import { SubInputText, overString } from '../../../../../../../Template'
 import { recordProductionAction } from '../../../../../../../reducks/record/production/actions'
+import { recordProductionErrorResetAction, recordProdutionErrorAction } from '../../../../../../../reducks/error/record/productions/actions'
 
 const Scale = ({value="",limit,onChange}) => {
   const profile=useSelector(state=>state.profile);
@@ -14,6 +15,11 @@ const Scale = ({value="",limit,onChange}) => {
   },[])
   const inputScale=useCallback((event)=>{
     setScale(event.target.value);
+    if(overString(20)){
+      dispatch(recordProdutionErrorAction())
+    }else{
+      dispatch(recordProductionErrorResetAction())
+    }
     dispatch(recordProductionAction({
       ...production,
       ...{scale:event.target.value}

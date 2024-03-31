@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import styles from "./HowToGetProduction.module.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { SubInputText } from '../../../../../../../Template'
+import { SubInputText, overString } from '../../../../../../../Template'
 import { recordProductionAction } from '../../../../../../../reducks/record/production/actions'
+import { recordProductionErrorResetAction, recordProdutionErrorAction } from '../../../../../../../reducks/error/record/productions/actions'
 
 const HowToGetProduction = ({value="",limit,onChange}) => {
   const profile=useSelector(state=>state.profile)
@@ -13,6 +14,11 @@ const HowToGetProduction = ({value="",limit,onChange}) => {
     setHowToGet(production.howToGetProduction)
   },[])
   const inputHowToGet=useCallback((event)=>{
+    if(overString(howToGet)){
+      dispatch(recordProdutionErrorAction())
+    }else{
+      dispatch(recordProductionErrorResetAction())
+    }
     dispatch(recordProductionAction({
       ...production,
       ...{howToGetProduction:event.target.value}

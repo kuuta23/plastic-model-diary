@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import styles from "./Series.module.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { SubInputText } from '../../../../../../../Template'
+import { SubInputText, overString } from '../../../../../../../Template'
 import { recordProductionAction } from '../../../../../../../reducks/record/production/actions'
+import { recordProductionErrorResetAction, recordProdutionErrorAction } from '../../../../../../../reducks/error/record/productions/actions'
 const Series = ({value,limit,onChange}) => {
     const profile=useSelector(state=>state.profile),
           production=useSelector(state=>state.recordProduction);
@@ -13,6 +14,12 @@ const Series = ({value,limit,onChange}) => {
     },[])
     const inputSeries=useCallback((event)=>{
       setSeries(event.target.value);
+      if(overString(series)){
+        dispatch(recordProdutionErrorAction())
+      }else{
+        dispatch(recordProductionErrorResetAction())
+      }
+      
       dispatch(recordProductionAction({
         ...production,
         ...{series:event.target.value}

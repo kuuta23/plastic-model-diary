@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import styles from "./Comment.module.css"
-import { Error, ValueCnt } from '../../../../../Template';
+import { Error, ValueCnt, overString } from '../../../../../Template';
 import { useDispatch, useSelector } from 'react-redux';
 import { recordProductionAction } from '../../../../../reducks/record/production/actions';
+import { recordProdutionErrorAction } from '../../../../../reducks/error/record/productions/actions';
 
 const ProductionComment = ({onChange,value="",limit=1}) => {
   const dispatch=useDispatch();
@@ -10,6 +11,7 @@ const ProductionComment = ({onChange,value="",limit=1}) => {
   const [comment,setComment]=useState("");
   useEffect(()=>{
     setComment(production.comment)
+
   },[])
   const inputComment=useCallback((event)=>{
     setComment(event.target.value)
@@ -17,6 +19,11 @@ const ProductionComment = ({onChange,value="",limit=1}) => {
       ...production,
       ...{comment:event.target.value}
     }))
+    if(overString(comment,200)){
+      dispatch(recordProdutionErrorAction())
+    }else{
+      dispatch(recordProdutionErrorAction())
+    }
   },[setComment])
   return (
     <div

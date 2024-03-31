@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { SubInputText } from '../../../../../../../Template';
+import { SubInputText, overString } from '../../../../../../../Template';
 import { recordProductionAction } from '../../../../../../../reducks/record/production/actions';
+import { recordProductionErrorResetAction, recordProdutionErrorAction } from '../../../../../../../reducks/error/record/productions/actions';
 
 const Color = ({limit}) => {
   const profile=useSelector(state=>state.profile);
@@ -13,6 +14,11 @@ const Color = ({limit}) => {
   },[])
   const inputColor=useCallback((event)=>{
     setColor(event.target.value);
+    if(overString(color,20)){
+      dispatch(recordProdutionErrorAction())
+    }else{
+      dispatch(recordProductionErrorResetAction())
+    }
     dispatch(recordProductionAction({
       ...production,
       ...{color:event.target.value}
