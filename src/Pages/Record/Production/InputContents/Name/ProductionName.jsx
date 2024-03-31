@@ -1,7 +1,7 @@
 import React, { useCallback, useDebugValue, useEffect, useState } from 'react'
 import styles from "./ProductionName.module.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { Error, ValueCnt } from '../../../../../Template';
+import { Error, ValueCnt, noString, overString } from '../../../../../Template';
 import { recordProductionAction } from '../../../../../reducks/record/production/actions';
 import { recordProductionErrorResetAction, recordProdutionErrorAction } from '../../../../../reducks/error/record/productions/actions';
 
@@ -9,12 +9,14 @@ const ProductionName = ({onChange,limit}) => {
   const dispatch=useDispatch();
   const [name,setName]=useState("");
   const production=useSelector(state=>state.recordProduction);
+
   useEffect(()=>{
     setName(production.name);
   },[])
   const inputName=useCallback((event)=>{
-    setName(event.target.value);
-    if([...event.target.value].length>30){
+    const value=event.target.value;
+    setName(value);
+    if(overString(value,30)||noString(value)){
       dispatch(recordProdutionErrorAction())
     }else{
       dispatch(recordProductionErrorResetAction())
@@ -24,6 +26,7 @@ const ProductionName = ({onChange,limit}) => {
       ...{name:event.target.value}
     }));
   },[setName])
+  
   return (
     <div
     className={styles.Frame}>
