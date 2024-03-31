@@ -44,7 +44,9 @@ const initialState={
         howToGet:"",
         photoUrl:"",
         situation:"",
-        photoUrlList:[]
+        photoUrlList:[],
+        comment:"",
+        imagesFile:[]
     },
     myProductions:{
         myProductions:[]

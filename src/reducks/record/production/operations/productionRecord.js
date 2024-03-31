@@ -1,82 +1,38 @@
 import { Timestamp, addDoc, arrayUnion, collection, doc, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { loadingAction, resetLoadingAction } from "../../../loading/actions";
+import addHowToGetProductionList from "../../../profile/operations/addHowToGetProductionList";
 
-const productionRecord=({
-    nameValueLimit,
-    commentValueLimit,
-    howToGetProductionLimit,
-    scaleLimit,
-    colorLimit,
-    seriesLimit,
-})=>{
+const productionRecord=({})=>{
     return async (dispatch,setState)=>{
         const state=setState()
-        const user = state.user
-        const noName=noValue(name)
-        const overName=overValue(name,nameValueLimit)
-        const overComment=overValue(comment,commentValueLimit)
-        const overHowToGetProduction=overValue(howToGetProduction,howToGetProductionLimit)
-        const overScale=overValue(scale,scaleLimit)
-        const overColor=overValue(color,colorLimit)
-        const overSeries=overValue(series,seriesLimit)
-        dispatch(recordErrorResetAction())
-        if(noName){
-            dispatch(recordErrorAction({nameNoValue:true}))
-            dispatch(resetLoadingAction());
-        }else if(overName){
-            dispatch(recordErrorAction({nameOverValue:true}))
-            dispatch(resetLoadingAction());
-        }else if(overComment){
-            dispatch(recordErrorAction({commentOverValue:true}))
-            dispatch(resetLoadingAction());
-        }else if(overHowToGetProduction){
-            dispatch(recordErrorAction({howToGetProductionOverValue:true}))
-            dispatch(resetLoadingAction());
-        }else if(overScale){
-            dispatch(recordErrorAction({scaleOver:true}))
-            dispatch(resetLoadingAction());
-        }else if(overColor){
-            dispatch(recordErrorAction({colorOver:true}))
-            dispatch(resetLoadingAction());
-        }else if(overSeries){
-            dispatch(recordErrorAction({seriesOver:true}))
-            dispatch(resetLoadingAction());
+        const user = state.user;
+        const production=state.recordProduction
+        const recordError=state.recordError
+
+        if(recordError.error){
+            return 0;
         }else{
-            if(!howToGetProduction){
-                howToGetProduction="不明"
-            }
-            if(!scale){
-                scale="不明"
-            }
-            if(!color){
-                color="ノーマル"
-            }
-            if(!series){
-                series="不明"
-            }
-            if(!situation){
-                situation=false
-            }
             const data={
                 uid:user.uid,
                 uploadTime:serverTimestamp(),
                 latestTime:serverTimestamp(),
-                name:name,
-                comment:comment,
-                scale:scale,
-                color:color,
-                howToGetProduction:howToGetProduction,
-                series:series,
+                name:production.productionName,
+                comment:production.comment,
+                scale:production.scale,
+                color:production.color,
+                howToGetProduction:production.howToGetProduction,
+                series:production.series,
                 dairy:[],
-                situation:situation,
-                photoUrlList:[]
+                situation:production.situation,
+                imagesList:[]
             }
             const productionsRef=collection(db,"productions")
             await addDoc(productionsRef,data)
             .then((productionDoc)=>{
                 dispatch(loadingAction())
                 // 写真
-                for(let i=0;i<imagesFile.length;i++){
+                for(let i=0;i<production.images.length;i++){
                     const storageRef=ref(storage,"images/productions/"+productionDoc.id+"/production-"+i+".jpg")
                     const uploadTask=uploadBytesResumable(storageRef,imagesFile[i])
                     uploadTask.on('state_changed',
@@ -104,7 +60,7 @@ const productionRecord=({
                     () =>  {
                         // Upload completed successfully, now we can get the download URL
                         getDownloadURL(uploadTask.snapshot.ref).then(async(downloadURL) => {
-                        await updateDoc(doc(db,"productions",productionDoc.id),{photoUrlList:arrayUnion(downloadURL)})
+                        await updateDoc(doc(db,"productions",productionDoc.id),{imagesList:arrayUnion(downloadURL)})
                         dispatch(resetLoadingAction())
                         });
                     }
@@ -118,15 +74,14 @@ const productionRecord=({
             
             
             await updateDoc(doc(db,"profile",user.uid),{
-                howToGetProduction:arrayUnion(howToGetProduction),
-                scale:arrayUnion(scale),
-                color:arrayUnion(color),
-                series:arrayUnion(series)
+                howToGetProduction:arrayUnion(production.howToGetProduction),
+                scale:arrayUnion(production.scale),
+                color:arrayUnion(production.color),
+                series:arrayUnion(production.series)
             });
-            dispatch(addHowToGetProductionList(howToGetProduction))
+            dispatch(addHowToGetProductionList(production.howToGetProduction))
             .then(()=>{
                 dispatch(resetLoadingAction());
-                dispatch(recordErrorResetAction())
             })
             .catch(()=>{
                 dispatch(resetLoadingAction());
