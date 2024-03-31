@@ -4,7 +4,8 @@ import styles from "./InputRadio.module.css"
 const InputRadio = ({
     name="",
     radio=[{value:""}],
-    onChange
+    onChange,
+    start
 }) => {
   return (
     <div>
@@ -17,6 +18,7 @@ const InputRadio = ({
                 <input 
                 onChange={onChange}
                 type="radio" 
+                checked={start==value}
                 name={name} 
                 id=""
                 value={value} />{value}

@@ -7,7 +7,7 @@ import { recordProductionAction } from '../../../../../../../reducks/record/prod
 const Situation = ({onChange}) => {
   const dispatch=useDispatch();
   const production=useSelector(state=>state.recordProduction);
-  const [situation,setSituation]=useState("");
+  const [situation,setSituation]=useState(production.situation);
   const inputSituation=useCallback((event)=>{
     setSituation(event.target.value)
     dispatch(recordProductionAction({
@@ -22,6 +22,7 @@ const Situation = ({onChange}) => {
         状態
       </div>
       <InputRadio
+      start={situation}
       name='situation'
       onChange={inputSituation}
       radio={[
