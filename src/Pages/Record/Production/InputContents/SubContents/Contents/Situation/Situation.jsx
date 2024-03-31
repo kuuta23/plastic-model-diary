@@ -28,8 +28,7 @@ const Situation = ({onChange}) => {
       radio={[
         {
           value:"完成",
-          color:"green",
-          checked:"checked"
+          color:"green"
         },
         {
           value:"開発中",

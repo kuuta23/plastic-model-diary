@@ -10,7 +10,7 @@ const InputRadio = ({
   return (
     <div>
       {
-        radio.map(({value,color,checked},key)=>(
+        radio.map(({value,color},key)=>(
             <label 
             className={styles.Label}
             style={{"color":color}}

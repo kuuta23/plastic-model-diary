@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from "./Production.module.css"
 import SubContents from './InputContents/SubContents/SubContents';
 import { Enter, Name, Comment, Image} from '.';
+import productionRecord from '../../../reducks/record/production/operations/productionRecord';
 
 
 const Production = () => {
@@ -20,6 +21,7 @@ const Production = () => {
 
   const onSubmit=(event)=>{
     event.preventDefault();
+    dispatch(productionRecord())
 
   }
   return (
