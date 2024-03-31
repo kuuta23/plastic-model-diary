@@ -10,10 +10,25 @@ const DisplayImage = ({imageUrl='',imageUrlList=[],deleteClick}) => {
         <div
         className={styles.Frame}>
             {
-                imageUrlList.map((value)=>(
-                    <img 
-                    src={value} 
-                    className={styles.Image} />
+                imageUrlList.map((value,i)=>(
+                    <div
+                    className={styles.ImageFrame}
+                    key={i}>
+                        {
+                            deleteClick?(
+                                <button
+                                className={styles.DeleteButton}
+                                onClick={()=>deleteClick(i)}>
+                                    ×
+                                </button>
+                            ):(<></>)
+                        }
+                        
+                        <img 
+                        src={value} 
+                        className={styles.Image} />
+                    </div>
+                    
                 ))
             }
         </div>

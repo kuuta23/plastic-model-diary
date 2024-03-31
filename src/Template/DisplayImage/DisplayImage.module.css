@@ -15,6 +15,12 @@
     left: 20px;
     color: black;
 }
+.ImageFrame{
+    position: relative;
+    max-width: 250px;
+    max-height: 500px;
+
+}
 .Image{
     padding: 3px;
     max-width: 250px;

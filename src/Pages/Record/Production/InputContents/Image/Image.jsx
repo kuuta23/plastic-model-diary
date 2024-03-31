@@ -5,43 +5,60 @@ import { useDispatch, useSelector } from 'react-redux';
 import { recordProductionAction } from '../../../../../reducks/record/production/actions';
 
 const Image = ({imageLimit=10}) => {
-  const [images,setImages]=useState([]),
-        [imagesUrl,setImagesUrl]=useState([]);
+  const [imagesUrl,setImagesUrl]=useState([]),
+        [imageFiles,setImageFiles]=useState([]);
   const dispatch=useDispatch();
   const production=useSelector(state=>state.recordProduction);
-  
-  useEffect(()=>{
-    console.log(production.images);
-    setImages(production.images)
-    for(let i=0;i<production.images.length;i++){
-      imagesUrl.push(window.URL.createObjectURL(production.images[i]))
+
+
+
+  // imagesに変更があったときにUrlを変更  
+  const changeUrl=(files)=>{
+    const imagesUrl=[];
+    for(let i=0;i<files.length;i++){
+      imagesUrl.push(window.URL.createObjectURL(files[i]))
     }
-    setImagesUrl(imagesUrl)
+    setImagesUrl(imagesUrl);
+  }
+
+  // 初期値
+  useEffect(()=>{
+    setImageFiles(production.images);
+    changeUrl(production.images)
   },[])
-  
-  const inputImage=useCallback((event)=>{
+
+  // 入力時
+  const inputImage=(event)=>{
+    setImageFiles(Array.from(event.target.files));
+    changeUrl(Array.from(event.target.files));
     dispatch(recordProductionAction({
       ...production,
-      ...{images:event.target.files},
+      ...{images:Array.from(event.target.files)},
     }));
-    setImagesUrl([])
-    for(let i=0;i<event.target.files.length;i++){
-      imagesUrl.push(window.URL.createObjectURL(event.target.files[i]))
-      images.push(event.target.files[0])
-    }
-    setImagesUrl(imagesUrl)
-  },[setImages])
+  }
+  
+  // 削除
+  const deleteImage=(i)=>{
+    imageFiles.splice(i,1);
+    setImageFiles(imageFiles)
+    changeUrl(imageFiles)
+    dispatch(recordProductionAction({
+      ...production,
+      ...{images:imageFiles}
+    }));
+  }
 
   return (
     <div
     className={styles.Frame}>
       <DisplayImage
-      imageUrlList={imagesUrl}/>
+      imageUrlList={imagesUrl}
+      deleteClick={deleteImage}/>
       <div
       className={styles.Count}>
         <ValueCnt
         limit={imageLimit}
-        valueCnt={images.length}/>
+        valueCnt={imageFiles.length}/>
       </div>
 
       <div
@@ -51,7 +68,7 @@ const Image = ({imageLimit=10}) => {
       </div>
       
       {
-        images.length>imageLimit ?(
+        imageFiles.length>imageLimit ?(
           <div
           className={styles.Error}>
           <Error
