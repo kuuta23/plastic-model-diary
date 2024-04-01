@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { SubInputText, overString } from '../../../../../../../Template'
 import { recordProductinSeriesAction, recordProductionAction } from '../../../../../../../reducks/record/production/actions'
 import { recordProductionErrorResetAction, recordProdutionErrorAction } from '../../../../../../../reducks/error/record/productions/actions'
-const Series = ({value,limit,onChange}) => {
+const Series = () => {
     const profile=useSelector(state=>state.profile),
           production=useSelector(state=>state.recordProduction);
     const [series,setSeries]=useState("");
@@ -14,11 +14,6 @@ const Series = ({value,limit,onChange}) => {
     },[])
     const inputSeries=useCallback((event)=>{
       setSeries(event.target.value);
-      if(overString(series)){
-        dispatch(recordProdutionErrorAction())
-      }else{
-        dispatch(recordProductionErrorResetAction())
-      }
       
       dispatch(recordProductinSeriesAction(event.target.value))
     },[setSeries])
@@ -29,12 +24,11 @@ const Series = ({value,limit,onChange}) => {
       <SubInputText
       value={series}
       onChange={inputSeries}
-      limit={limit}
+      limit={30}
       placeholder='シリーズ'
       name='series'
       listName='seriesList'
       listValue={profile.series}
-      warningTextList={["未入力の場合は、「不明」になります。"]}
       />
     </div>
   )

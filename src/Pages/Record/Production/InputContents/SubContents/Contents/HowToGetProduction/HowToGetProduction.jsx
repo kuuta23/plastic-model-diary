@@ -14,11 +14,6 @@ const HowToGetProduction = ({value="",limit,onChange}) => {
     setHowToGet(production.howToGetProduction)
   },[])
   const inputHowToGet=useCallback((event)=>{
-    if(overString(howToGet)){
-      dispatch(recordProdutionErrorAction())
-    }else{
-      dispatch(recordProductionErrorResetAction())
-    }
     dispatch(recordProductinHowToGetAction(event.target.value))
     setHowToGet(event.target.value)
   },[setHowToGet])
@@ -34,8 +29,7 @@ const HowToGetProduction = ({value="",limit,onChange}) => {
       placeholder='入手方法'
       name='howToGetProduction'
       listName='howToGetProductionList'
-      listValue={profile.howToGetProduction}
-      warningTextList={["未入力の場合は、「不明」になります。"]}/>
+      listValue={profile.howToGetProduction}/>
     </div>
   )
 }

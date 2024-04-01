@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { recordProductinCommentAction } from '../../../../../reducks/record/production/actions';
 import { recordProdutionErrorAction } from '../../../../../reducks/error/record/productions/actions';
 
-const ProductionComment = ({onChange,value="",limit=1}) => {
+const ProductionComment = () => {
   const dispatch=useDispatch();
   const production=useSelector(state=>state.recordProduction)
   const [comment,setComment]=useState("");
@@ -16,11 +16,6 @@ const ProductionComment = ({onChange,value="",limit=1}) => {
   const inputComment=useCallback((event)=>{
     setComment(event.target.value)
     dispatch(recordProductinCommentAction(event.target.value))
-    if(overString(comment,200)){
-      dispatch(recordProdutionErrorAction())
-    }else{
-      dispatch(recordProdutionErrorAction())
-    }
   },[setComment])
   return (
     <div
@@ -35,8 +30,8 @@ const ProductionComment = ({onChange,value="",limit=1}) => {
       cols="30" 
       rows="10"></textarea>
       <ValueCnt
-      valueCnt={[...value].length}
-      limit={limit}/>
+      valueCnt={[...comment].length}
+      limit={200}/>
       <Error/>
     </div>
     

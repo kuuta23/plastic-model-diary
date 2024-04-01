@@ -5,7 +5,7 @@ import { SubInputText, overString } from '../../../../../../../Template'
 import { recordProductinScaleAction, recordProductionAction } from '../../../../../../../reducks/record/production/actions'
 import { recordProductionErrorResetAction, recordProdutionErrorAction } from '../../../../../../../reducks/error/record/productions/actions'
 
-const Scale = ({value="",limit,onChange}) => {
+const Scale = () => {
   const profile=useSelector(state=>state.profile);
   const production=useSelector(state=>state.recordProduction)
   const [scale,setScale]=useState("");
@@ -15,11 +15,6 @@ const Scale = ({value="",limit,onChange}) => {
   },[])
   const inputScale=useCallback((event)=>{
     setScale(event.target.value);
-    if(overString(20)){
-      dispatch(recordProdutionErrorAction())
-    }else{
-      dispatch(recordProductionErrorResetAction())
-    }
     dispatch(recordProductinScaleAction(event.target.value))
   },[])
   return (
@@ -28,12 +23,11 @@ const Scale = ({value="",limit,onChange}) => {
       <SubInputText
       value={scale}
       onChange={inputScale}
-      limit={limit}
+      limit={30}
       placeholder='スケール'
       name='scale'
       listName='scaleList'
-      listValue={profile.scale}
-      warningTextList={["未入力の場合は、「不明」になります。"]}/>
+      listValue={profile.scale}/>
     </div>
   )
 }

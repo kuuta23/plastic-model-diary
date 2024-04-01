@@ -20,13 +20,7 @@ const Image = () => {
     for(let i=0;i<files.length;i++){
       imagesUrl.push(window.URL.createObjectURL(files[i]))
     }
-    setImagesUrl(imagesUrl);
-
-    if(overList(files,limit)){
-      dispatch(recordProdutionErrorAction())
-    }else{
-      dispatch(recordProductionErrorResetAction())
-    }
+    setImagesUrl(imagesUrl)
 
   }
 

@@ -5,7 +5,7 @@ import { Error, ValueCnt, noString, overString } from '../../../../../Template';
 import { recordProductionNameAction } from '../../../../../reducks/record/production/actions';
 import { recordProductionErrorResetAction, recordProdutionErrorAction } from '../../../../../reducks/error/record/productions/actions';
 
-const ProductionName = ({onChange,limit}) => {
+const ProductionName = () => {
   const dispatch=useDispatch();
   const [name,setName]=useState("");
   const production=useSelector(state=>state.recordProduction);
@@ -16,11 +16,6 @@ const ProductionName = ({onChange,limit}) => {
   const inputName=useCallback((event)=>{
     const value=event.target.value;
     setName(value);
-    if(overString(value,30)||noString(value)){
-      dispatch(recordProdutionErrorAction())
-    }else{
-      dispatch(recordProductionErrorResetAction())
-    }
     dispatch(recordProductionNameAction(value));
   },[setName])
   
@@ -36,8 +31,8 @@ const ProductionName = ({onChange,limit}) => {
       placeholder='作品名'
       onChange={inputName} />
       <ValueCnt
-      limit={limit}
-      valueCnt={0}/>
+      limit={30}
+      valueCnt={name.length}/>
       
     </div>
   )

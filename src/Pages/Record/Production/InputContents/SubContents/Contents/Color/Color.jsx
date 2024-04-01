@@ -4,7 +4,7 @@ import { SubInputText, overString } from '../../../../../../../Template';
 import { recordProductinColorAction, recordProductionAction } from '../../../../../../../reducks/record/production/actions';
 import { recordProductionErrorResetAction, recordProdutionErrorAction } from '../../../../../../../reducks/error/record/productions/actions';
 
-const Color = ({limit}) => {
+const Color = () => {
   const profile=useSelector(state=>state.profile);
   const dispatch=useDispatch()
   const production=useSelector(state=>state.recordProduction)
@@ -14,11 +14,6 @@ const Color = ({limit}) => {
   },[])
   const inputColor=useCallback((event)=>{
     setColor(event.target.value);
-    if(overString(color,20)){
-      dispatch(recordProdutionErrorAction())
-    }else{
-      dispatch(recordProductionErrorResetAction())
-    }
     dispatch(recordProductinColorAction(event.target.value))
   },[])
   return (
@@ -26,12 +21,11 @@ const Color = ({limit}) => {
       <SubInputText
       value={color}
       onChange={inputColor}
-      limit={limit}
+      limit={30}
       name='color'
       listName='colorList'
       listValue={profile.color}
       placeholder='カラー'
-      warningTextList={["未入力の場合は、「不明」になります。"]}
       overValue={true}/>
     </div>
   )
