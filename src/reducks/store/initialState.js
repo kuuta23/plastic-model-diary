@@ -46,7 +46,7 @@ const initialState={
         situation:"",
         photoUrlList:[],
         comment:"",
-        imagesFile:[]
+        images:[]
     },
     myProductions:{
         myProductions:[]

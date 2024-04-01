@@ -10,7 +10,7 @@ const productionRecord=()=>{
         const user = state.user;
         const production=state.recordProduction
         const recordError=state.recordProductionError
-        console.log(production,user,recordError);
+        console.log(production);
 
         if(recordError.error){
             return 0;
@@ -27,7 +27,7 @@ const productionRecord=()=>{
                 series:production.series,
                 dairy:[],
                 situation:production.situation,
-                imagesList:[]
+                images:[]
             }
             console.log(data);
             const productionsRef=collection(db,"productions")
@@ -64,7 +64,7 @@ const productionRecord=()=>{
                         // Upload completed successfully, now we can get the download URL
                         getDownloadURL(uploadTask.snapshot.ref)
                         .then(async(downloadURL) => {
-                            await updateDoc(doc(db,"productions",productionDoc.id),{imagesList:arrayUnion(downloadURL)})
+                            await updateDoc(doc(db,"productions",productionDoc.id),{images:arrayUnion(downloadURL)})
                             dispatch(resetLoadingAction())
                         });
                     }

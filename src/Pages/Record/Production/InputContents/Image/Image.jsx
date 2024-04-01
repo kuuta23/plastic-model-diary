@@ -31,6 +31,7 @@ const Image = ({imageLimit=10}) => {
   const inputImage=(event)=>{
     setImageFiles(Array.from(event.target.files));
     changeUrl(Array.from(event.target.files));
+    console.log(Array.from(event.target.files));
     dispatch(recordProductionAction({
       ...production,
       ...{images:Array.from(event.target.files)},

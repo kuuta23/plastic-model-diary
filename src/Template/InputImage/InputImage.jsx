@@ -6,7 +6,8 @@ const InputImage = ({onChange}) => {
   useEffect(()=>{
     const buttonElement=document.getElementById("imageButton");
     const inputElement=document.getElementById("inputImage");
-    buttonElement.addEventListener("click",()=>{
+    buttonElement.addEventListener("click",(event)=>{
+      event.preventDefault()
       inputElement.click();
     })
   },[])

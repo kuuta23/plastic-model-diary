@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from "./AllList.module.css"
 import uploadDateAsc from '../functions/uploadDateAsc';
-import { type } from '@testing-library/user-event/dist/type';
 import Production from './Production/Production';
 import Comment from './Comment/Comment';
+import { useSelector } from 'react-redux';
 
 const AllList = (
     {
@@ -13,6 +13,7 @@ const AllList = (
       ]
     }
 ) => {
+  const productions=useSelector(state=>state.productions)
   const mixList=productionList.concat(commentList)
   const ascList=uploadDateAsc(mixList)
   
@@ -27,12 +28,6 @@ const AllList = (
               key={key}
               value={value}/>
             )  
-          }else{
-            return(
-              <Comment
-              key={key}
-              value={value}/>
-            )
           }
         })
       }
