@@ -1,12 +1,15 @@
 import React from 'react'
 import DisplayImage from '../../../../DisplayImage/DisplayImage'
 
-const Image = ({imageUrl,imageUrlList=[]}) => {
-  return(
-    <DisplayImage
-    imageUrl={imageUrl}
-    imageUrlList={imageUrlList}/>
-  )
+const Image = ({imageUrl,images=[]}) => {
+  if(imageUrl||images.length!==0){
+    return(
+      <DisplayImage
+      imageUrl={imageUrl}
+      imageUrlList={images}/>
+    )
+  }
+
 }
 
 export default Image

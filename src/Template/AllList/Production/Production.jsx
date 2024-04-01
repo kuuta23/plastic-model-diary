@@ -7,6 +7,7 @@ const Production = (
   {
     id,
     value}) => {
+  console.log(value);
   return (
     <div
     className={styles.Frame}>
@@ -29,7 +30,7 @@ const Production = (
       className={styles.Image}>
         <Image
         imageUrl={value.photoUrl}
-        imageUrlList={value.images}/>
+        images={value.images}/>
       </div>
       
       <div
