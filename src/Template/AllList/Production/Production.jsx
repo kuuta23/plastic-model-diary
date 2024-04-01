@@ -35,7 +35,10 @@ const Production = (
       <div
       className={styles.Detail}>
         <Detail
-        value={value}/>
+        series={value.series}
+        color={value.color}
+        howToGet={value.howToGet}
+        scale={value.scale}/>
       </div>
       <div
       className={styles.Comment}>
