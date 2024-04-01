@@ -10,7 +10,7 @@ const productionRecord=()=>{
         const user = state.user;
         const production=state.recordProduction
         const recordError=state.recordProductionError
-        console.log(production);
+        console.log(production,recordError);
 
         if(recordError.error){
             return 0;

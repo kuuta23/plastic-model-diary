@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import styles from "./Scale.module.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { SubInputText, overString } from '../../../../../../../Template'
-import { recordProductionAction } from '../../../../../../../reducks/record/production/actions'
+import { recordProductinScaleAction, recordProductionAction } from '../../../../../../../reducks/record/production/actions'
 import { recordProductionErrorResetAction, recordProdutionErrorAction } from '../../../../../../../reducks/error/record/productions/actions'
 
 const Scale = ({value="",limit,onChange}) => {
@@ -20,10 +20,7 @@ const Scale = ({value="",limit,onChange}) => {
     }else{
       dispatch(recordProductionErrorResetAction())
     }
-    dispatch(recordProductionAction({
-      ...production,
-      ...{scale:event.target.value}
-    }))
+    dispatch(recordProductinScaleAction(event.target.value))
   },[])
   return (
     <div

@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react'
 import styles from "./Situation.module.css"
 import { InputRadio } from '../../../../../../../Template'
 import { useDispatch, useSelector } from 'react-redux';
-import { recordProductionAction } from '../../../../../../../reducks/record/production/actions';
+import { recordProductinSituationAction, recordProductionAction } from '../../../../../../../reducks/record/production/actions';
 
 const Situation = ({onChange}) => {
   const dispatch=useDispatch();
@@ -10,10 +10,7 @@ const Situation = ({onChange}) => {
   const [situation,setSituation]=useState(production.situation);
   const inputSituation=useCallback((event)=>{
     setSituation(event.target.value)
-    dispatch(recordProductionAction({
-      ...production,
-      ...{situation:event.target.value}
-    }))
+    dispatch(recordProductinSituationAction(event.target.value))
   },[setSituation])
   return (
     <div

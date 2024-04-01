@@ -1,24 +1,33 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { DisplayImage, Error, InputImage, ValueCnt } from '../../../../../Template'
+import { DisplayImage, Error, InputImage, ValueCnt, overList } from '../../../../../Template'
 import styles from "./Image.module.css"
 import { useDispatch, useSelector } from 'react-redux';
-import { recordProductionAction } from '../../../../../reducks/record/production/actions';
+import {  recordProductionImagesAction } from '../../../../../reducks/record/production/actions';
+import { recordProductionErrorResetAction, recordProdutionErrorAction } from '../../../../../reducks/error/record/productions/actions';
 
-const Image = ({imageLimit=10}) => {
+const Image = () => {
   const [imagesUrl,setImagesUrl]=useState([]),
         [imageFiles,setImageFiles]=useState([]);
   const dispatch=useDispatch();
   const production=useSelector(state=>state.recordProduction);
+  const limit=7;
 
 
 
-  // imagesに変更があったときにUrlを変更  
+  // imagesに変更があったときに  
   const changeUrl=(files)=>{
     const imagesUrl=[];
     for(let i=0;i<files.length;i++){
       imagesUrl.push(window.URL.createObjectURL(files[i]))
     }
     setImagesUrl(imagesUrl);
+
+    if(overList(files,limit)){
+      dispatch(recordProdutionErrorAction())
+    }else{
+      dispatch(recordProductionErrorResetAction())
+    }
+
   }
 
   // 初期値
@@ -32,21 +41,16 @@ const Image = ({imageLimit=10}) => {
     setImageFiles(Array.from(event.target.files));
     changeUrl(Array.from(event.target.files));
     console.log(Array.from(event.target.files));
-    dispatch(recordProductionAction({
-      ...production,
-      ...{images:Array.from(event.target.files)},
-    }));
+    dispatch(recordProductionImagesAction(Array.from(event.target.files)));
+
   }
-  
+  console.log(production);
   // 削除
   const deleteImage=(i)=>{
     imageFiles.splice(i,1);
     setImageFiles(imageFiles)
     changeUrl(imageFiles)
-    dispatch(recordProductionAction({
-      ...production,
-      ...{images:imageFiles}
-    }));
+    dispatch(recordProductionImagesAction(imageFiles));
   }
 
   return (
@@ -58,7 +62,7 @@ const Image = ({imageLimit=10}) => {
       <div
       className={styles.Count}>
         <ValueCnt
-        limit={imageLimit}
+        limit={limit}
         valueCnt={imageFiles.length}/>
       </div>
 
@@ -69,7 +73,7 @@ const Image = ({imageLimit=10}) => {
       </div>
       
       {
-        imageFiles.length>imageLimit ?(
+        overList(imageFiles,limit) ?(
           <div
           className={styles.Error}>
           <Error

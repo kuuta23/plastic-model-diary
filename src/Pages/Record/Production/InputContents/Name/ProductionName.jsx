@@ -2,7 +2,7 @@ import React, { useCallback, useDebugValue, useEffect, useState } from 'react'
 import styles from "./ProductionName.module.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { Error, ValueCnt, noString, overString } from '../../../../../Template';
-import { recordProductionAction } from '../../../../../reducks/record/production/actions';
+import { recordProductionNameAction } from '../../../../../reducks/record/production/actions';
 import { recordProductionErrorResetAction, recordProdutionErrorAction } from '../../../../../reducks/error/record/productions/actions';
 
 const ProductionName = ({onChange,limit}) => {
@@ -21,10 +21,7 @@ const ProductionName = ({onChange,limit}) => {
     }else{
       dispatch(recordProductionErrorResetAction())
     }
-    dispatch(recordProductionAction({
-      ...production,
-      ...{name:event.target.value}
-    }));
+    dispatch(recordProductionNameAction(value));
   },[setName])
   
   return (

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { SubInputText, overString } from '../../../../../../../Template';
-import { recordProductionAction } from '../../../../../../../reducks/record/production/actions';
+import { recordProductinColorAction, recordProductionAction } from '../../../../../../../reducks/record/production/actions';
 import { recordProductionErrorResetAction, recordProdutionErrorAction } from '../../../../../../../reducks/error/record/productions/actions';
 
 const Color = ({limit}) => {
@@ -19,10 +19,7 @@ const Color = ({limit}) => {
     }else{
       dispatch(recordProductionErrorResetAction())
     }
-    dispatch(recordProductionAction({
-      ...production,
-      ...{color:event.target.value}
-    }))
+    dispatch(recordProductinColorAction(event.target.value))
   },[])
   return (
     <div>

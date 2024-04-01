@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import styles from "./HowToGetProduction.module.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { SubInputText, overString } from '../../../../../../../Template'
-import { recordProductionAction } from '../../../../../../../reducks/record/production/actions'
+import { recordProductinHowToGetAction, recordProductionAction } from '../../../../../../../reducks/record/production/actions'
 import { recordProductionErrorResetAction, recordProdutionErrorAction } from '../../../../../../../reducks/error/record/productions/actions'
 
 const HowToGetProduction = ({value="",limit,onChange}) => {
@@ -19,10 +19,7 @@ const HowToGetProduction = ({value="",limit,onChange}) => {
     }else{
       dispatch(recordProductionErrorResetAction())
     }
-    dispatch(recordProductionAction({
-      ...production,
-      ...{howToGetProduction:event.target.value}
-    }))
+    dispatch(recordProductinHowToGetAction(event.target.value))
     setHowToGet(event.target.value)
   },[setHowToGet])
 

@@ -7,7 +7,6 @@ const Production = (
   {
     id,
     value}) => {
-  console.log(value);
   return (
     <div
     className={styles.Frame}>

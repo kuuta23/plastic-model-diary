@@ -4,6 +4,7 @@ import styles from "./Production.module.css"
 import SubContents from './InputContents/SubContents/SubContents';
 import { Enter, Name, Comment, Image} from '.';
 import productionRecord from '../../../reducks/record/production/operations/productionRecord';
+import productionRecordSecurity from '../../../reducks/record/production/operations/productionRecordSecurity';
 
 
 const Production = () => {
@@ -21,6 +22,7 @@ const Production = () => {
 
   const onSubmit=(event)=>{
     event.preventDefault();
+    dispatch(productionRecordSecurity())
     dispatch(productionRecord())
 
   }

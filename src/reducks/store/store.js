@@ -13,6 +13,7 @@ import { CommentsReducer } from "../singleComments/reducers";
 import { MyProductionsReducer } from "../myProductions/reducers";
 import { ProductionReducer } from "../production/reducers";
 import { RecordProductionReducer } from "../record/production/reducers";
+import { RecordProductionErrorReducer } from "../error/record/productions/reducers";
 
 export default function createStore(){
     return reduxCreateStore(
@@ -20,7 +21,7 @@ export default function createStore(){
             user:UserReducer,
             profile:ProfileReducer,
             userError:UserErrorReducer,
-            recordProductionError:RecordProductionReducer,
+            recordProductionError:RecordProductionErrorReducer,
             loading:LoadingReducer,
             recordProduction:RecordProductionReducer,
             productions:ProductionsReducer,

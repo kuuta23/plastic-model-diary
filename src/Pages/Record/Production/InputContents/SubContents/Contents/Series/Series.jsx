@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import styles from "./Series.module.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { SubInputText, overString } from '../../../../../../../Template'
-import { recordProductionAction } from '../../../../../../../reducks/record/production/actions'
+import { recordProductinSeriesAction, recordProductionAction } from '../../../../../../../reducks/record/production/actions'
 import { recordProductionErrorResetAction, recordProdutionErrorAction } from '../../../../../../../reducks/error/record/productions/actions'
 const Series = ({value,limit,onChange}) => {
     const profile=useSelector(state=>state.profile),
@@ -20,10 +20,7 @@ const Series = ({value,limit,onChange}) => {
         dispatch(recordProductionErrorResetAction())
       }
       
-      dispatch(recordProductionAction({
-        ...production,
-        ...{series:event.target.value}
-      }))
+      dispatch(recordProductinSeriesAction(event.target.value))
     },[setSeries])
 
   return (

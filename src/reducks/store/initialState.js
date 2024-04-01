@@ -15,6 +15,9 @@ const initialState={
     userError:{
         userError:false
     },
+    recordProductionError:{
+        error:false
+    },
     loading:{
         loading:false
     },
@@ -28,15 +31,10 @@ const initialState={
         situation:"",
         howToGetProduction:""
     },
-    recordError:{
-        error:false
-    },
     productions:{
         productions:[],
     },
     production:{
-        userName:"",
-        uid:"",
         productionName:"",
         scale:"",
         series:"",
