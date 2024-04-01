@@ -2,13 +2,15 @@ import { Timestamp, addDoc, arrayUnion, collection, doc, serverTimestamp, setDoc
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { loadingAction, resetLoadingAction } from "../../../loading/actions";
 import addHowToGetProductionList from "../../../profile/operations/addHowToGetProductionList";
+import { db, storage } from "../../../../firebase";
 
-const productionRecord=({})=>{
+const productionRecord=()=>{
     return async (dispatch,setState)=>{
         const state=setState()
         const user = state.user;
         const production=state.recordProduction
-        const recordError=state.recordError
+        const recordError=state.recordProductionError
+        console.log(production,user,recordError);
 
         if(recordError.error){
             return 0;
@@ -17,7 +19,7 @@ const productionRecord=({})=>{
                 uid:user.uid,
                 uploadTime:serverTimestamp(),
                 latestTime:serverTimestamp(),
-                name:production.productionName,
+                name:production.name,
                 comment:production.comment,
                 scale:production.scale,
                 color:production.color,
@@ -27,6 +29,7 @@ const productionRecord=({})=>{
                 situation:production.situation,
                 imagesList:[]
             }
+            console.log(data);
             const productionsRef=collection(db,"productions")
             await addDoc(productionsRef,data)
             .then((productionDoc)=>{
@@ -34,7 +37,7 @@ const productionRecord=({})=>{
                 // 写真
                 for(let i=0;i<production.images.length;i++){
                     const storageRef=ref(storage,"images/productions/"+productionDoc.id+"/production-"+i+".jpg")
-                    const uploadTask=uploadBytesResumable(storageRef,imagesFile[i])
+                    const uploadTask=uploadBytesResumable(storageRef,production.images[i])
                     uploadTask.on('state_changed',
                     (snapshot) => {
                         dispatch(loadingAction())
@@ -59,9 +62,10 @@ const productionRecord=({})=>{
                     }, 
                     () =>  {
                         // Upload completed successfully, now we can get the download URL
-                        getDownloadURL(uploadTask.snapshot.ref).then(async(downloadURL) => {
-                        await updateDoc(doc(db,"productions",productionDoc.id),{imagesList:arrayUnion(downloadURL)})
-                        dispatch(resetLoadingAction())
+                        getDownloadURL(uploadTask.snapshot.ref)
+                        .then(async(downloadURL) => {
+                            await updateDoc(doc(db,"productions",productionDoc.id),{imagesList:arrayUnion(downloadURL)})
+                            dispatch(resetLoadingAction())
                         });
                     }
                     );

@@ -20,6 +20,7 @@ export default function createStore(){
             user:UserReducer,
             profile:ProfileReducer,
             userError:UserErrorReducer,
+            recordProductionError:RecordProductionReducer,
             loading:LoadingReducer,
             recordProduction:RecordProductionReducer,
             productions:ProductionsReducer,
