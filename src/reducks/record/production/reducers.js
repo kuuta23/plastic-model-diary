@@ -3,11 +3,12 @@ import * as Actions from "./actions";
 
 export const  RecordProductionReducer=(state=initialState.recordProduction,action)=>{
     switch (action.type){
-        case Actions.UPDATE_NAME:
-            console.log({
+        case Actions.RESET:
+            return {
                 ...state,
-                name:action.payload
-            });
+                ...action.payload
+            }
+        case Actions.UPDATE_NAME:
             return{
                 ...state,
                 name:action.payload

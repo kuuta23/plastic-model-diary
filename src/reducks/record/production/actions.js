@@ -1,3 +1,21 @@
+export const RESET="RESET"
+export const recordProductionResetAction=()=>{
+  console.log(true);
+  return{
+    type:"RESET",
+    payload:{
+      name:"",
+      images:[],
+      comment:"",
+      scale:"",
+      color:"",
+      series:"",
+      situation:"",
+      howToGetProduction:""
+    }
+  }
+}
+
 export const UPDATE_NAME="UPDATE_NAME"
 export const recordProductionNameAction=(value)=>{
   console.log(value);

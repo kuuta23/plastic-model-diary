@@ -3,6 +3,7 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { loadingAction, resetLoadingAction } from "../../../loading/actions";
 import addHowToGetProductionList from "../../../profile/operations/addHowToGetProductionList";
 import { db, storage } from "../../../../firebase";
+import { recordProductinResetAction, recordProductionImagesAction, recordProductionResetAction } from "../actions";
 
 const productionRecord=()=>{
     return async (dispatch,setState)=>{
@@ -29,7 +30,6 @@ const productionRecord=()=>{
                 situation:production.situation,
                 images:[]
             }
-            console.log(data);
             const productionsRef=collection(db,"productions")
             await addDoc(productionsRef,data)
             .then((productionDoc)=>{
@@ -90,6 +90,9 @@ const productionRecord=()=>{
             .catch(()=>{
                 dispatch(resetLoadingAction());
             })
+            console.log(data);
+            console.log(true);
+            dispatch(recordProductionResetAction())
         }
     }
 }

@@ -34,11 +34,9 @@ const Image = () => {
   const inputImage=(event)=>{
     setImageFiles(Array.from(event.target.files));
     changeUrl(Array.from(event.target.files));
-    console.log(Array.from(event.target.files));
     dispatch(recordProductionImagesAction(Array.from(event.target.files)));
 
   }
-  console.log(production);
   // 削除
   const deleteImage=(i)=>{
     imageFiles.splice(i,1);
