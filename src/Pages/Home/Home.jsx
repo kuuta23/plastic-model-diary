@@ -7,13 +7,11 @@ import { AdsCard } from '../../Template/AdsCard/AdsCard'
 import { loadingAction } from '../../reducks/loading/actions'
 import selectorSigleComment from '../../reducks/singleComments/operations/selectorSingleComment'
 import uploadDateAsc from '../../Template/functions/uploadDateAsc'
+import AllPosts from '../AllPosts/AllPosts'
 
 const Home = () => {
   const dispatch=useDispatch();
-  const user=useSelector(state=>state.user);
-  const productions=useSelector(state=>state.productions)
-  const comments=useSelector(state=>state.comments)
-  const profile=useSelector(state=>state.profile)
+  
   useEffect(()=>{
     dispatch(selectorProductions(20));
     dispatch(selectorSigleComment())
@@ -21,9 +19,7 @@ const Home = () => {
   return (
     <div
     className={styles.Frame}>
-      <AllList
-      productionList={productions.productions}
-      commentList={comments.comments}/>
+      <AllPosts/>
     </div>
   )
 }

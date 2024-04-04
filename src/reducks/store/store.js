@@ -25,7 +25,6 @@ export default function createStore(){
             loading:LoadingReducer,
             recordProduction:RecordProductionReducer,
             productions:ProductionsReducer,
-            myProductions:MyProductionsReducer,
             production:ProductionReducer,
             comments:CommentsReducer
         }),

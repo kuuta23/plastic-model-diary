@@ -1,0 +1,39 @@
+.DeleteButton{
+    display: inline-block;
+    position:absolute;
+    top: 10px;
+    right: 50px;
+    z-index: 101;
+    cursor: pointer; 
+    height: 100px;
+    
+}
+.SituationButton{
+    display: inline-block;
+    position:absolute;
+    top: 40px;
+    right: 50px;
+    z-index: 101;
+    cursor: pointer;     
+}
+.Frame{
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    border-bottom: black 1px solid;
+    padding-bottom: 9px;
+}
+.UserName{
+    margin: 3px;
+}
+.ProductionName{
+    margin: 10px;
+}
+.Image{
+    display: inline-block;
+    margin: 10px;
+}
+.Detail{
+    display: inline-block;
+    margin: 12px;
+}

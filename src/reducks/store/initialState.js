@@ -33,6 +33,7 @@ const initialState={
     },
     productions:{
         productions:[],
+        myProductions:[]
     },
     production:{
         productionName:"",
@@ -45,9 +46,6 @@ const initialState={
         photoUrlList:[],
         comment:"",
         images:[]
-    },
-    myProductions:{
-        myProductions:[]
     },
     comments:{
         comments:[
