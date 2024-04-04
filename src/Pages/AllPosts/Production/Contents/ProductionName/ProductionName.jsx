@@ -1,13 +1,13 @@
 import React from 'react'
 import styles from "./ProductionName.module.css"
 import DisplayUserName from '../../../../../Template/DisplayUserName/DisplayUserName'
-import { DisplayText } from '../../../../../Template'
+import { DisplayProductionName, DisplayText } from '../../../../../Template'
 
 const ProductionName = ({name,to}) => {
   return (
     <span
     className={styles.Frame}>
-      <DisplayText
+      <DisplayProductionName
       name={name}
       to={to}/>     
     </span>

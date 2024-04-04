@@ -20,7 +20,8 @@ const SubContents = (
 
     }) => {
   return (
-    <div>
+    <div
+    className={styles.Frame}>
         <Series
         value={series}
         onChange={inputSeries}

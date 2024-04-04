@@ -3,6 +3,7 @@ import styles from "./EditUserName.module.css"
 import { EditButton, EnterButton } from '../../../../Template'
 import { useDispatch } from 'react-redux';
 import changeName from '../../../../reducks/profile/operations/changeName';
+import selectorMyProductions from '../../../../reducks/productions/operations/selectorMyProduction';
 
 const EditUserName = () => {
   
@@ -14,6 +15,7 @@ const EditUserName = () => {
   const onSubmit=(event)=>{
     event.preventDefault();
     dispatch(changeName(name))
+    dispatch(selectorMyProductions(true))
   }
 
   return (

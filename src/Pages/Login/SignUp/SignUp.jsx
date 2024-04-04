@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import signUp from '../../../reducks/user/operations/signUp';
 import { useNavigate } from 'react-router-dom';
 import { loadingAction } from '../../../reducks/loading/actions';
-import selectorMyProductions from '../../../reducks/myProductions/operations/selectorMyProductions';
+import selectorMyProductions from '../../../reducks/productions/operations/selectorMyProduction';
 
 const SignUp = () => {
   const [email,setEmail]=useState(""),

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { loadingAction, resetLoadingAction } from '../../../reducks/loading/actions';
 import { profileAction } from '../../../reducks/profile/actions';
 import selectorProfile from '../../../reducks/profile/operations/selectorProfile';
-import selectorMyProductions from '../../../reducks/myProductions/operations/selectorMyProductions';
+import selectorMyProductions from '../../../reducks/productions/operations/selectorMyProduction';
 
 const SignIn = () => {
   const [email,setEmail]=useState(""),

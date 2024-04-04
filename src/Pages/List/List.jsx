@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import selectorProductions from '../../reducks/productions/operations/selectorProduction';
-import { AllList, searchProduction } from '../../Template';
+import { searchProduction } from '../../Template';
 import styles from "./List.module.css"
 import SearchBox from './SearchBox/SearchBox';
-import { productionsAction } from '../../reducks/productions/actions';
 import { useNavigate } from 'react-router-dom';
+import AllPosts from '../AllPosts/AllPosts';
 const List = () => {
     const dispatch=useDispatch();
     const user=useSelector(state=>state.user),
@@ -50,10 +50,7 @@ const List = () => {
         inputHowToGet={inputHowToGet}/>
         </div>
         
-        <AllList
-        id={"home"}
-        userName={profile.name}
-        productionList={data}/>
+        <AllPosts/>
       </div>
     )
 }

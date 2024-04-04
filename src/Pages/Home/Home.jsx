@@ -8,18 +8,20 @@ import { loadingAction } from '../../reducks/loading/actions'
 import selectorSigleComment from '../../reducks/singleComments/operations/selectorSingleComment'
 import uploadDateAsc from '../../Template/functions/uploadDateAsc'
 import AllPosts from '../AllPosts/AllPosts'
+import selectorMyProductions from '../../reducks/productions/operations/selectorMyProduction'
 
 const Home = () => {
   const dispatch=useDispatch();
   
   useEffect(()=>{
+    dispatch(selectorMyProductions())
     dispatch(selectorProductions(20));
-    dispatch(selectorSigleComment())
   },[])
   return (
     <div
     className={styles.Frame}>
-      <AllPosts/>
+      <AllPosts
+      local={false}/>
     </div>
   )
 }

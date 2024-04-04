@@ -83,15 +83,7 @@ const productionRecord=()=>{
                 color:arrayUnion(production.color),
                 series:arrayUnion(production.series)
             });
-            dispatch(addHowToGetProductionList(production.howToGetProduction))
-            .then(()=>{
-                dispatch(resetLoadingAction());
-            })
-            .catch(()=>{
-                dispatch(resetLoadingAction());
-            })
-            console.log(data);
-            console.log(true);
+            dispatch(resetLoadingAction());
             dispatch(recordProductionResetAction())
         }
     }

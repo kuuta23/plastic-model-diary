@@ -28,7 +28,7 @@ const Production = (
       <div
       className={styles.Image}>
         <Image
-        imageUrl={value.photoUrl}
+        image={value.image}
         images={value.images}/>
       </div>
       
@@ -53,11 +53,11 @@ const Production = (
               <DeleteButton
               id={value.id}/>
             </div>
-            <div
+            {/* <div
             className={styles.SituationButton}>
               <ChangeSituation
               value={value}/>
-            </div>
+            </div> */}
           </>
       
         ):(<></>)

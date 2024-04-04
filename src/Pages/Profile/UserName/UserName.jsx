@@ -5,7 +5,7 @@ import { EditButton } from '../../../Template'
 import { useSelector } from 'react-redux'
 
 const UserName = () => {
-    const [edit,setEdit]=useState(true)
+    const [edit,setEdit]=useState(false)
     const profile=useSelector(state=>state.profile);
     const user=useSelector(state=>state.user)
     useEffect(()=>{setEdit(!edit)},[profile.name])

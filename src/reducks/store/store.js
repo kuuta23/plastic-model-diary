@@ -10,7 +10,6 @@ import { LoadingReducer } from "../loading/reduers";
 import { ProductionsReducer } from "../productions/reducers";
 import { ProfileReducer } from "../profile/reducers";
 import { CommentsReducer } from "../singleComments/reducers";
-import { MyProductionsReducer } from "../myProductions/reducers";
 import { ProductionReducer } from "../production/reducers";
 import { RecordProductionReducer } from "../record/production/reducers";
 import { RecordProductionErrorReducer } from "../error/record/productions/reducers";

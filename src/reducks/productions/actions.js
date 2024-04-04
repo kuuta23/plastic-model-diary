@@ -1,6 +1,5 @@
 export const PRODUCTIONS="PRODUCTIONS";
 export const productionsAction=(productions)=>{
-  console.log(productions);
     return{
         type:"PRODUCTIONS",
         payload:productions,
@@ -21,7 +20,7 @@ export const productionsResetAction=()=>{
     type:"PRODUCTIONS_RESET",
     payload:{
       productions:[],
-      myProduction:[]
+      myProductions:[]
     }
   }
 }

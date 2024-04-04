@@ -1,6 +1,6 @@
 import { doc,  updateDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
-import { productionsAction, profileAction } from "../actions";
+import { nameChange, productionsAction, profileAction } from "../actions";
 
 const changeName=(name)=>{
     return async(dispatch,setState)=>{
@@ -17,7 +17,7 @@ const changeName=(name)=>{
             }
             
             await updateDoc(profileRef,data);
-            dispatch(profileAction(data))
+            dispatch(nameChange(name))
             
         }
         

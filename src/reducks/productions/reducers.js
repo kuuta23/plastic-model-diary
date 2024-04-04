@@ -11,7 +11,7 @@ export const  ProductionsReducer=(state=initialState.productions,action)=>{
         case Actions.MY_PRODUCTIONS:
             return{
                 ...state,
-                myProduction:action.payload
+                myProductions:action.payload
             }
         case Actions.PRODUCTIONS_RESET:
             return{

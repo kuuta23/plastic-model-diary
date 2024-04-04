@@ -3,3 +3,9 @@
     margin: 10px;
     margin-left: 15px;
 }
+.Frame{
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

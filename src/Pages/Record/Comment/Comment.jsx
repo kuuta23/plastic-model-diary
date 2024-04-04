@@ -1,18 +1,22 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { InputComment } from './InputContents'
 import styles from "./Comment.module.css"
 import Enter from './InputContents/Enter/Enter';
 import { useDispatch, useSelector } from 'react-redux';
 import { serverTimestamp } from 'firebase/firestore';
 import Image from './InputContents/Image/Image';
+import { useNavigate } from 'react-router-dom';
 
 const Comment = () => {
   const dispatch=useDispatch()
   const [comment,setComment]=useState(""),
         [imageUrl,setImageUrl]=useState(""),
         [imagefile,setImageFile]=useState();
-  
+  const navigate=useNavigate()
   const commentLimit=200;
+  useEffect(()=>{
+    navigate("/Record/Production")
+  },[])
   const inputComment=useCallback((event)=>{
     setComment(event.target.value)
   },[setComment])

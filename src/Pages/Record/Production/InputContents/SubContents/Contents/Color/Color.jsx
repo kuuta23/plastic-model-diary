@@ -25,8 +25,7 @@ const Color = () => {
       name='color'
       listName='colorList'
       listValue={profile.color}
-      placeholder='カラー'
-      overValue={true}/>
+      placeholder='カラー'/>
     </div>
   )
 }

@@ -1,29 +1,18 @@
 import { collection, getDocs, limit, orderBy, query, where } from "firebase/firestore";
 import { db } from "../../../../firebase";
-import { productionsAction } from "../../actions";
+import { myProductionAction } from "../../actions";
 
-const productions=(length=10,openUid=false)=>{
+const myProductions=()=>{
     return async(dispatch,setState)=>{
         const state=setState()
         const user=state.user
         const productionRef=collection(db,"productions");
 
-        var q;
-        if(openUid!="null"&&openUid){
-            q=query(productionRef,
-            where("uid","==",openUid),
-            orderBy("uploadTime","desc"),
-            limit(length))
-        }else if(openUid=="null"||!openUid){
-            q=query(productionRef,
-            orderBy("uploadTime","desc"),
-            limit(length));
-        }
+        const q=query(productionRef,where("uid","==",user.uid))
         const productionsSnapshot= await getDocs(q);
 
         const data=productionsSnapshot.docs.map((doc)=>{
             const value=doc.data()
-
             return(
                 {
                     ...value,
@@ -45,7 +34,8 @@ const productions=(length=10,openUid=false)=>{
                 }
             )
         })
-        dispatch(productionsAction(data))
+        console.log(data);
+        dispatch(myProductionAction(data))
     }
 }
-export default productions
+export default myProductions

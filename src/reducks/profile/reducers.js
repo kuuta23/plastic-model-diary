@@ -8,6 +8,11 @@ export const  ProfileReducer=(state=initialState.profile,action)=>{
                 ...state,
                 ...action.payload
             }
+        case Actions.NAME_CHANGE:
+            return{
+                ...state,
+                name:action.payload
+            }
         case Actions.PROFILE_RESET:
             return{
                 ...state,

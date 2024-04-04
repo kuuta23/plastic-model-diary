@@ -4,7 +4,7 @@ import { InputRadio } from '../../../../../../../Template'
 import { useDispatch, useSelector } from 'react-redux';
 import { recordProductinSituationAction, recordProductionAction } from '../../../../../../../reducks/record/production/actions';
 
-const Situation = ({onChange}) => {
+const Situation = () => {
   const dispatch=useDispatch();
   const production=useSelector(state=>state.recordProduction);
   const [situation,setSituation]=useState(production.situation);

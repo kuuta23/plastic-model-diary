@@ -1,11 +1,11 @@
 import { collection, documentId, getDocs, query, where } from "firebase/firestore";
-import { productionsAction } from "../../actions";
+import { myProductionAction, productionsAction } from "../../actions";
 import { db } from "../../../../firebase";
 
-const profiles=()=>{
+const myProfiles=()=>{
     return async(dispatch,setState)=>{
         const state=setState()
-        const productions=state.productions.productions
+        const productions=state.productions.myProductions
     
         const uids=Array.from(new Set(productions.map(({uid})=>uid)));
 
@@ -33,7 +33,7 @@ const profiles=()=>{
             )
         })
 
-        dispatch(productionsAction(data))
+        dispatch(myProductionAction(data))
     }
 }
-export default profiles
+export default myProfiles

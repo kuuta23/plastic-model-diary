@@ -13,6 +13,14 @@ export const profileAction=(profileState)=>{
         }
     }
 }
+
+export const NAME_CHANGE="NAME_CHANGE"
+export const nameChange=(profileState)=>{
+  return{
+    type:"NAME_CHANGE",
+    payload:profileState
+  }
+}
 export const PROFILE_RESET="PROFILE_RESET";
 export const profileResetAction=()=>{
   return{
