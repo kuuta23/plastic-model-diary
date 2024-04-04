@@ -18,7 +18,8 @@ const DisplayImage = ({imageUrl='',imageUrlList=[],deleteClick}) => {
                             deleteClick?(
                                 <button
                                 className={styles.DeleteButton}
-                                onClick={()=>deleteClick(i)}>
+                                onClick={()=>deleteClick(i)}
+                                type='button'>
                                     ×
                                 </button>
                             ):(<></>)

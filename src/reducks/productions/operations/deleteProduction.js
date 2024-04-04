@@ -1,20 +1,14 @@
-import { useState } from "react";
 import images from "./delete/images";
 import production from "./delete/production";
 
-const deleteProduction=({id})=>{
+const deleteProduction=(id)=>{
     return async(dispatch,setState)=>{
-        const state=useState();
+        const state=setState();
         const user=state.user
         if(user.isSignedIn){
             await dispatch(images(id))
-            await dispatch(production(id))    
+            await dispatch(production(id))
         }
-        
-
-
-        
-
 
     }
 }

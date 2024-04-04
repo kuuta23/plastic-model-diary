@@ -1,13 +1,14 @@
 import React from 'react'
 import styles from "./DeleteButton.module.css"
 import { useDispatch } from 'react-redux';
-import deleteMyProduction from '../../../../../reducks/myProductions/operations/deleteMyProduction';
 import DisplayDeleteButton from '../../../../../Template/DeleteButton/DeleteButton';
+import deleteProduction from '../../../../../reducks/productions/operations/deleteProduction';
 
-const DeleteButton = ({value}) => {
+const DeleteButton = ({id}) => {
   const dispatch=useDispatch();
   const onClick=()=>{
-    dispatch(deleteMyProduction(value))
+    console.log(id);
+    dispatch(deleteProduction(id))
   }
   if(true){
     return (
