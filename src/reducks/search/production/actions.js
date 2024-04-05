@@ -1,18 +1,43 @@
-export const COMMENTS="COMMENTS";
-export const commentsAction=(commentsState)=>{
+export const COLOR="COLOR";
+export const searchColorAction=(word)=>{
     return{
-        type:"COMMENTS",
-        payload:{
-            comments:commentsState.comments
-        }
+        type:"COLOR",
+        payload:word
     }
 }
-export const COMMENTS_RESET="COMMENTS_RESET";
-export const commentsResetAction=()=>{
+export const SERIES="SERIES"
+export const searchSeriesAction=(word)=>{
   return{
-    type:"COMMENTS_RESET",
+    type:"SERIES",
+    payload:word
+  }
+}
+
+export const SCALE="SCALE"
+export const searchScaleAction=(word)=>{
+  return{
+    type:"SCALE",
+    payload:word
+  }
+}
+
+export const HOW_TO_GET="HOW_TO_GET"
+export const searchHowToGetAction=(word)=>{
+  return{
+    type:"HOW_TO_GET",
+    payload:word
+  }
+}
+
+export const RESET="RESET"
+export const searchResetAction=()=>{
+  return{
+    type:"RESET",
     payload:{
-      comments:[]
+      color:"",
+      series:"",
+      scale:"",
+      howToGet:""
     }
   }
 }

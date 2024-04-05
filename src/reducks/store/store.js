@@ -13,6 +13,7 @@ import { CommentsReducer } from "../singleComments/reducers";
 import { ProductionReducer } from "../production/reducers";
 import { RecordProductionReducer } from "../record/production/reducers";
 import { RecordProductionErrorReducer } from "../error/record/productions/reducers";
+import { ProductionSearchWordReducer } from "../search/production/reducers";
 
 export default function createStore(){
     return reduxCreateStore(
@@ -24,6 +25,7 @@ export default function createStore(){
             loading:LoadingReducer,
             recordProduction:RecordProductionReducer,
             productions:ProductionsReducer,
+            productionSearchWord:ProductionSearchWordReducer,
             production:ProductionReducer,
             comments:CommentsReducer
         }),

@@ -1,15 +1,21 @@
 .Frame{
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     max-height: 200px;
     overflow-y: scroll;
     min-width: 150px;
 }
-
-.Radio{
-    background-color: white;
+.Label{
+    background-color: aliceblue;
     border: 1px solid black;
-    display: flex;
-    padding-left: 10px;
-    padding-right: 10px;
-    align-items: center;
+}
+.Radio{
+    width: 0px;
+    height: 0px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+.Input{
+    padding: 0%;
 }

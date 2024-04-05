@@ -1,29 +1,23 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import styles from "./Color.module.css"
 import { InputRadio, SearchBox } from '../../../../../Template'
 import { useSelector } from 'react-redux'
 
-const Color = (
-  {
-    onChange
-  }
-) => {
+const Color = () => {
   const profile=useSelector(state=>state.profile)
-  const radio=profile.color.map((value)=>{
-    return{
-      display:value,
-      output:value
-    }
-  })
-  radio.push(...[{display:"選択なし",output:""}])
+  const [color,setColor]=useState("")
+  const radio=profile.color
+  const inputColor=useCallback((event)=>{
+    setColor(event.target.value);
+  },[setColor])
   return (
     <div
     className={styles.Frame}>
       <SearchBox
-      onChange={onChange}
+      onChange={inputColor}
       title='カラー'
       radioName='color'
-      radio={radio}/>
+      values={radio}/>
     </div>
   )
 }

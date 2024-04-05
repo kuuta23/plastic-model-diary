@@ -8,7 +8,6 @@ const UserName = () => {
     const [edit,setEdit]=useState(false)
     const profile=useSelector(state=>state.profile);
     const user=useSelector(state=>state.user)
-    useEffect(()=>{setEdit(!edit)},[profile.name])
   return (
     <div
     className={styles.Frame}>
@@ -30,9 +29,10 @@ const UserName = () => {
                         edit?(
                             <div
                             className={styles.EditUserName}>
-                                <EditUserName/>
+                                <EditUserName
+                                submit={()=>setEdit(!edit)}/>
                             </div>
-                        ):<></>
+                        ):(<></>)
                     }
                 </>
                 

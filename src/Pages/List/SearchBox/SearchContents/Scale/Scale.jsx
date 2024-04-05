@@ -1,26 +1,22 @@
-import React from 'react'
+import React, { useCallback, useState } from 'react'
 import { SearchBox } from '../../../../../Template'
 import { useSelector } from 'react-redux'
 
-const Scale = ({
-    onChange,
-}) => {
-    const profile=useSelector(state=>state.profile)
-    const radio=profile.scale.map((value)=>{
-        return{
-            display:value,
-            output:value
-        }
-    })
-    radio.push(...[{display:"選択なし",output:""}])
+const Scale = () => {
+  const profile=useSelector(state=>state.profile)
+  const radio=profile.scale
+  const [scale,setScale]=useState("");
+  const inputScale=useCallback((event)=>{
+    setScale(event.target.value)
+  },[setScale])
   return (
     <div>
       <SearchBox
       title='スケール'
       id='scale'
       radioName='scale'
-      radio={radio}
-      onChange={onChange}/>
+      values={radio}
+      onChange={inputScale}/>
     </div>
   )
 }

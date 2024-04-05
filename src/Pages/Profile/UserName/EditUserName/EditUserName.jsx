@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import changeName from '../../../../reducks/profile/operations/changeName';
 import selectorMyProductions from '../../../../reducks/productions/operations/selectorMyProduction';
 
-const EditUserName = () => {
+const EditUserName = ({submit}) => {
   
   const [name,setName]=useState('');
   const dispatch=useDispatch();
@@ -16,6 +16,7 @@ const EditUserName = () => {
     event.preventDefault();
     dispatch(changeName(name))
     dispatch(selectorMyProductions(true))
+    submit()
   }
 
   return (

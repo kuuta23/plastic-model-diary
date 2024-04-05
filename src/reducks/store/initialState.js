@@ -47,6 +47,12 @@ const initialState={
         comment:"",
         images:[]
     },
+    productionSearchWord:{
+        color:"",
+        series:"",
+        scale:"",
+        howToGet:""
+    },
     comments:{
         comments:[
             

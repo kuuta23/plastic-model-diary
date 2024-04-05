@@ -8,7 +8,8 @@ const InputRadio = ({
     start
 }) => {
   return (
-    <div>
+    <div
+    className={styles.Frame}>
       {
         radio.map(({value,color},key)=>(
             <label 

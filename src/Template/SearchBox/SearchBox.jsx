@@ -8,26 +8,17 @@ const SearchBox = (
         title="カラー",
         radioName="color",
         onChange,
-        radio=[
-            {
-                output:"ノーマル",
-                display:"ノーマル"
-            },
-            {
-                output:"クリア",
-                display:"クリア"
-            }
-        ],
+        values=[],
         id="color"
     }
 ) => {
-    const radioId=id+"radio"
+    const radioId=id+"-radio"
     const [click,setClick]=useState(false)
     useEffect(()=>{
         const radioElement =document.getElementById(radioId);
         radioElement.style.transition="0.3s"
         if(click){
-            radioElement.style.height=radio.length*32+"px"
+            radioElement.style.height=(values.length+1)*32+"px"
         }else{
             radioElement.style.height=0+"px"
         }
@@ -46,7 +37,7 @@ const SearchBox = (
         id={radioId}>
             <Radio
             name={radioName}
-            radio={radio}
+            values={values}
             onChange={onChange}/>
         </div>
       
