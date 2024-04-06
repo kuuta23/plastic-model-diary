@@ -23,6 +23,11 @@
     border-bottom: black 1px solid;
     padding-bottom: 9px;
 }
+.UploadDate{
+    position: absolute;
+    right: 30px;
+    top: 60px;
+}
 .UserName{
     margin: 3px;
 }

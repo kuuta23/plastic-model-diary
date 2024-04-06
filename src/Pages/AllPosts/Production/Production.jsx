@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import styles from "./Production.module.css"
-import { ChangeSituation, Comment, DeleteButton, Detail, Image, ProductionName, Situation, UserName } from './Contents'
+import { UploadDate, Comment, DeleteButton, Detail, Image, ProductionName, Situation, UserName } from './Contents'
 
 
 const Production = (
@@ -12,6 +12,11 @@ const Production = (
     className={styles.Frame}>
       <Situation
       situation={value.situation}/>
+      <div
+      className={styles.UploadDate}>
+        <UploadDate
+        timestamp={value.uploadDate}/>
+      </div>
       <div
       className={styles.UserName}>
         <UserName
