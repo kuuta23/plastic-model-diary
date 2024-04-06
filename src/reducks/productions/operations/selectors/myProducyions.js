@@ -34,7 +34,6 @@ const myProductions=()=>{
                 }
             )
         })
-        console.log(data);
         dispatch(myProductionAction(data))
     }
 }

@@ -4,9 +4,12 @@ import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import styles from "./Login.module.css"
 import { useSelector } from 'react-redux'
+import GoogleSigIn from './GoogleSignIn/GoogleSigIn'
 
 const Login = () => {
   const userError=useSelector(state=>state.userError);
+  const user=useSelector(state=>state.user)
+  console.log(user);
   return (
     <div
     className={styles.Frame}>
@@ -20,6 +23,11 @@ const Login = () => {
         
       </div>
       <Outlet/>
+      <div
+      className={styles.Google}>
+        <GoogleSigIn/>
+      </div>
+      
     </div>
   )
 }

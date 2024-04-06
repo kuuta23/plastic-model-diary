@@ -8,6 +8,7 @@ const myProfiles=()=>{
         const productions=state.productions.myProductions
     
         const uids=Array.from(new Set(productions.map(({uid})=>uid)));
+        uids.push("a")
 
         const profilesRef=collection(db,"profile")
         const q=query(

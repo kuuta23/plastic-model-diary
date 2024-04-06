@@ -2,7 +2,7 @@ import { collection, getDocs, limit, orderBy, query, where } from "firebase/fire
 import { db } from "../../../../firebase";
 import { productionsAction } from "../../actions";
 
-const productions=(length=10,openUid=false)=>{
+const productions=(length=20,openUid=false)=>{
     return async(dispatch,setState)=>{
         const state=setState()
         const user=state.user

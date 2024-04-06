@@ -7,19 +7,26 @@ import SearchBox from './SearchBox/SearchBox';
 import { useNavigate } from 'react-router-dom';
 import AllPosts from '../AllPosts/AllPosts';
 const List = () => {
-    return (
+  const navigate=useNavigate()
+  const user=useSelector(state=>state.user)
+  useEffect(()=>{
+    if(!user.isSignedIn){
+      navigate("/Login/SignIn")
+    }
+  },[])
+  return (
+    <div
+    className={styles.Frame}>
       <div
-      className={styles.Frame}>
-        <div
-        className={styles.SearchBox}>
-        <SearchBox/>
-        </div>
-        
-        <AllPosts
-        local={true}
-        filter={true}/>
+      className={styles.SearchBox}>
+      <SearchBox/>
       </div>
-    )
+      
+      <AllPosts
+      local={true}
+      filter={true}/>
+    </div>
+  )
 }
 
 export default List

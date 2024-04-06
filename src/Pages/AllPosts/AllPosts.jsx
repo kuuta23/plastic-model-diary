@@ -33,7 +33,6 @@ const AllPosts = (
         className={styles.Frame}>
         {
             ascList.map((value,key)=>{
-                console.log(key);
                 if(value.type=="production"&&(key+1)%2==0){
                     return(
                         <>
