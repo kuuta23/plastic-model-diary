@@ -27,7 +27,7 @@ const myProductions=()=>{
                         series:value.series,
                         situation:value.situation,
                         color:value.color,
-                        howToGet:value.howToGet,
+                        howToGet:value.howToGetProduction,
                         uploadDate:value.uploadTime
                     }
                     

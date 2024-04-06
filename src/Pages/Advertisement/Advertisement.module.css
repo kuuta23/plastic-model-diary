@@ -1,0 +1,8 @@
+.Frame{
+    height: 90px;
+    display: flex;
+    align-items: center;
+}
+.Advertisement{
+    padding-left: 20px;
+}

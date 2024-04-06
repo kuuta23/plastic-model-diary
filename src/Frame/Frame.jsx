@@ -17,7 +17,6 @@ const Frame = ({mainContent}) => {
       <MainContent
       mainContent={mainContent}/>
       <Footer/>
-      <Ad/>
     </div>
   )
 }

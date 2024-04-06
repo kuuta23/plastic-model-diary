@@ -24,7 +24,7 @@ const Footer = () => {
       className={styles.SubContent}>
         <Home/>
         <Profile/>
-        {/* <List/> */}
+        <List/>
     
       </div>
       

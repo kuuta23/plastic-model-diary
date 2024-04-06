@@ -14,6 +14,7 @@ const Profile = () => {
   const {uid}=useParams()
   
   useEffect(()=>{
+    console.log(uid);
     if(uid!="null"&&uid){
       dispatch(selectorMyProductions())
     }else{

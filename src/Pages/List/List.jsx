@@ -15,7 +15,9 @@ const List = () => {
         <SearchBox/>
         </div>
         
-        <AllPosts/>
+        <AllPosts
+        local={true}
+        filter={true}/>
       </div>
     )
 }

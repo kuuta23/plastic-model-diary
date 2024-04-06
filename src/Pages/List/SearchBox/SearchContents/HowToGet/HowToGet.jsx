@@ -1,14 +1,17 @@
 import React, { useCallback, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styles from "./HowToGet.module.css"
 import { SearchBox } from '../../../../../Template'
+import { searchHowToGetAction } from '../../../../../reducks/search/production/actions'
 
 const HowToGet = () => {
     const [howToGet,setHowToGet]=useState("")
+    const dispatch=useDispatch()
     const profile=useSelector(state=>state.profile)
     const radio=profile.howToGetProduction
     const inputHowToGet=useCallback((event)=>{
       setHowToGet(event.target.value)
+      dispatch(searchHowToGetAction(event.target.value))
     },[setHowToGet])
     return (
       <div
