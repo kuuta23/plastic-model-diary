@@ -1,0 +1,11 @@
+.Content{
+    border-bottom: 1px solid black;
+    height: 36px;
+    display: flex;
+    align-items: center;
+}
+.Link{
+    text-decoration: none;
+    color: black;
+    padding: 3px;
+}

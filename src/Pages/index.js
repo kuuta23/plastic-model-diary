@@ -15,3 +15,7 @@ export { default as Profile } from "./Profile/Profile"
 export { default as List } from "./List/List"
 
 export { default as DisplayProduction } from "./Production/Production"
+
+export { default as Setting } from "./Setting/Setting"
+export { default as SettingContents} from "./Setting/Contents/Contents"
+export { default as ListSearchWord } from "./Setting/ListSearchWord/ListSearchWord"

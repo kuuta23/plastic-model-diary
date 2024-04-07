@@ -1,0 +1,9 @@
+.Frame{
+    display: inline-block;
+    background-color: rgba(220, 220, 220,0.5);
+    padding: 3px 20px;
+    border: black 1px solid;
+    border-radius: 20px;
+    height: 30px;
+    margin: 10px;
+}
