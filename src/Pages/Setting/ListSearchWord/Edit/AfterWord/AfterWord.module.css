@@ -1,0 +1,12 @@
+.Frame{
+    display: inline-block;
+}
+
+.Sub{
+    font-size: large;
+    font-weight: bold;
+}
+.Word{
+    font-size: 30px;
+    padding-left: 30px;
+}

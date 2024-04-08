@@ -6,6 +6,7 @@ import styles from './Profile.module.css'
 import AllPosts from '../AllPosts/AllPosts';
 import selectorProductions from '../../reducks/productions/operations/selectorProduction';
 import selectorMyProductions from '../../reducks/productions/operations/selectorMyProduction';
+import selectorProfile from '../../reducks/profile/operations/selectorProfile';
 
 const Profile = () => {
   const dispatch=useDispatch()
@@ -14,7 +15,6 @@ const Profile = () => {
   const {uid}=useParams()
   
   useEffect(()=>{
-    console.log(uid);
     if(uid!="null"&&uid){
       dispatch(selectorMyProductions())
     }else{

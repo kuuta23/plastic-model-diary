@@ -2,7 +2,6 @@ import React from 'react'
 
 const UploadDate = ({timestamp=new Date()}) => {
     const time = new Date(timestamp.seconds*1000)
-    console.log(time);
 
 
   return (

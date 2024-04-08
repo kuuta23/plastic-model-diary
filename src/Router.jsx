@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { Comment, DisplayProduction, Home, List, ListSearchWord, Login, Production, Profile, Record, Setting, SettingContents, SignIn, SignOut, SignUp } from './Pages'
+import { Comment, DisplayProduction, Home, List, ListSearchWord, Login, Production, Profile, Record, SearchWordEdit, Setting, SettingContents, SignIn, SignOut, SignUp } from './Pages'
 
 const Router = () => {
   return (
@@ -51,8 +51,14 @@ const Router = () => {
           path=''
           element={<SettingContents/>}/>
           <Route
-          path='Searchwords'
-          element={<ListSearchWord/>}/>
+          path='Searchwords'>
+            <Route
+            path=''
+            element={<ListSearchWord/>}/>
+            <Route
+            path='Edit/:word'
+            element={<SearchWordEdit/>}/>
+          </Route>
         </Route>
     </Routes>
   )

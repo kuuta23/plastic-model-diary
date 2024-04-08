@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import { useNavigate } from "react-router-dom"
 import styles from "./Color.module.css"
 import Text from '../Text/Text'
 import { useDispatch, useSelector } from 'react-redux'
 
 const Color = () => {
+    const navigate=useNavigate()
     const profile =useSelector(state=>state.profile)
     const color=profile.color
+    const clickWord=useCallback((word)=>{
+        navigate("Edit/"+word)
+    },[])
   return (
     <div
     className={styles.Frame}>
@@ -17,7 +22,8 @@ const Color = () => {
             color.map((value,key)=>(
                 <Text
                 key={key}
-                text={value}/>
+                text={value}
+                onClick={()=>clickWord(value)}/>
             ))
         }
         
