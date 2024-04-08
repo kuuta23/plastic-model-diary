@@ -8,29 +8,15 @@ const makeNewProfile=()=>{
         const user=state.user;
                
         const profileRef=doc(db,"profile",user.uid);
-        const Snapshot= await getDoc(profileRef);
-        var data;
-        // プロフィールの中にデータがないとき
-        if(!Snapshot.data()){
-            data={
-                name:"name",
-                howToGetProduction:["不明","一般販売"],
-                scale:[],
-                color:[],
-                series:[],
-            }
-            
-            await setDoc(profileRef,data)
-        }else{
-            data={
-                name:Snapshot.data().name,
-                howToGetProduction:Snapshot.data().howToGetProduction,
-                scale:Snapshot.data().scale,
-                color:Snapshot.data().color,
-                series:Snapshot.data().series
-            }
-            
+        const data={
+            uid:user.uid,
+            name:"name",
+            howToGetProduction:[],
+            scale:[],
+            color:[],
+            series:[],
         }
+        await setDoc(profileRef,data)   
         dispatch(profileAction(data))
     }
 }
