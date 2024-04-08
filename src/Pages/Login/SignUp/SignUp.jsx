@@ -25,6 +25,7 @@ const SignUp = () => {
   const inputCheckPassword=useCallback((event)=>{
     setCheckPassword(event.target.value)
   },[setCheckPassword])
+  
   const onSubmit=(event)=>{
     event.preventDefault();
     dispatch(loadingAction())

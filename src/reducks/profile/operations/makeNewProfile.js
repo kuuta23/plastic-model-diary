@@ -15,8 +15,10 @@ const makeNewProfile=()=>{
             scale:[],
             color:[],
             series:[],
+            edit:true
         }
-        await setDoc(profileRef,data)   
+        await setDoc(profileRef,data)
+        console.log(data);   
         dispatch(profileAction(data))
     }
 }

@@ -6,6 +6,7 @@ import { emailCondition, passwordCondition } from "../../../Template";
 import { userClearingTheError, userErrorAction } from "../../error/user/actions";
 import { resetLoadingAction } from "../../loading/actions";
 import makeNewProfile from "../../profile/operations/makeNewProfile";
+import selectorProfile from "../../profile/operations/selectorProfile";
 
 const signIn=({password,email})=>{
   return async (dispatch,getState)=>{
@@ -27,7 +28,7 @@ const signIn=({password,email})=>{
           await updateDoc(doc(db,"users",data.uid),data);
           dispatch(signInAction(data));
           dispatch(userClearingTheError())
-          dispatch(makeNewProfile())
+          dispatch(selectorProfile())
           dispatch(resetLoadingAction())
         }
       })
