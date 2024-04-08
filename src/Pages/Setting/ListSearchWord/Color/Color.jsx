@@ -9,7 +9,7 @@ const Color = () => {
     const profile =useSelector(state=>state.profile)
     const color=profile.color
     const clickWord=useCallback((word)=>{
-        navigate("Edit/"+word)
+        navigate("Edit/color/"+word)
     },[])
   return (
     <div

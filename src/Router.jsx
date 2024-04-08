@@ -56,7 +56,7 @@ const Router = () => {
             path=''
             element={<ListSearchWord/>}/>
             <Route
-            path='Edit/:word'
+            path='Edit/:type/:word'
             element={<SearchWordEdit/>}/>
           </Route>
         </Route>

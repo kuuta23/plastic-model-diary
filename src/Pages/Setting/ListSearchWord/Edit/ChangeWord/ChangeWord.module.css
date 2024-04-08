@@ -1,3 +1,10 @@
+.Frame{
+    border: 1px solid black;
+    display: inline-block;
+    padding: 20px;
+    border-radius: 20px;
+
+}
 .Input{
     width: 350px;
     height: 40px;
@@ -9,4 +16,18 @@
 }
 .Sub{
     font-weight: bold;
+}
+.Cnt{
+    display: inline-block;
+}
+.Submit{
+    margin-top: 10px;
+    margin-left: 40px;
+    display: block;
+    color: black;
+    background-color: white;
+    width: 100px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 20px;
 }

@@ -6,8 +6,6 @@ import ChangeWord from './ChangeWord/ChangeWord'
 
 
 const Edit = () => {
-    const {word}=useParams();
-    console.log(word);
   return (
     <div
     className={styles.Frame}>
