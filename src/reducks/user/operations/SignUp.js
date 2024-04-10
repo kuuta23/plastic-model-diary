@@ -31,16 +31,15 @@ const signUp=({password,checkPassword,email})=>{
             dispatch(signInAction(data));
             dispatch(userClearingTheError())
             dispatch(makeNewProfile())
-            dispatch(resetLoadingAction())
+            
         })
         .catch(()=>{
           dispatch(userErrorAction())
-          dispatch(resetLoadingAction())
         })
     }else{
       dispatch(userErrorAction())
-      dispatch(resetLoadingAction())
     }
+    dispatch(resetLoadingAction())
 
   }
 }

@@ -4,9 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom';
 import styles from './Profile.module.css'
 import AllPosts from '../AllPosts/AllPosts';
-import selectorProductions from '../../reducks/productions/operations/selectorProduction';
 import selectorMyProductions from '../../reducks/productions/operations/selectorMyProduction';
-import selectorProfile from '../../reducks/profile/operations/selectorProfile';
 
 const Profile = () => {
   const dispatch=useDispatch()

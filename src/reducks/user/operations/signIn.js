@@ -4,15 +4,25 @@ import { auth, db } from "../../../firebase";
 import { signInAction } from "../actions";
 import { emailCondition, passwordCondition } from "../../../Template";
 import { userClearingTheError, userErrorAction } from "../../error/user/actions";
-import { resetLoadingAction } from "../../loading/actions";
-import makeNewProfile from "../../profile/operations/makeNewProfile";
-import selectorProfile from "../../profile/operations/selectorProfile";
+import { loadingAction, resetLoadingAction } from "../../loading/actions";
+import selectorMyProfile from "../../profile/operations/selectorMyProfile";
+
+// サインイン
+// ロードの開始
+// パスワードとメールアドレスの確認
+// ユーザーデータの更新
+// ユーザーデータをstoreに保存
+// プロファイルのデータをstoreに保存
+// ロードの終了
+
 
 const signIn=({password,email})=>{
   return async (dispatch,getState)=>{
+    dispatch(loadingAction())
     const emailCnd = emailCondition(email),
           passwordCnd = passwordCondition(password);
     if (emailCnd&&passwordCnd){
+      console.log(true);
       // ログイン
       await signInWithEmailAndPassword(auth,email,password)
       .then(async (userCredential)=>{
@@ -28,18 +38,16 @@ const signIn=({password,email})=>{
           await updateDoc(doc(db,"users",data.uid),data);
           dispatch(signInAction(data));
           dispatch(userClearingTheError())
-          dispatch(selectorProfile())
-          dispatch(resetLoadingAction())
+          dispatch(selectorMyProfile())
         }
       })
       .catch(()=>{
         dispatch(userErrorAction())
-        dispatch(resetLoadingAction())
       })
     }else{
         dispatch(userErrorAction())
-        dispatch(resetLoadingAction())
     }
+    dispatch(resetLoadingAction())
   }
 }
 export default signIn

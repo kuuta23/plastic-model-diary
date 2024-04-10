@@ -2,7 +2,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { profileAction } from "../actions";
 
-const selectorProfile=(uid)=>{
+const selectorMyProfile=(uid)=>{
     return async(dispatch,setState)=>{
         const state=setState()
         const user=state.user
@@ -11,7 +11,7 @@ const selectorProfile=(uid)=>{
         const Snapshot= await getDoc(profileRef);
         dispatch(profileAction({
             uid:uid,
-            edit:user.uid==uid,
+            edit:true,
             name:Snapshot.data().name,
             howToGetProduction:Snapshot.data().howToGetProduction,
             scale:Snapshot.data().scale,
@@ -20,4 +20,4 @@ const selectorProfile=(uid)=>{
         }))
     }
 }
-export default selectorProfile
+export default selectorMyProfile
