@@ -6,6 +6,13 @@ import { passwordCondition ,emailCondition} from "../../../Template";
 import { userClearingTheError, userErrorAction } from "../../error/user/actions";
 import { resetLoadingAction } from "../../loading/actions";
 import makeNewProfile from "../../profile/operations/makeNewProfile";
+// ロードの開始
+// パスワードとメールアドレスの確認
+// ユーザーデータの登録
+// ユーザーデータをstoreに保存
+// プロファイルのデータをstoreに保存
+// ロードの終了
+
 const signUp=({password,checkPassword,email})=>{
   return async (dispatch,getState)=>{
     // パスワードの条件確認（例：半角、文字数、確認用のパスワードと同じか）

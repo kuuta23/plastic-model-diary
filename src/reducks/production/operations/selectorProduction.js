@@ -1,6 +1,7 @@
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "../../../firebase"
 import { productionAction } from "../actions";
+import { addImage } from "../../../Template/functions/addImages";
 
 export const selectorProduction=(productionId)=>{
     return async(dispatch,setState)=>{
@@ -12,7 +13,6 @@ export const selectorProduction=(productionId)=>{
             .then((profileSnapshot)=>{
                 const profile=profileSnapshot.data()
                 const production=productionSnapshot.data()
-                console.log(production);
                 const data={
                     id:productionSnapshot.id,
                     uid:profileSnapshot.uid,
@@ -22,10 +22,9 @@ export const selectorProduction=(productionId)=>{
                     series:production.series,
                     color:production.color,
                     howToGet:production.howToGetProduction,
-                    photoUrl:production.photoUrl,
                     comment:production.comment,
                     situation:production.situation,
-                    photoUrlList:production.photoUrlList
+                    images:addImage(production.images,production.photoUrl)
 
                 }
                 dispatch(productionAction(data))

@@ -1,18 +1,12 @@
 .Frame{
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    max-width: 600px;
-    height: 400px;
-    overflow-x: scroll;
-
-    border-radius: 20px;
-    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 .DeleteButton{
     position: absolute;
     top: 20px;
-    left: 20px;
+    left: 180px;
     color: black;
 }
 .ImageFrame{
@@ -23,8 +17,8 @@
 }
 .Image{
     padding: 3px;
-    max-width: 250px;
-    max-height: 500px;
+    max-width: 350px;
+    max-height: 600px;
 }
 
 @media screen and (max-width:450px){

@@ -1,0 +1,8 @@
+.Frame{
+    position: relative;
+    height: 650px;
+    width: 500px;
+}
+.Image{
+    position: absolute;
+}

@@ -37,10 +37,6 @@ const Sidebar = () => {
           {
             value:"リスト",
             link:"/List"
-          },
-          {
-            value:"設定",
-            link:"/Setting"
           }
         ]}/>
       </div>

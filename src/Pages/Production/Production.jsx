@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectorProduction } from '../../reducks/production/operations/selectorProduction';
 import { useParams } from 'react-router-dom';
-import { Comment, Photo, ProductionName, Situation, UserName } from './Contents';
+import { Comment, Image, ProductionName, Situation, UserName } from './Contents';
 import styles from "./Production.module.css"
 
 const Production = () => {
@@ -29,7 +29,7 @@ const Production = () => {
           <UserName/>
       </div>
       <div>
-        <Photo/>
+        <Image/>
       </div>
       <div>
         <Comment/>

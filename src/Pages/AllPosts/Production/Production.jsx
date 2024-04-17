@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import styles from "./Production.module.css"
 import { UploadDate, Comment, DeleteButton, Detail, Image, ProductionName, Situation, UserName } from './Contents'
+import production from '../../../reducks/productions/operations/delete/production'
 
 
 const Production = (
@@ -27,24 +28,17 @@ const Production = (
       className={styles.ProductionName}>
         <ProductionName
         name={value.name}
-        to={value.productionUrl}/>
+        to={"Production/"+value.id}/>
       </div>
       
       <div
       className={styles.Image}>
         <Image
+        id={value.id}
         image={value.image}
         images={value.images}/>
       </div>
       
-      <div
-      className={styles.Detail}>
-        <Detail
-        series={value.series}
-        color={value.color}
-        howToGet={value.howToGet}
-        scale={value.scale}/>
-      </div>
       <div
       className={styles.Comment}>
         <Comment

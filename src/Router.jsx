@@ -39,7 +39,7 @@ const Router = () => {
         >
         </Route>
         <Route
-        path='/Production/:id'
+        path='Production/:id'
         element={<DisplayProduction/>}/>
         <Route
         element={<Home/>}

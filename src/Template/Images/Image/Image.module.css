@@ -1,0 +1,23 @@
+
+.Frame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 1px solid black;
+    overflow: hidden;
+    width: 600px;
+    background-color: white;
+}
+.Image{
+    height: 620px;
+}
+@media screen and (max-width:450px){
+    .Frame{
+        height: 400px;
+        width: 280px;
+    }
+    .Image{
+        height: 400px;
+    }
+}

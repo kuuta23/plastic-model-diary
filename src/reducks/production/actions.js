@@ -13,7 +13,7 @@ export const productionAction=(productionState)=>{
             photoUrl:productionState.photoUrl,
             comment:productionState.comment,
             situation:productionState.situation,
-            photoUrlList:productionState.photoUrlList
+            images:productionState.images
         }
     }
 }
@@ -29,10 +29,9 @@ export const productionResetAction=()=>{
       series:"",
       color:"",
       howToGet:"",
-      photoUrl:"",
       comment:"",
       situation:"",
-      photoUrlList:[]
+      images:[]
     }
   }
 }
